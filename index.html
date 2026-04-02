@@ -26,6 +26,11 @@
     --leo-muted: #5a6a20; --leo-glow: rgba(160,200,0,0.3);
     --leo-grad: linear-gradient(135deg, #0a0e00 0%, #1a2000 50%, #050700 100%);
     --leo-bar1: #4a5a00; --leo-bar2: #c8e000;
+    --kur-bg: #0a0014; --kur-card: #0d0018; --kur-border: #5a1a8a;
+    --kur-accent: #c87fff; --kur-accent2: #e0b0ff; --kur-text: #ddc8f5;
+    --kur-muted: #7a5a9a; --kur-glow: rgba(160,60,220,0.35);
+    --kur-grad: linear-gradient(135deg, #0a0014 0%, #1a0030 50%, #050008 100%);
+    --kur-bar1: #5a1a8a; --kur-bar2: #c87fff;
   }
 
   body { background: #060606; font-family: var(--font-body); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 24px 12px 48px; }
@@ -42,6 +47,9 @@
   .tab-leo { background: #060800; color: var(--leo-muted); }
   .tab-leo.active, .tab-leo:hover { background: var(--leo-bg); color: var(--leo-accent); }
   .tab-leo.active::after { background: var(--leo-accent); transform: scaleX(1); }
+  .tab-kur { background: #060010; color: var(--kur-muted); border-left: 1px solid #111; }
+  .tab-kur.active, .tab-kur:hover { background: var(--kur-bg); color: var(--kur-accent); }
+  .tab-kur.active::after { background: var(--kur-accent); transform: scaleX(1); }
 
   .panel { display: none; width: 100%; max-width: 720px; border: 1px solid #222; border-radius: 0 0 16px 16px; overflow: hidden; }
   .panel.active { display: block; animation: fadeIn 0.35s ease; }
@@ -295,6 +303,63 @@
   #panel-leo .essence-items span { color: #d4e870; }
   #panel-leo .card-body strong { color: var(--leo-accent); }
 
+  /* KUROSHIN */
+  #panel-kur { background: var(--kur-bg); }
+  #panel-kur .root { color: var(--kur-text); }
+  #panel-kur .hero { background: var(--kur-grad); }
+  #panel-kur .hero::before { background: radial-gradient(circle, var(--kur-glow) 0%, transparent 70%); }
+  #panel-kur .hero-name { color: #dda0ff; }
+  #panel-kur .hero-sub { color: var(--kur-muted); }
+  #panel-kur .tag { background: #1a0030; border: 1px solid var(--kur-border); color: var(--kur-accent); }
+  #panel-kur .quote { color: var(--kur-text); border-color: var(--kur-accent2); }
+  #panel-kur .section-title { color: var(--kur-accent); border-color: var(--kur-border); }
+  #panel-kur .card { background: var(--kur-card); border-color: var(--kur-border); }
+  #panel-kur .card-title { color: #dda0ff; }
+  #panel-kur .card-body { color: var(--kur-muted); }
+  #panel-kur .dot { background: var(--kur-accent); }
+  #panel-kur .ability-label { color: var(--kur-accent); }
+  #panel-kur .bar-fill { background: linear-gradient(90deg, var(--kur-bar1), var(--kur-bar2)); }
+  #panel-kur .power-card { background: #070010; border-color: var(--kur-border); }
+  #panel-kur .power-title { color: #dda0ff; }
+  #panel-kur .power-jp, #panel-kur .power-body { color: var(--kur-muted); }
+  #panel-kur .power-example { background: #120020; color: var(--kur-accent); }
+  #panel-kur .elem { background: #080010; }
+  #panel-kur .elem-name { color: var(--kur-accent); }
+  #panel-kur .elem-desc { color: var(--kur-muted); }
+  #panel-kur .synergy { background: #0a0018; border-color: var(--kur-border); color: var(--kur-accent); }
+  #panel-kur .biju-card { background: #050010; border-color: var(--kur-border); }
+  #panel-kur .biju-title { color: #dda0ff; }
+  #panel-kur .biju-jp { color: var(--kur-muted); }
+  #panel-kur .biju-ability { background: #0d0020; border-color: var(--kur-border); }
+  #panel-kur .biju-ability-name { color: var(--kur-accent); }
+  #panel-kur .biju-ability-desc { color: var(--kur-muted); }
+  #panel-kur .appear-card { background: var(--kur-card); border-color: var(--kur-border); }
+  #panel-kur .appear-label { color: var(--kur-muted); }
+  #panel-kur .appear-text { color: var(--kur-text); }
+  #panel-kur .personality-card { background: var(--kur-card); border-color: var(--kur-border); }
+  #panel-kur .personality-title { color: #dda0ff; }
+  #panel-kur .personality-body { color: var(--kur-muted); }
+  #panel-kur .personality-card.modo-combat .personality-mode { background: #2a0050; color: var(--kur-accent2); }
+  #panel-kur .personality-card.modo-social .personality-mode { background: #180030; color: #dda0ff; }
+  #panel-kur .jinc-card { background: #080012; border-color: #7a2aaa; }
+  #panel-kur .jinc-title { color: #dda0ff; }
+  #panel-kur .jinc-sub, #panel-kur .jinc-body { color: var(--kur-muted); }
+  #panel-kur .jinc-item { background: #100020; border-color: #5a1a8a; }
+  #panel-kur .jinc-item-name { color: var(--kur-accent); }
+  #panel-kur .jinc-item-desc { color: var(--kur-muted); }
+  #panel-kur .jinc-aura { background: #0e001a; border-color: #7a2aaa; color: #dda0ff; }
+  #panel-kur .weapon-card { background: var(--kur-card); border-color: var(--kur-border); }
+  #panel-kur .weapon-name { color: #dda0ff; }
+  #panel-kur .weapon-type, #panel-kur .weapon-body { color: var(--kur-muted); }
+  #panel-kur .level-badge { background: #1a0030; border: 1px solid var(--kur-accent); color: var(--kur-accent); }
+  #panel-kur .essence-bar { background: #080010; border-color: var(--kur-border); }
+  #panel-kur .essence-label { color: var(--kur-muted); }
+  #panel-kur .essence-items span { color: #dda0ff; }
+  #panel-kur .card-body strong { color: var(--kur-accent); }
+  /* silhueta estilo mangá para Kuroshin */
+  .kur-silhouette { width: 100%; display: flex; justify-content: center; margin: 16px 0 8px; }
+  .kur-silhouette svg { filter: drop-shadow(0 0 18px rgba(180,80,255,0.55)); }
+
   @media (max-width: 520px) {
     .grid2, .biju-grid, .jinc-grid, .personality-split { grid-template-columns: 1fr; }
     .elem-row { flex-direction: column; }
@@ -309,6 +374,7 @@
   <button class="tab-btn tab-edu active" onclick="switchTab('edu')">🔴 Eduardo</button>
   <button class="tab-btn tab-gui" onclick="switchTab('gui')">🔵 Guilherme</button>
   <button class="tab-btn tab-leo" onclick="switchTab('leo')">🟡 Leonardo</button>
+  <button class="tab-btn tab-kur" onclick="switchTab('kur')">🟣 Kuroshin</button>
 </div>
 
 <!-- ===================== EDUARDO ===================== -->
@@ -729,6 +795,222 @@
     <div class="essence-label">Essência</div>
     <div class="essence-items"><span>Inevitável por natureza</span><span style="opacity:0.3">·</span><span>Terra que obedece</span><span style="opacity:0.3">·</span><span>Relâmpago que julga</span></div>
   </div>
+</div></div>
+
+
+<div class="panel" id="panel-kur">
+<div class="root">
+
+  <div class="hero">
+    <span class="hero-emblem">🟣</span>
+    <div class="hero-name">Kuroshin Ōtsutsuki Uchiha</div>
+    <div class="hero-sub">Filho de Eduardo Shimote · Neto de Kaguya · Criança Lendária</div>
+    <div class="tag-row">
+      <span class="tag">Uchiha</span>
+      <span class="tag">Ōtsutsuki</span>
+      <span class="tag">Jinchūriki</span>
+      <span class="tag">Mangekyō Primordial</span>
+      <span class="tag">Rinne-Sharingan Ômega</span>
+    </div>
+    <div class="quote" style="border-color:#c87fff">"Ele não precisa provar nada. O silêncio ao redor já diz tudo."</div>
+  </div>
+
+  <div class="kur-silhouette">
+    <svg width="160" height="280" viewBox="0 0 160 280" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="80" cy="260" rx="44" ry="8" fill="rgba(160,60,220,0.18)"/>
+      <rect x="54" y="195" width="18" height="60" rx="7" fill="#1a0030"/>
+      <rect x="88" y="195" width="18" height="60" rx="7" fill="#1a0030"/>
+      <rect x="50" y="248" width="26" height="10" rx="5" fill="#2a0048"/>
+      <rect x="84" y="248" width="26" height="10" rx="5" fill="#2a0048"/>
+      <rect x="52" y="155" width="56" height="46" rx="8" fill="#1a0030"/>
+      <rect x="42" y="95" width="76" height="68" rx="12" fill="#220040"/>
+      <ellipse cx="80" cy="100" rx="30" ry="10" fill="#2a004e"/>
+      <rect x="18" y="100" width="26" height="58" rx="10" fill="#220040"/>
+      <rect x="116" y="100" width="26" height="58" rx="10" fill="#220040"/>
+      <rect x="18" y="148" width="26" height="14" rx="7" fill="#1a0035"/>
+      <rect x="116" y="148" width="26" height="14" rx="7" fill="#1a0035"/>
+      <rect x="71" y="80" width="18" height="20" rx="6" fill="#d4b0e8"/>
+      <ellipse cx="80" cy="56" rx="34" ry="38" fill="#d4b0e8"/>
+      <ellipse cx="80" cy="26" rx="34" ry="16" fill="#f0f0f0"/>
+      <ellipse cx="56" cy="34" rx="14" ry="18" fill="#f0f0f0"/>
+      <ellipse cx="104" cy="34" rx="14" ry="18" fill="#f0f0f0"/>
+      <ellipse cx="64" cy="46" rx="14" ry="6" fill="#e8e8e8" transform="rotate(-18 64 46)"/>
+      <ellipse cx="72" cy="18" rx="8" ry="12" fill="#f5f5f5" transform="rotate(-10 72 18)"/>
+      <ellipse cx="90" cy="16" rx="7" ry="11" fill="#f5f5f5" transform="rotate(8 90 16)"/>
+      <ellipse cx="80" cy="14" rx="6" ry="9" fill="#ffffff"/>
+      <ellipse cx="90" cy="55" rx="7" ry="6" fill="#1a0030"/>
+      <ellipse cx="90" cy="55" rx="4" ry="4" fill="#5a1a8a"/>
+      <ellipse cx="92" cy="53" rx="2" ry="2" fill="rgba(200,127,255,0.9)"/>
+      <circle cx="90" cy="55" r="6" fill="none" stroke="#c87fff" stroke-width="0.5" opacity="0.5"/>
+      <ellipse cx="70" cy="55" rx="4" ry="3" fill="#1a0030" opacity="0.6"/>
+      <ellipse cx="80" cy="68" rx="2" ry="1.5" fill="#b890d8" opacity="0.5"/>
+      <path d="M75 74 Q80 76 85 74" stroke="#b890d8" stroke-width="1.2" fill="none" opacity="0.6"/>
+      <ellipse cx="80" cy="155" rx="58" ry="90" fill="none" stroke="rgba(180,80,255,0.12)" stroke-width="8"/>
+      <circle cx="32" cy="130" r="2.5" fill="rgba(200,127,255,0.5)"/>
+      <circle cx="130" cy="110" r="2" fill="rgba(200,127,255,0.4)"/>
+      <circle cx="25" cy="85" r="1.5" fill="rgba(200,127,255,0.3)"/>
+      <circle cx="138" cy="155" r="2" fill="rgba(200,127,255,0.35)"/>
+      <circle cx="45" cy="200" r="1.5" fill="rgba(200,127,255,0.25)"/>
+      <ellipse cx="80" cy="260" rx="38" ry="5" fill="rgba(140,40,200,0.22)"/>
+    </svg>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Identidade &amp; Linhagem</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Origem</div><div class="card-body">Filho de <strong>Eduardo Shimote Uchiha</strong> e <strong>Kaguya Ōtsutsuki</strong>. Carrega o sangue do clã guerreiro mais temido e o poder primordial da ancestral dos shinobi.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Natureza</div><div class="card-body">Criança com poder de nível lendário. Corpo de garoto, presença de predador. Herdou o equilíbrio físico do pai e a herança cósmica da mãe — potencial ainda em crescimento.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência &amp; Presença</div>
+    <div class="appear-card">
+      <div class="appear-row">
+        <div class="appear-icon">💇</div>
+        <div class="appear-content">
+          <div class="appear-label">Cabelo</div>
+          <div class="appear-text">Branco puro, médio, chegando ao pescoço. Levemente bagunçado — mechas irregulares, franja cobrindo parcialmente o olho esquerdo. Herdado do pai Eduardo: naturalmente perfeito sem esforço.</div>
+        </div>
+      </div>
+      <div class="appear-row">
+        <div class="appear-icon">👁️</div>
+        <div class="appear-content">
+          <div class="appear-label">Olhos</div>
+          <div class="appear-text">Normal: cinza claro com brilho lilás — herança da Kaguya. Quando focado: olhar pesado, pupila profunda, sensação de pressão. Quando ativa poder: Sharingan sutil + ondulação do Rinnegan. Não é chamativo — é perturbador.</div>
+        </div>
+      </div>
+      <div class="appear-row">
+        <div class="appear-icon">🧥</div>
+        <div class="appear-content">
+          <div class="appear-label">Roupa — Estética do Pai</div>
+          <div class="appear-text">Moletom oversized preto ou vinho escuro, calça preta reta, tênis simples limpo. O Eduardo Shimote veste o filho sem exagero — casual moderno, zero esforço, presença anormal. Capuz geralmente abaixado, mãos nos bolsos.</div>
+        </div>
+      </div>
+      <div class="appear-row">
+        <div class="appear-icon">🌫️</div>
+        <div class="appear-content">
+          <div class="appear-label">Aura</div>
+          <div class="appear-text">Ar fica pesado, sons diminuem, leve pressão constante. Pessoas próximas sentem desconforto e alerta involuntário. Não é intencional — é natural. O caos acontece e ele continua com expressão neutra.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Habilidade Central</div>
+    <div class="power-card">
+      <div class="power-title">Shinkai — Vontade Absoluta</div>
+      <div class="power-jp">真界 · Controle do resultado direto de ações em combate</div>
+      <div class="power-body">O poder mais importante de Kuroshin. Golpes passam a acertar, defesas falham no ponto certo, ataques inimigos perdem eficiência, trocas ficam inevitavelmente favoráveis. Não apaga existência — cria vantagem inevitável dentro do alcance de combate.</div>
+      <div class="power-example">⚠️ Limites: alcance de combate · não altera tudo ao mesmo tempo · exige foco concentrado</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Primordial</div><div class="card-body">Uso ilimitado, sem desgaste. Leitura avançada de movimentos, genjutsu refinado, antecipação de ações antes de serem executadas.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Ômega</div><div class="card-body">Percepção de chakra, energia, movimento e intenção.<br><br><span style="font-size:11px">⚫ Absorção de ninjutsu</span><br><span style="font-size:11px">🧲 Manipulação gravitacional</span><br><span style="font-size:11px">🌀 Teleporte curto/médio alcance</span><br><span style="font-size:11px">🧠 Análise rápida de padrões</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Velocidade</span><span>95/100</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>92/100</span></div><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Inteligência Tática</span><span>98/100</span></div><div class="bar-track"><div class="bar-fill" style="width:98%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>97/100</span></div><div class="bar-track"><div class="bar-fill" style="width:97%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Defesa / Resistência</span><span>80/100</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#2a5a00"><div class="elem-name">🌿 Mokuton Negro</div><div class="elem-desc">Invisível, absorve chakra, se adapta. Raízes dominam o campo sem serem vistas.</div></div>
+      <div class="elem" style="border-color:#6a1a00"><div class="elem-name">🔥 Katon Comprimido</div><div class="elem-desc">Fogo surge de estruturas invisíveis sem aviso — complementa a madeira negra.</div></div>
+      <div class="elem" style="border-color:#3a3a80"><div class="elem-name">⚡💧 Raiton + Suiton</div><div class="elem-desc">Velocidade, perfuração elétrica. Suiton amplifica os ataques do Lobo em sinergia.</div></div>
+    </div>
+    <div class="synergy">Campo invisível + tempestade viva + pressão constante — o terreno obedece a Kuroshin</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jinchūriki — Raijū Suiryū no Ōkami</div>
+    <div class="biju-card">
+      <div class="biju-title">🐺 Lobo Tempestuoso Primordial</div>
+      <div class="biju-jp">雷獣水龍の狼 · Raiton + Suiton + Chakra Primordial · Uma tempestade viva com forma de predador</div>
+      <div class="card-body" style="font-size:12px;margin-bottom:10px">Lobo gigante — corpo de água densa em movimento, relâmpagos correndo internamente, partes que se desfazem e recombinam. Inteligente, predador puro, sincronizado com Kuroshin. Combate conjunto: Kuroshin controla, o Lobo pressiona e finaliza.</div>
+      <div class="biju-grid">
+        <div class="biju-ability"><div class="biju-ability-name">⚡ Mordida Tempestuosa</div><div class="biju-ability-desc">Impacto elétrico + pressão de água. Dano interno intenso.</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">💧 Corpo Fluido</div><div class="biju-ability-desc">Reduz dano físico. Reforma partes destruídas continuamente.</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">⚡ Campo de Descarga</div><div class="biju-ability-desc">Área eletrificada constante — aproximação se torna perigosa.</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">🌊⚡ Tempestade Viva</div><div class="biju-ability-desc">Zona de combate instável — movimentos inimigos ficam imprevisíveis.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Modo Jinchūriki — Forma Tempestuosa</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">🐺</span>
+        <div><div class="jinc-title">Encarnação do Lobo Primordial</div><div class="jinc-sub">Fusão total · Kuroshin + Raijū Suiryū no Ōkami</div></div>
+      </div>
+      <div class="jinc-body">Chakra negro e azul elétrico envolve o corpo. Marcas surgem pela pele, relâmpagos refletem nos olhos. O vento ao redor começa a se mover e a água no ambiente reage. Velocidade extrema, regeneração elevada, sensoriamento completo. E Kuroshin continua sem mudar a expressão — isso deixa tudo mais pesado.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Regeneração Elevada</div><div class="jinc-item-desc">Recuperação contínua pelo chakra conjunto do Lobo</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Velocidade Extrema</div><div class="jinc-item-desc">Movimentos quase imperceptíveis — herança elétrica do Okami</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Sensoriamento Completo</div><div class="jinc-item-desc">Chakra, intenção e presença detectados no campo inteiro</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Pressão Constante</div><div class="jinc-item-desc">Aura tempestuosa desestabiliza inimigos próximos automaticamente</div></div>
+      </div>
+      <div class="jinc-aura">Relâmpagos azuis faíscam nos olhos — o Lobo manifesta-se e Kuroshin segue calmo</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Técnicas &amp; Arsenal</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>🌑 Floresta Invisível</div><div class="card-body">Raízes de Mokuton invisíveis dominam o campo inteiro sem aviso visual.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>🔥🌿 Inferno Oculto</div><div class="card-body">Fogo comprimido surge das estruturas invisíveis sem qualquer sinal prévio.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>💧⚡ Mar da Tempestade</div><div class="card-body">Água e eletricidade em larga escala — campo de combate instável e letal.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>🌿⚡🔥 Trindade Primordial</div><div class="card-body">Avatar elemental autônomo — três elementos em forma independente e sincronizada.</div></div>
+    </div>
+    <div class="weapon-card" style="margin-top:12px">
+      <div class="weapon-name">🕳️ Lâmina do Vazio Primordial</div>
+      <div class="weapon-type">Arma Principal · Corta matéria e chakra</div>
+      <div class="weapon-body">Ignora defesas comuns. Ataques rápidos e precisos — cada golpe guiado pelo Shinkai para resultado inevitável.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Deus Invisível da Madeira Negra</div>
+    <div class="card"><div class="card-title"><span class="dot"></span>Chakra + Mokuton Invisível</div><div class="card-body"><strong>Defesa impossível de ler.</strong> Estrutura invisível real — o inimigo não sabe o que bloquear. Regeneração rápida, núcleo com disparos massivos, revestimento de fogo e espada invisível. Campo inteiro sob domínio escuro.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Fraquezas</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Ainda Criança</div><div class="card-body">Decisões com lógica de garoto. Pode subestimar consequências emocionais de escolhas em combate.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Alto Consumo</div><div class="card-body">Técnicas grandes consomem chakra intensamente. Pode ser pressionado por múltiplos inimigos simultâneos.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
+      <span class="level-badge">Nível Lendário — Potencial em Crescimento</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Muito acima de ninjas comuns.<br>Comparável a versões altas de Madara Uchiha.<br>Potencial ainda não atingiu o limite.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Silêncio que pesa</span><span style="opacity:0.3">·</span><span>Tempestade com forma</span><span style="opacity:0.3">·</span><span>Vantagem inevitável</span></div>
+  </div>
+
 </div></div>
 
 <script>
