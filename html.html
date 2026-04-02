@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irmãos Uchiha — Perfis</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --font-title: 'Cinzel', serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --edu-bg: #1a0800; --edu-card: #12050a; --edu-border: #6b1c00;
+    --edu-accent: #ff6b2b; --edu-accent2: #ff3a00; --edu-text: #f0c4a0;
+    --edu-muted: #8a4a2a; --edu-glow: rgba(255,80,10,0.3);
+    --edu-grad: linear-gradient(135deg, #1a0800 0%, #3a0f00 50%, #0d0500 100%);
+    --edu-bar1: #a03000; --edu-bar2: #ff6b2b;
+    --gui-bg: #00061a; --gui-card: #010d1e; --gui-border: #0a3a6e;
+    --gui-accent: #4dcfff; --gui-accent2: #a8e8ff; --gui-text: #b8e4f5;
+    --gui-muted: #2a6a8a; --gui-glow: rgba(30,120,200,0.3);
+    --gui-grad: linear-gradient(135deg, #00061a 0%, #001a3a 50%, #00030d 100%);
+    --gui-bar1: #0a3a6e; --gui-bar2: #4dcfff;
+    --leo-bg: #0a0e00; --leo-card: #0d1200; --leo-border: #4a5a00;
+    --leo-accent: #c8e000; --leo-accent2: #ffe040; --leo-text: #d4e890;
+    --leo-muted: #5a6a20; --leo-glow: rgba(160,200,0,0.3);
+    --leo-grad: linear-gradient(135deg, #0a0e00 0%, #1a2000 50%, #050700 100%);
+    --leo-bar1: #4a5a00; --leo-bar2: #c8e000;
+  }
+
+  body { background: #060606; font-family: var(--font-body); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 24px 12px 48px; }
+
+  .tab-nav { display: flex; width: 100%; max-width: 720px; border-radius: 14px 14px 0 0; overflow: hidden; border: 1px solid #222; border-bottom: none; }
+  .tab-btn { flex: 1; padding: 14px 8px; font-family: var(--font-title); font-size: 12px; letter-spacing: 1.5px; cursor: pointer; border: none; outline: none; transition: all 0.3s; text-transform: uppercase; position: relative; overflow: hidden; }
+  .tab-btn::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; transform: scaleX(0); transition: transform 0.3s; }
+  .tab-edu { background: #0e0400; color: var(--edu-muted); }
+  .tab-edu.active, .tab-edu:hover { background: var(--edu-bg); color: var(--edu-accent); }
+  .tab-edu.active::after { background: var(--edu-accent); transform: scaleX(1); }
+  .tab-gui { background: #00030e; color: var(--gui-muted); border-left: 1px solid #111; border-right: 1px solid #111; }
+  .tab-gui.active, .tab-gui:hover { background: var(--gui-bg); color: var(--gui-accent); }
+  .tab-gui.active::after { background: var(--gui-accent); transform: scaleX(1); }
+  .tab-leo { background: #060800; color: var(--leo-muted); }
+  .tab-leo.active, .tab-leo:hover { background: var(--leo-bg); color: var(--leo-accent); }
+  .tab-leo.active::after { background: var(--leo-accent); transform: scaleX(1); }
+
+  .panel { display: none; width: 100%; max-width: 720px; border: 1px solid #222; border-radius: 0 0 16px 16px; overflow: hidden; }
+  .panel.active { display: block; animation: fadeIn 0.35s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .root { padding: 24px 20px 28px; }
+
+  .hero { border-radius: 14px; padding: 28px 24px 22px; margin-bottom: 20px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; border-radius: 50%; }
+  .hero-emblem { font-size: 36px; margin-bottom: 8px; display: block; filter: drop-shadow(0 0 10px currentColor); }
+  .hero-name { font-family: var(--font-title); font-size: 22px; font-weight: 600; letter-spacing: 2px; margin-bottom: 4px; }
+  .hero-sub { font-size: 12px; margin-bottom: 16px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .tag { font-size: 10px; padding: 3px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+  .quote { font-size: 14px; font-style: italic; border-left: 3px solid; padding-left: 14px; line-height: 1.6; opacity: 0.9; }
+
+  .section { margin-bottom: 18px; }
+  .section-title { font-family: var(--font-title); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid; opacity: 0.7; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+  .card { border-radius: 12px; padding: 14px; border: 1px solid; }
+  .card-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .card-body { font-size: 12px; line-height: 1.6; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+
+  .ability-bar { margin-top: 6px; }
+  .ability-label { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 3px; opacity: 0.8; }
+  .bar-track { border-radius: 4px; height: 5px; overflow: hidden; background: rgba(255,255,255,0.05); }
+  .bar-fill { height: 100%; border-radius: 4px; }
+
+  .power-card { border-radius: 12px; padding: 16px; border: 1px solid; }
+  .power-title { font-family: var(--font-title); font-size: 15px; font-weight: 600; margin-bottom: 3px; letter-spacing: 1px; }
+  .power-jp { font-size: 11px; margin-bottom: 10px; letter-spacing: 1.5px; opacity: 0.6; }
+  .power-body { font-size: 12px; line-height: 1.7; }
+  .power-example { border-radius: 8px; padding: 10px 12px; margin-top: 10px; font-size: 12px; font-style: italic; line-height: 1.8; }
+
+  .elem-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .elem { flex: 1; min-width: 120px; border-radius: 10px; padding: 12px; border: 1px solid; }
+  .elem-name { font-size: 12px; font-weight: 600; margin-bottom: 5px; }
+  .elem-desc { font-size: 11px; line-height: 1.6; opacity: 0.7; }
+  .synergy { border-radius: 10px; padding: 12px 16px; margin-top: 10px; font-size: 12px; text-align: center; border: 1px solid; }
+
+  .biju-card { border-radius: 12px; padding: 16px; border: 1px solid; }
+  .biju-title { font-family: var(--font-title); font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+  .biju-jp { font-size: 11px; margin-bottom: 10px; opacity: 0.6; letter-spacing: 1px; }
+  .biju-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .biju-ability { border-radius: 8px; padding: 10px; border: 1px solid; }
+  .biju-ability-name { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+  .biju-ability-desc { font-size: 11px; line-height: 1.5; opacity: 0.7; }
+
+  /* APARÊNCIA */
+  .appear-card { border-radius: 12px; padding: 16px; border: 1px solid; }
+  .appear-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+  .appear-row:last-child { margin-bottom: 0; }
+  .appear-icon { font-size: 15px; flex-shrink: 0; margin-top: 2px; }
+  .appear-content { flex: 1; }
+  .appear-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 3px; opacity: 0.55; }
+  .appear-text { font-size: 12px; line-height: 1.65; }
+
+  /* PERSONALIDADE */
+  .personality-split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .personality-card { border-radius: 12px; padding: 14px; border: 1px solid; }
+  .personality-mode { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 9px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
+  .personality-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .personality-body { font-size: 12px; line-height: 1.65; }
+
+  /* JINCHŪRIKI COMPLETA */
+  .jinc-card { border-radius: 12px; padding: 16px; border: 1px solid; }
+  .jinc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .jinc-emblem { font-size: 30px; filter: drop-shadow(0 0 8px currentColor); }
+  .jinc-title { font-family: var(--font-title); font-size: 14px; font-weight: 600; }
+  .jinc-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.55; margin-top: 3px; }
+  .jinc-body { font-size: 12px; line-height: 1.75; margin-bottom: 12px; }
+  .jinc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .jinc-item { border-radius: 8px; padding: 10px; border: 1px solid; }
+  .jinc-item-name { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+  .jinc-item-desc { font-size: 11px; line-height: 1.5; opacity: 0.75; }
+  .jinc-aura { border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12px; font-style: italic; text-align: center; border: 1px solid; }
+
+  .weapon-card { border-radius: 12px; padding: 14px; border: 1px solid; margin-bottom: 10px; }
+  .weapon-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .weapon-type { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.6; margin-bottom: 8px; }
+  .weapon-body { font-size: 12px; line-height: 1.6; }
+
+  .level-badge { display: inline-block; font-size: 11px; padding: 4px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+  .essence-bar { border-radius: 12px; padding: 16px; text-align: center; border: 1px solid; }
+  .essence-label { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; opacity: 0.5; font-family: var(--font-title); }
+  .essence-items { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .essence-items span { font-size: 12px; }
+
+  /* EDUARDO */
+  #panel-edu { background: var(--edu-bg); }
+  #panel-edu .root { color: var(--edu-text); }
+  #panel-edu .hero { background: var(--edu-grad); }
+  #panel-edu .hero::before { background: radial-gradient(circle, var(--edu-glow) 0%, transparent 70%); }
+  #panel-edu .hero-name { color: #ff9966; }
+  #panel-edu .hero-sub { color: var(--edu-muted); }
+  #panel-edu .tag { background: #2a0800; border: 1px solid var(--edu-border); color: var(--edu-accent); }
+  #panel-edu .quote { color: var(--edu-text); border-color: var(--edu-accent2); }
+  #panel-edu .section-title { color: var(--edu-accent); border-color: var(--edu-border); }
+  #panel-edu .card { background: var(--edu-card); border-color: var(--edu-border); }
+  #panel-edu .card-title { color: #ff9966; }
+  #panel-edu .card-body { color: var(--edu-muted); }
+  #panel-edu .dot { background: var(--edu-accent); }
+  #panel-edu .ability-label { color: var(--edu-accent); }
+  #panel-edu .bar-fill { background: linear-gradient(90deg, var(--edu-bar1), var(--edu-bar2)); }
+  #panel-edu .power-card { background: #0a0300; border-color: var(--edu-border); }
+  #panel-edu .power-title { color: #ff9966; }
+  #panel-edu .power-jp, #panel-edu .power-body { color: var(--edu-muted); }
+  #panel-edu .power-example { background: #1a0600; color: var(--edu-accent); }
+  #panel-edu .elem { background: #0a0300; }
+  #panel-edu .elem-name { color: var(--edu-accent); }
+  #panel-edu .elem-desc { color: var(--edu-muted); }
+  #panel-edu .synergy { background: #0e0400; border-color: var(--edu-border); color: var(--edu-accent); }
+  #panel-edu .biju-card { background: #080200; border-color: var(--edu-border); }
+  #panel-edu .biju-title { color: #ff9966; }
+  #panel-edu .biju-jp { color: var(--edu-muted); }
+  #panel-edu .biju-ability { background: #120500; border-color: var(--edu-border); }
+  #panel-edu .biju-ability-name { color: var(--edu-accent); }
+  #panel-edu .biju-ability-desc { color: var(--edu-muted); }
+  #panel-edu .appear-card { background: var(--edu-card); border-color: var(--edu-border); }
+  #panel-edu .appear-label { color: var(--edu-muted); }
+  #panel-edu .appear-text { color: var(--edu-text); }
+  #panel-edu .personality-card { background: var(--edu-card); border-color: var(--edu-border); }
+  #panel-edu .personality-title { color: #ff9966; }
+  #panel-edu .personality-body { color: var(--edu-muted); }
+  #panel-edu .personality-card.modo-combat .personality-mode { background: #3a0800; color: var(--edu-accent2); }
+  #panel-edu .personality-card.modo-social .personality-mode { background: #1a0a00; color: #ffb880; }
+  #panel-edu .jinc-card { background: #0c0200; border-color: #8a2200; }
+  #panel-edu .jinc-title { color: #ff9966; }
+  #panel-edu .jinc-sub, #panel-edu .jinc-body { color: var(--edu-muted); }
+  #panel-edu .jinc-item { background: #160500; border-color: #6b1c00; }
+  #panel-edu .jinc-item-name { color: var(--edu-accent); }
+  #panel-edu .jinc-item-desc { color: var(--edu-muted); }
+  #panel-edu .jinc-aura { background: #1a0600; border-color: #8a2200; color: #ff9966; }
+  #panel-edu .weapon-card { background: var(--edu-card); border-color: var(--edu-border); }
+  #panel-edu .weapon-name { color: #ff9966; }
+  #panel-edu .weapon-type, #panel-edu .weapon-body { color: var(--edu-muted); }
+  #panel-edu .level-badge { background: #2a0800; border: 1px solid var(--edu-accent); color: var(--edu-accent); }
+  #panel-edu .essence-bar { background: #0a0300; border-color: var(--edu-border); }
+  #panel-edu .essence-label { color: var(--edu-muted); }
+  #panel-edu .essence-items span { color: #ff9966; }
+  #panel-edu .card-body strong { color: var(--edu-accent); }
+
+  /* GUILHERME */
+  #panel-gui { background: var(--gui-bg); }
+  #panel-gui .root { color: var(--gui-text); }
+  #panel-gui .hero { background: var(--gui-grad); }
+  #panel-gui .hero::before { background: radial-gradient(circle, var(--gui-glow) 0%, transparent 70%); }
+  #panel-gui .hero-name { color: #90deff; }
+  #panel-gui .hero-sub { color: var(--gui-muted); }
+  #panel-gui .tag { background: #001430; border: 1px solid var(--gui-border); color: var(--gui-accent); }
+  #panel-gui .quote { color: var(--gui-text); border-color: var(--gui-accent2); }
+  #panel-gui .section-title { color: var(--gui-accent); border-color: var(--gui-border); }
+  #panel-gui .card { background: var(--gui-card); border-color: var(--gui-border); }
+  #panel-gui .card-title { color: #90deff; }
+  #panel-gui .card-body { color: var(--gui-muted); }
+  #panel-gui .dot { background: var(--gui-accent); }
+  #panel-gui .ability-label { color: var(--gui-accent); }
+  #panel-gui .bar-fill { background: linear-gradient(90deg, var(--gui-bar1), var(--gui-bar2)); }
+  #panel-gui .power-card { background: #000816; border-color: var(--gui-border); }
+  #panel-gui .power-title { color: #90deff; }
+  #panel-gui .power-jp, #panel-gui .power-body { color: var(--gui-muted); }
+  #panel-gui .power-example { background: #001020; color: var(--gui-accent); }
+  #panel-gui .elem { background: #000810; }
+  #panel-gui .elem-name { color: var(--gui-accent); }
+  #panel-gui .elem-desc { color: var(--gui-muted); }
+  #panel-gui .synergy { background: #000a1a; border-color: var(--gui-border); color: var(--gui-accent); }
+  #panel-gui .biju-card { background: #000510; border-color: var(--gui-border); }
+  #panel-gui .biju-title { color: #90deff; }
+  #panel-gui .biju-jp { color: var(--gui-muted); }
+  #panel-gui .biju-ability { background: #000d20; border-color: var(--gui-border); }
+  #panel-gui .biju-ability-name { color: var(--gui-accent); }
+  #panel-gui .biju-ability-desc { color: var(--gui-muted); }
+  #panel-gui .appear-card { background: var(--gui-card); border-color: var(--gui-border); }
+  #panel-gui .appear-label { color: var(--gui-muted); }
+  #panel-gui .appear-text { color: var(--gui-text); }
+  #panel-gui .personality-card { background: var(--gui-card); border-color: var(--gui-border); }
+  #panel-gui .personality-title { color: #90deff; }
+  #panel-gui .personality-body { color: var(--gui-muted); }
+  #panel-gui .personality-card.modo-combat .personality-mode { background: #001a40; color: var(--gui-accent); }
+  #panel-gui .personality-card.modo-social .personality-mode { background: #001030; color: #90deff; }
+  #panel-gui .jinc-card { background: #000816; border-color: #0d4a80; }
+  #panel-gui .jinc-title { color: #90deff; }
+  #panel-gui .jinc-sub, #panel-gui .jinc-body { color: var(--gui-muted); }
+  #panel-gui .jinc-item { background: #001028; border-color: #0a3a6e; }
+  #panel-gui .jinc-item-name { color: var(--gui-accent); }
+  #panel-gui .jinc-item-desc { color: var(--gui-muted); }
+  #panel-gui .jinc-aura { background: #001530; border-color: #0d4a80; color: #90deff; }
+  #panel-gui .weapon-card { background: var(--gui-card); border-color: var(--gui-border); }
+  #panel-gui .weapon-name { color: #90deff; }
+  #panel-gui .weapon-type, #panel-gui .weapon-body { color: var(--gui-muted); }
+  #panel-gui .level-badge { background: #001430; border: 1px solid var(--gui-accent); color: var(--gui-accent); }
+  #panel-gui .essence-bar { background: #000810; border-color: var(--gui-border); }
+  #panel-gui .essence-label { color: var(--gui-muted); }
+  #panel-gui .essence-items span { color: #90deff; }
+  #panel-gui .card-body strong { color: var(--gui-accent); }
+
+  /* LEONARDO */
+  #panel-leo { background: var(--leo-bg); }
+  #panel-leo .root { color: var(--leo-text); }
+  #panel-leo .hero { background: var(--leo-grad); }
+  #panel-leo .hero::before { background: radial-gradient(circle, var(--leo-glow) 0%, transparent 70%); }
+  #panel-leo .hero-name { color: #d4e870; }
+  #panel-leo .hero-sub { color: var(--leo-muted); }
+  #panel-leo .tag { background: #101600; border: 1px solid var(--leo-border); color: var(--leo-accent); }
+  #panel-leo .quote { color: var(--leo-text); border-color: var(--leo-accent2); }
+  #panel-leo .section-title { color: var(--leo-accent); border-color: var(--leo-border); }
+  #panel-leo .card { background: var(--leo-card); border-color: var(--leo-border); }
+  #panel-leo .card-title { color: #d4e870; }
+  #panel-leo .card-body { color: var(--leo-muted); }
+  #panel-leo .dot { background: var(--leo-accent); }
+  #panel-leo .ability-label { color: var(--leo-accent); }
+  #panel-leo .bar-fill { background: linear-gradient(90deg, var(--leo-bar1), var(--leo-bar2)); }
+  #panel-leo .power-card { background: #060800; border-color: var(--leo-border); }
+  #panel-leo .power-title { color: #d4e870; }
+  #panel-leo .power-jp, #panel-leo .power-body { color: var(--leo-muted); }
+  #panel-leo .power-example { background: #0e1200; color: var(--leo-accent); }
+  #panel-leo .elem { background: #080a00; }
+  #panel-leo .elem-name { color: var(--leo-accent); }
+  #panel-leo .elem-desc { color: var(--leo-muted); }
+  #panel-leo .synergy { background: #0a0e00; border-color: var(--leo-border); color: var(--leo-accent); }
+  #panel-leo .biju-card { background: #040600; border-color: var(--leo-border); }
+  #panel-leo .biju-title { color: #d4e870; }
+  #panel-leo .biju-jp { color: var(--leo-muted); }
+  #panel-leo .biju-ability { background: #0d1000; border-color: var(--leo-border); }
+  #panel-leo .biju-ability-name { color: var(--leo-accent); }
+  #panel-leo .biju-ability-desc { color: var(--leo-muted); }
+  #panel-leo .appear-card { background: var(--leo-card); border-color: var(--leo-border); }
+  #panel-leo .appear-label { color: var(--leo-muted); }
+  #panel-leo .appear-text { color: var(--leo-text); }
+  #panel-leo .personality-card { background: var(--leo-card); border-color: var(--leo-border); }
+  #panel-leo .personality-title { color: #d4e870; }
+  #panel-leo .personality-body { color: var(--leo-muted); }
+  #panel-leo .personality-card.modo-combat .personality-mode { background: #202600; color: var(--leo-accent); }
+  #panel-leo .personality-card.modo-social .personality-mode { background: #181c00; color: #d4e870; }
+  #panel-leo .jinc-card { background: #0a0c00; border-color: #606000; }
+  #panel-leo .jinc-title { color: #d4e870; }
+  #panel-leo .jinc-sub, #panel-leo .jinc-body { color: var(--leo-muted); }
+  #panel-leo .jinc-item { background: #121500; border-color: #4a5a00; }
+  #panel-leo .jinc-item-name { color: var(--leo-accent); }
+  #panel-leo .jinc-item-desc { color: var(--leo-muted); }
+  #panel-leo .jinc-aura { background: #151800; border-color: #606000; color: #d4e870; }
+  #panel-leo .weapon-card { background: var(--leo-card); border-color: var(--leo-border); }
+  #panel-leo .weapon-name { color: #d4e870; }
+  #panel-leo .weapon-type, #panel-leo .weapon-body { color: var(--leo-muted); }
+  #panel-leo .level-badge { background: #101600; border: 1px solid var(--leo-accent); color: var(--leo-accent); }
+  #panel-leo .essence-bar { background: #080a00; border-color: var(--leo-border); }
+  #panel-leo .essence-label { color: var(--leo-muted); }
+  #panel-leo .essence-items span { color: #d4e870; }
+  #panel-leo .card-body strong { color: var(--leo-accent); }
+
+  @media (max-width: 520px) {
+    .grid2, .biju-grid, .jinc-grid, .personality-split { grid-template-columns: 1fr; }
+    .elem-row { flex-direction: column; }
+    .hero-name { font-size: 18px; }
+    .tab-btn { font-size: 10px; letter-spacing: 0.8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="tab-nav">
+  <button class="tab-btn tab-edu active" onclick="switchTab('edu')">🔴 Eduardo</button>
+  <button class="tab-btn tab-gui" onclick="switchTab('gui')">🔵 Guilherme</button>
+  <button class="tab-btn tab-leo" onclick="switchTab('leo')">🟡 Leonardo</button>
+</div>
+
+<!-- ===================== EDUARDO ===================== -->
+<div class="panel active" id="panel-edu"><div class="root">
+  <div class="hero">
+    <span class="hero-emblem">🔥</span>
+    <div class="hero-name">Eduardo Uchiha</div>
+    <div class="hero-sub">Clã Uchiha · Irmão do Fogo Primordial</div>
+    <div class="tag-row">
+      <span class="tag">Mangekyō Eterno Absoluto</span><span class="tag">Rinne-Sharingan Primordial</span>
+      <span class="tag">Fênix de Dez Caudas</span><span class="tag">Kaienten</span>
+    </div>
+    <div class="quote">"Defesas existem para serem destruídas. Fraquezas existem para serem encontradas."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência Física</div>
+    <div class="appear-card">
+      <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Branco puro prateado com brilho sutil. Long layered wolf cut bagunçado e volumoso. Franjas longas assimétricas caindo sobre um olho, camadas fluindo naturalmente.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Azuis claros intensos em repouso. Rinne-Sharingan ativado: padrão completo vermelho-rosado com anéis concêntricos e tomoe pretos nos dois olhos — glow intenso e flamejante.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços afiados simétricos perfeitos, mandíbula definida, lábios cheios. Sorriso largo charmoso como expressão padrão.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Camisa preta gola alta manga curta/3-4 com detalhes vermelho vivo no colarinho e bordas. Calça preta ninja solta com faixa vermelha. Luvas pretas sem dedos com acento vermelho. Botas pretas baixas.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🔥</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra vermelho flamejante ou raio vermelho ao redor do corpo quando ativa o dojutsu. Pressão térmica visível no ar próximo.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personalidade</div>
+    <div class="personality-split">
+      <div class="personality-card modo-combat">
+        <span class="personality-mode">☠️ Modo Combate</span>
+        <div class="personality-title">Sádico. Implacável.</div>
+        <div class="personality-body">Em combate, Eduardo é pura frieza predatória. Encontra o ponto fraco de um inimigo e explora com sorriso no rosto. Não mata com pressa — saboreia cada ruptura. Há um prazer genuíno em assistir uma defesa "impossível" desmoronar. Psicopático por completo quando o alvo é eliminar.</div>
+      </div>
+      <div class="personality-card modo-social">
+        <span class="personality-mode">😄 Fora de Combate</span>
+        <div class="personality-title">Charmoso. Brincalhão.</div>
+        <div class="personality-body">Sorriso largo, piadas sem aviso, anima qualquer ambiente. Genuinamente carinhoso com quem importa — protegeria qualquer inocente sem hesitar. Prioriza salvar quem puder antes de tudo. A mesma energia que destrói em batalha, aquece quem está por perto.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Habilidade Ocular Central</div>
+    <div class="power-card">
+      <div class="power-title">Kaienten — Ruptura Absoluta</div>
+      <div class="power-jp">壊炎転 · Técnica ocular exclusiva do Mangekyō</div>
+      <div class="power-body">Identifica e destrói o ponto fraco de qualquer técnica, defesa, domínio ou estrutura. Nenhuma barreira é perfeita — Kaienten encontra a falha e a explora com precisão cirúrgica.</div>
+      <div class="power-example">· Escudo absoluto → ponto de ruptura localizado e explorado<br>· Domínio poderoso → estrutura interna comprometida<br>· Defesa de chakra → camada crítica identificada e destruída</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Eterno Absoluto</div><div class="card-body">Uso ilimitado, sem desgaste ou cegueira. Técnicas manifestam a vontade direta do usuário com precisão e intensidade absolutas.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Percepção absoluta de chakra, espaço e causalidade.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Poder Ofensivo</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Velocidade & Mobilidade</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Resistência & Regeneração</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#993c1d"><div class="elem-name">Katon + Amaterasu</div><div class="elem-desc">Fogo moldável e eterno. Aplicado a armas, jutsus, Susanoo e Bijūdama.</div></div>
+      <div class="elem" style="border-color:#6b1c00"><div class="elem-name">Bakuton</div><div class="elem-desc">Explosões internas precisas. Destrói defesas de dentro para fora.</div></div>
+      <div class="elem" style="border-color:#4a0a00"><div class="elem-name">Todos os Elementos</div><div class="elem-desc">Katon, Suiton, Doton, Fūton, Raiton, Mokuton, Yōton, Hyōton, Bakuton, Inton, Yang, Onmyōton.</div></div>
+    </div>
+    <div class="synergy">Kaienten identifica a falha → Amaterasu penetra → Bakuton finaliza internamente</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jinchūriki — Fênix de Dez Caudas</div>
+    <div class="biju-card">
+      <div class="biju-title">Fênix de Dez Caudas</div>
+      <div class="biju-jp">十尾の鳳凰 · Chakra ígneo primordial · Sincronização total</div>
+      <div class="card-body" style="font-size:12px">Entidade equivalente ao Dez-Caudas. Controle total. Usuário e besta agem como uma única consciência no campo de batalha.</div>
+      <div class="biju-grid">
+        <div class="biju-ability"><div class="biju-ability-name">Manto Flamejante</div><div class="biju-ability-desc">Densidade bijū, pressão térmica constante que deforma o campo</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Asas de Fogo Primordial</div><div class="biju-ability-desc">Mobilidade aérea absoluta, ataques em mergulho devastadores</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Regeneração Extrema</div><div class="biju-ability-desc">Recuperação imediata de danos críticos em combate</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Bijūdama Amaterasu</div><div class="biju-ability-desc">Esfera Dez-Caudas revestida de fogo eterno inextinguível</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Forma Jinchūriki Completa — Modo Besta</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">🦅</span>
+        <div><div class="jinc-title">Encarnação da Fênix Primordial</div><div class="jinc-sub">Fusão total · Eduardo + Fênix de Dez Caudas</div></div>
+      </div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Fênix em plenitude, o corpo de Eduardo é envolto por armadura de chakra ígneo de densidade bijū. Asas colossais de fogo eterno surgem das costas — cada batida cria ondas de pressão capazes de apagar jutsus menores. O cabelo branco inflama em pontas vivas de chama, os olhos tornam-se Rinne-Sharingan com brilho incandescente. Marcas de chama negra percorrem a pele. A Fênix manifesta-se parcialmente no campo, lutando de forma autônoma enquanto Eduardo combate — dois predadores em um.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Armadura de Chakra Ígneo</div><div class="jinc-item-desc">Camada densa de fogo primordial — absorve impactos e incendeia qualquer contato</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Asas da Fênix</div><div class="jinc-item-desc">Mobilidade tridimensional irrestrita, calor suficiente para derreter terreno ao mergulhar</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Regeneração Bijū Compartilhada</div><div class="jinc-item-desc">Eduardo e Fênix se curam mutuamente de forma automática e contínua</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Kaienten em Escala Bijū</div><div class="jinc-item-desc">Fratura domínios e defesas absolutas simultaneamente em campo aberto</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Pressão Térmica Dupla</div><div class="jinc-item-desc">Calor primordial de ambos deforma o campo, impossibilitando permanência do inimigo</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Bijūdama Sincronizada</div><div class="jinc-item-desc">Esfera Dez-Caudas disparada pela Fênix, guiada pelo Kaienten para ruptura garantida</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: chamas negras e vermelhas em rotação ao redor do corpo — ar vibra com calor intenso</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal</div>
+    <div class="weapon-card"><div class="weapon-name">Gunbai da Ruptura</div><div class="weapon-type">Arma Principal · Escudo & Contra-ataque</div><div class="weapon-body">Absorve qualquer ninjutsu e devolve como onda destrutiva devastadora. Revela falhas estruturais ao contato. Pode ser fundida à arma do Susanoo.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Lâmina da Fênix Flamejante</div><div class="weapon-type">Sabre Especial · Katana de Lâmina Negra</div><div class="weapon-body">Lâmina negra com veias de fogo eterno. Revestida permanentemente por Amaterasu moldável. Pode estender alcance com fogo primordial e explodir ao acertar o alvo.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Fênix Negra da Ruptura</div>
+    <div class="card"><div class="card-title"><span class="dot"></span>Parcial · Altíssima Mobilidade</div><div class="card-body">Espada que ignora defesas físicas, de chakra e domínios. Revestimento constante de Amaterasu. <strong>Ataque extremo, defesa média</strong> — pode atuar em conjunto com a Fênix manifestada no campo.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
+      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhuma defesa sobrevive ao Kaienten.<br>Nenhum campo resiste à pressão da Fênix.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Pressão sem pausa</span><span style="opacity:0.3">·</span><span>Ruptura inevitável</span><span style="opacity:0.3">·</span><span>Fogo que não se apaga</span></div>
+  </div>
+</div></div>
+
+<!-- ===================== GUILHERME ===================== -->
+<div class="panel" id="panel-gui"><div class="root">
+  <div class="hero">
+    <span class="hero-emblem">❄️</span>
+    <div class="hero-name">Guilherme Uchiha</div>
+    <div class="hero-sub">Clã Uchiha · Senhor do Campo Congelado</div>
+    <div class="tag-row">
+      <span class="tag">Mangekyō Eterno Absoluto</span><span class="tag">Rinne-Sharingan Primordial</span>
+      <span class="tag">Snow Fox de Dez Caudas</span><span class="tag">Hyōkoku</span>
+    </div>
+    <div class="quote">"Quanto mais você se move, mais lento você fica. O campo já é meu."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência Física</div>
+    <div class="appear-card">
+      <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Branco acinzentado frio — prata metálico luminoso. Undercut com topete alto bagunçado, topo jogado pro lado com mechas sedosas, fade baixo nas laterais.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Cinza claro penetrante em repouso. Rinne-Sharingan ativado: padrão completo vermelho-rosado com anéis concêntricos e tomoe pretos — glow sutil mas esmagador.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços angulares refinados, queixo marcado, olhar magnético. Sorriso tranquilo que inspira confiança imediata.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Camisa preta gola alta manga longa enrolada nos antebraços, detalhes azul claro no colarinho, zíper e bordas. Calça preta ninja justa com faixa azul claro. Luvas pretas completas com toque azul. Coturnos pretos.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">❄️</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra azul claro ou aura suave ao redor do corpo quando o dojutsu ativa. Cristais de gelo microscópicos surgem no ar imediatamente ao redor.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personalidade</div>
+    <div class="personality-split">
+      <div class="personality-card modo-combat">
+        <span class="personality-mode">☠️ Modo Combate</span>
+        <div class="personality-title">Clínico. Psicopático.</div>
+        <div class="personality-body">Em combate, Guilherme é o tipo mais assustador: completamente calmo enquanto destrói. Não demonstra emoção ao matar — analisa, suprime, finaliza com eficiência de quem está arrumando uma gaveta. Quanto mais o inimigo sofre, mais tranquilo fica. A crueldade é passiva: o campo torna tudo inevitável antes que o inimigo perceba.</div>
+      </div>
+      <div class="personality-card modo-social">
+        <span class="personality-mode">😄 Fora de Combate</span>
+        <div class="personality-title">Tranquilo. Adorável.</div>
+        <div class="personality-body">Calmo, presente, ouvinte excepcional. Risadas fáceis com os irmãos, piadas no timing perfeito. A mesma paciência que usa para esgotar um inimigo, usa para cuidar de quem ama. Genuinamente gentil e protetor — salvar quem puder é prioridade absoluta, sem exceção.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Habilidade Ocular Central</div>
+    <div class="power-card">
+      <div class="power-title">Hyōkoku — Domínio Congelado</div>
+      <div class="power-jp">氷獄 · Técnica ocular exclusiva do Mangekyō</div>
+      <div class="power-body">Tudo dentro do campo observado sofre desaceleração extrema de chakra, movimento, regeneração, jutsus e processos mentais. O inimigo luta — mas o campo conspira contra ele a cada segundo.</div>
+      <div class="power-example">· Velocidade inimiga → reduzida drasticamente<br>· Regeneração adversária → suprimida continuamente<br>· Jutsus em andamento → desacelerados antes de completar</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Eterno Absoluto</div><div class="card-body">Uso ilimitado, sem desgaste ou cegueira. O campo obedece completamente ao olhar.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Percepção absoluta de chakra, espaço e causalidade.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Controle de Campo</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Sustentação em Combate</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Resistência & Regeneração</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#0a3a6e"><div class="elem-name">Hyōton + Amaterasu</div><div class="elem-desc">Gelo primordial combinado ao fogo eterno — controle total de temperatura e prisões absolutas.</div></div>
+      <div class="elem" style="border-color:#062a50"><div class="elem-name">Mokuton</div><div class="elem-desc">Imobilização total. Combinado ao Hyōton para amarrar e congelar simultaneamente.</div></div>
+      <div class="elem" style="border-color:#041a38"><div class="elem-name">Todos os Elementos</div><div class="elem-desc">Katon, Suiton, Doton, Fūton, Raiton, Yōton, Bakuton, Inton, Yang, Onmyōton Avançado.</div></div>
+    </div>
+    <div class="synergy">Hyōkoku desacelera → Mokuton imobiliza → Hyōton finaliza com prisões eternas</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jinchūriki — Snow Fox de Dez Caudas</div>
+    <div class="biju-card">
+      <div class="biju-title">Snow Fox de Dez Caudas</div>
+      <div class="biju-jp">十尾の雪狐 · Chakra glacial primordial · Sincronia perfeita</div>
+      <div class="card-body" style="font-size:12px">A Snow Fox envolve, aprisiona e controla o campo enquanto Guilherme finaliza alvos com precisão.</div>
+      <div class="biju-grid">
+        <div class="biju-ability"><div class="biju-ability-name">Corpo de Gelo Translúcido</div><div class="biju-ability-desc">Densidade bijū, regeneração contínua impenetrável</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Controle Ambiental Absoluto</div><div class="biju-ability-desc">Todo o campo se converte em extensão da Snow Fox</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Supressão de Mobilidade</div><div class="biju-ability-desc">Inimigos perdem movimento apenas pela presença da besta</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Bijūdama Congelante</div><div class="biju-ability-desc">Esfera Dez-Caudas que aprisiona tudo no raio de impacto</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Forma Jinchūriki Completa — Modo Besta</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">🦊</span>
+        <div><div class="jinc-title">Encarnação da Snow Fox Primordial</div><div class="jinc-sub">Fusão total · Guilherme + Snow Fox de Dez Caudas</div></div>
+      </div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Snow Fox em plenitude, Guilherme é envolto por armadura de gelo translúcido de densidade bijū. O corpo emana frio absoluto — qualquer contato congela, o ar ao redor cristaliza em névoa densa. O cabelo prata se eleva levemente com estática glacial. Os olhos tornam-se o Rinne-Sharingan com brilho frio e sufocante. A Snow Fox manifesta-se no campo em tamanho colossal, executando controle de área enquanto Guilherme finaliza alvos imobilizados com cirurgia fria.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Armadura Glacial Bijū</div><div class="jinc-item-desc">Camada de gelo primordial que absorve impactos e congela tudo que toca</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Domínio Congelado Amplificado</div><div class="jinc-item-desc">Hyōkoku em escala bijū — todo o campo sofre desaceleração massiva</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Regeneração Mútua</div><div class="jinc-item-desc">Guilherme e Snow Fox se curam mutuamente de forma contínua e automática</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Controle Ambiental Total</div><div class="jinc-item-desc">Temperatura, umidade e visibilidade são reprogramados completamente</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Prisões Colossais</div><div class="jinc-item-desc">A Snow Fox cria estruturas de gelo eterno capazes de encerrar bijū inteiros</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Bijūdama Sincronizada</div><div class="jinc-item-desc">Esfera gelada disparada com precisão enquanto Guilherme finaliza alvos paralisados</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: névoa glacial densa ao redor do corpo — superfícies próximas cobrem-se de gelo imediatamente</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal</div>
+    <div class="weapon-card"><div class="weapon-name">Gunbai do Domínio</div><div class="weapon-type">Arma Principal · Escudo & Barreira Móvel</div><div class="weapon-body">Absorve ninjutsu e devolve como onda gelada. Cria zonas de desaceleração extrema ao refletir técnicas. Atua como barreira móvel permanente.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Lâmina do Gelo Eterno</div><div class="weapon-type">Sabre Especial · Cristal Translúcido de Frio Absoluto</div><div class="weapon-body">Ao cortar, congela instantaneamente o ponto de contato — desacelera chakra e movimento. Pode estender lâminas de gelo ou criar correntes congelantes ao balançar.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Leviatã Glacial do Domínio</div>
+    <div class="card"><div class="card-title"><span class="dot"></span>Parcial · Altíssima Resistência</div><div class="card-body">Escudo regenerativo absoluto. <strong>Domínio total do campo de batalha.</strong> O Leviatã converte o espaço ao redor em extensão do Hyōkoku — cada metro adicional é mais lento para o inimigo.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
+      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Combate prolongado é terreno favorável.<br>O campo obedece — o inimigo, não.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Paciência como arma</span><span style="opacity:0.3">·</span><span>Campo que aprisiona</span><span style="opacity:0.3">·</span><span>Gelo que nunca derrete</span></div>
+  </div>
+</div></div>
+
+<!-- ===================== LEONARDO ===================== -->
+<div class="panel" id="panel-leo"><div class="root">
+  <div class="hero">
+    <span class="hero-emblem">⚡</span>
+    <div class="hero-name">Leonardo Uchiha</div>
+    <div class="hero-sub">Clã Uchiha · Executor do Julgamento Final</div>
+    <div class="tag-row">
+      <span class="tag">Mangekyō Eterno Absoluto</span><span class="tag">Rinne-Sharingan Primordial</span>
+      <span class="tag">Dragão de Terra e Relâmpago</span><span class="tag">Shinsei</span>
+    </div>
+    <div class="quote">"O resultado já foi decidido. O combate é apenas a formalidade."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência Física</div>
+    <div class="appear-card">
+      <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Branco puro luminoso. Medium messy spikes com undercut suave, pontas desfiadas elegantes, franja jogada pro lado.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Amarelo-âmbar intenso em repouso. Rinne-Sharingan ativado: padrão completo vermelho-rosado com anéis concêntricos e tomoe pretos — glow forte e elétrico, quase como descargas visíveis.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços aristocráticos perfeitos, mandíbula forte. Expressão séria bonita — comunica peso e inevitabilidade antes de qualquer palavra.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Camisa preta gola alta imponente manga longa/3-4, detalhes marrom escuro no colarinho e bordas. Calça preta solta com corte funcional. Luvas pretas com reforços marrons. Botas pretas de cano médio.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚡</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra marrom terroso ou aura densa explodindo ao redor quando o dojutsu ativa. Relâmpagos dourados e terrosos faíscam na superfície do corpo.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personalidade</div>
+    <div class="personality-split">
+      <div class="personality-card modo-combat">
+        <span class="personality-mode">☠️ Modo Combate</span>
+        <div class="personality-title">Sádico. Inevitável.</div>
+        <div class="personality-body">Em combate, Leonardo é o silêncio antes do terremoto. Não ameaça — executa. Cada golpe é dado sabendo exatamente o que vai acontecer depois. Não demonstra prazer nem raiva: apenas certeza absoluta. Matar é uma equação resolvida. O Shinsei garante o resultado — Leonardo cumpre o julgamento já decidido.</div>
+      </div>
+      <div class="personality-card modo-social">
+        <span class="personality-mode">😄 Fora de Combate</span>
+        <div class="personality-title">Sério bonito. Mas brincalhão.</div>
+        <div class="personality-body">Expressão séria que quebra inesperadamente numa risada genuína ou piada seca — e aí todos relaxam. Protetor profundo, coloca salvar quem ama acima de qualquer objetivo. Com os irmãos, a dinâmica é zoeira constante e afeto real. Impossível não querer por perto.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Habilidade Ocular Central</div>
+    <div class="power-card">
+      <div class="power-title">Shinsei — Correção do Resultado</div>
+      <div class="power-jp">真正 · Técnica ocular exclusiva do Mangekyō</div>
+      <div class="power-body">Altera o resultado final de ataques, trocas e eventos de combate a favor do usuário. Não desfaz a física — corrige a causalidade. O que deveria errar, acerta. O que deveria falhar, funciona.</div>
+      <div class="power-example">· Golpe que erraria → trajetória corrigida antes do impacto<br>· Jutsu bloqueado → eficiência preservada, defesa comprometida<br>· Ataque inimigo perfeito → resultado alterado para desfavorecer</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Eterno Absoluto</div><div class="card-body">Uso ilimitado, sem desgaste ou cegueira. O Shinsei opera de forma constante e invisível, integrado a cada técnica.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Percepção absoluta de chakra, espaço e causalidade.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Inteligência Tática</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Precisão & Inevitabilidade</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Resistência & Regeneração</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#4a5a00"><div class="elem-name">Doton + Raiton — Tectônico</div><div class="elem-desc">Terra e relâmpago fundidos. Impactos sísmicos com descargas elétricas que fracionam terreno e defesas.</div></div>
+      <div class="elem" style="border-color:#3a4500"><div class="elem-name">Yōton (Lava)</div><div class="elem-desc">Bijūdama de lava e relâmpago — área e precisão devastadoras combinadas.</div></div>
+      <div class="elem" style="border-color:#2a3200"><div class="elem-name">Todos os Elementos</div><div class="elem-desc">Katon, Suiton, Doton, Fūton, Raiton, Mokuton, Hyōton, Bakuton, Inton, Yang, Onmyōton.</div></div>
+    </div>
+    <div class="synergy">Shinsei garante o acerto → Doton molda o terreno → Raiton finaliza com precisão absoluta</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jinchūriki — Dragão de Terra e Relâmpago</div>
+    <div class="biju-card">
+      <div class="biju-title">Dragão de Terra e Relâmpago — Dez Caudas</div>
+      <div class="biju-jp">十尾の雷龍 · Chakra tectônico e elétrico primordial · Sincronização total</div>
+      <div class="card-body" style="font-size:12px">O Dragão age como força de ruptura e cerco — Leonardo atua como executor estratégico. Dois predadores com papéis distintos e letais.</div>
+      <div class="biju-grid">
+        <div class="biju-ability"><div class="biju-ability-name">Escamas de Lava e Relâmpago</div><div class="biju-ability-desc">Corpo parcialmente fundido, regeneração extrema contínua</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Pressão Destrutiva</div><div class="biju-ability-desc">Distorce o terreno continuamente, força colossal constante</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Shinsei Compartilhado</div><div class="biju-ability-desc">O Shinsei guia tanto os ataques do usuário quanto os do Dragão</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Bijūdama Tectônica</div><div class="biju-ability-desc">Lava e relâmpago — impacto com resultado corrigido pelo Shinsei</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Forma Jinchūriki Completa — Modo Besta</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">🐉</span>
+        <div><div class="jinc-title">Encarnação do Dragão Primordial</div><div class="jinc-sub">Fusão total · Leonardo + Dragão de Terra e Relâmpago</div></div>
+      </div>
+      <div class="jinc-body">Ao liberar o chakra conjunto do Dragão em plenitude, Leonardo funde parcialmente o corpo com a entidade. Escamas de lava sólida formam-se ao longo dos braços e torso — relâmpagos dourados percorrem a superfície continuamente. Os spikes do cabelo branco erguem-se com a eletricidade, o chão ao redor racha sob o peso da pressão tectônica. Os olhos tornam-se o Rinne-Sharingan com glow forte e elétrico. O Dragão manifesta-se em tamanho colossal, agindo como força de cerco enquanto Leonardo executa o julgamento com precisão absoluta.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Armadura Tectônica</div><div class="jinc-item-desc">Escamas de lava sólida e relâmpago — absorve impactos e libera descarga ao contato</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Shinsei em Escala Bijū</div><div class="jinc-item-desc">Todos os ataques — do usuário e do Dragão — têm resultado garantido simultaneamente</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Regeneração Bijū Extrema</div><div class="jinc-item-desc">Danos críticos se recuperam automaticamente entre Leonardo e o Dragão</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Distorção Tectônica</div><div class="jinc-item-desc">O terreno inteiro é moldado ativamente — criando armadilhas e corredores inevitáveis</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Relâmpago Natural Contínuo</div><div class="jinc-item-desc">Raios caem no campo constantemente gerados pela presença do Dragão</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Bijūdama Inevitável</div><div class="jinc-item-desc">Esfera de lava e relâmpago — Shinsei corrige a trajetória até o acerto ser absoluto</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: relâmpagos dourados e terrosos faíscam continuamente — o chão racha em raios a partir dos pés</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal</div>
+    <div class="weapon-card"><div class="weapon-name">Gunbai do Julgamento</div><div class="weapon-type">Arma Principal · Âncora Causal</div><div class="weapon-body">Absorve ninjutsu e devolve como onda inevitável. Ataques refletidos tornam-se garantidos pelo Shinsei. Atua como âncora causal — pode ser fundida à arma do Susanoo.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Lâmina do Julgamento Tectônico</div><div class="weapon-type">Sabre Especial · Lâmina Serrilhada de Lava e Eletricidade</div><div class="weapon-body">Força sísmica e raios em cada golpe. Fratura o terreno e corrige o resultado pelo Shinsei. Pode canalizar terremotos ao fincar a lâmina no chão.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Dragão do Julgamento Final</div>
+    <div class="card"><div class="card-title"><span class="dot"></span>Parcial · Poder Ofensivo Extremo</div><div class="card-body"><strong>Ataques não falham. Precisão absoluta.</strong> O Shinsei opera integrado ao Susanoo — cada golpe encontra seu alvo. Pressão constante, sem pausa, sem abertura para reação.</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
+      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhum golpe erra. Nenhum resultado falha.<br>O julgamento já foi pronunciado.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Inevitável por natureza</span><span style="opacity:0.3">·</span><span>Terra que obedece</span><span style="opacity:0.3">·</span><span>Relâmpago que julga</span></div>
+  </div>
+</div></div>
+
+<script>
+  function switchTab(id) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelector('.tab-' + id).classList.add('active');
+    document.getElementById('panel-' + id).classList.add('active');
+  }
+</script>
+</body>
+</html>
