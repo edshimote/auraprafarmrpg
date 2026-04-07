@@ -31,12 +31,24 @@
     --kur-muted: #7a5a9a; --kur-glow: rgba(160,60,220,0.35);
     --kur-grad: linear-gradient(135deg, #0a0014 0%, #1a0030 50%, #050008 100%);
     --kur-bar1: #5a1a8a; --kur-bar2: #c87fff;
+    /* AIKO */
+    --aik-bg: #0e0014; --aik-card: #120018; --aik-border: #6a0a5a;
+    --aik-accent: #ff8aec; --aik-accent2: #ffc6f5; --aik-text: #f0d0ee;
+    --aik-muted: #8a4a80; --aik-glow: rgba(220,50,180,0.35);
+    --aik-grad: linear-gradient(135deg, #0e0014 0%, #220030 50%, #080010 100%);
+    --aik-bar1: #6a0a5a; --aik-bar2: #ff8aec;
+    /* AKARI */
+    --aka-bg: #000e0a; --aka-card: #001410; --aka-border: #0a4a2a;
+    --aka-accent: #00e5a0; --aka-accent2: #80ffcc; --aka-text: #b8f0da;
+    --aka-muted: #2a7a5a; --aka-glow: rgba(0,180,120,0.35);
+    --aka-grad: linear-gradient(135deg, #000e0a 0%, #001a10 50%, #000a06 100%);
+    --aka-bar1: #0a4a2a; --aka-bar2: #00e5a0;
   }
 
   body { background: #060606; font-family: var(--font-body); min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 24px 12px 48px; }
 
-  .tab-nav { display: flex; width: 100%; max-width: 720px; border-radius: 14px 14px 0 0; overflow: hidden; border: 1px solid #222; border-bottom: none; }
-  .tab-btn { flex: 1; padding: 14px 8px; font-family: var(--font-title); font-size: 12px; letter-spacing: 1.5px; cursor: pointer; border: none; outline: none; transition: all 0.3s; text-transform: uppercase; position: relative; overflow: hidden; }
+  .tab-nav { display: flex; width: 100%; max-width: 720px; border-radius: 14px 14px 0 0; overflow: hidden; border: 1px solid #222; border-bottom: none; flex-wrap: wrap; }
+  .tab-btn { flex: 1; min-width: 80px; padding: 12px 6px; font-family: var(--font-title); font-size: 11px; letter-spacing: 1px; cursor: pointer; border: none; outline: none; transition: all 0.3s; text-transform: uppercase; position: relative; overflow: hidden; }
   .tab-btn::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; transform: scaleX(0); transition: transform 0.3s; }
   .tab-edu { background: #0e0400; color: var(--edu-muted); }
   .tab-edu.active, .tab-edu:hover { background: var(--edu-bg); color: var(--edu-accent); }
@@ -47,9 +59,15 @@
   .tab-leo { background: #060800; color: var(--leo-muted); }
   .tab-leo.active, .tab-leo:hover { background: var(--leo-bg); color: var(--leo-accent); }
   .tab-leo.active::after { background: var(--leo-accent); transform: scaleX(1); }
-  .tab-kur { background: #060010; color: var(--kur-muted); border-left: 1px solid #111; }
+  .tab-kur { background: #060010; color: var(--kur-muted); border-left: 1px solid #111; border-right: 1px solid #111; }
   .tab-kur.active, .tab-kur:hover { background: var(--kur-bg); color: var(--kur-accent); }
   .tab-kur.active::after { background: var(--kur-accent); transform: scaleX(1); }
+  .tab-aik { background: #0c0012; color: var(--aik-muted); border-left: 1px solid #111; }
+  .tab-aik.active, .tab-aik:hover { background: var(--aik-bg); color: var(--aik-accent); }
+  .tab-aik.active::after { background: var(--aik-accent); transform: scaleX(1); }
+  .tab-aka { background: #000c08; color: var(--aka-muted); border-left: 1px solid #111; }
+  .tab-aka.active, .tab-aka:hover { background: var(--aka-bg); color: var(--aka-accent); }
+  .tab-aka.active::after { background: var(--aka-accent); transform: scaleX(1); }
 
   .panel { display: none; width: 100%; max-width: 720px; border: 1px solid #222; border-radius: 0 0 16px 16px; overflow: hidden; }
   .panel.active { display: block; animation: fadeIn 0.35s ease; }
@@ -100,7 +118,6 @@
   .biju-ability-name { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
   .biju-ability-desc { font-size: 11px; line-height: 1.5; opacity: 0.7; }
 
-  /* APARÊNCIA */
   .appear-card { border-radius: 12px; padding: 16px; border: 1px solid; }
   .appear-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
   .appear-row:last-child { margin-bottom: 0; }
@@ -109,14 +126,12 @@
   .appear-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 3px; opacity: 0.55; }
   .appear-text { font-size: 12px; line-height: 1.65; }
 
-  /* PERSONALIDADE */
   .personality-split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .personality-card { border-radius: 12px; padding: 14px; border: 1px solid; }
   .personality-mode { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 3px 9px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
   .personality-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
   .personality-body { font-size: 12px; line-height: 1.65; }
 
-  /* JINCHŪRIKI COMPLETA */
   .jinc-card { border-radius: 12px; padding: 16px; border: 1px solid; }
   .jinc-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
   .jinc-emblem { font-size: 30px; filter: drop-shadow(0 0 8px currentColor); }
@@ -141,7 +156,7 @@
   .essence-items { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
   .essence-items span { font-size: 12px; }
 
-  /* EDUARDO */
+  /* ===================== EDUARDO ===================== */
   #panel-edu { background: var(--edu-bg); }
   #panel-edu .root { color: var(--edu-text); }
   #panel-edu .hero { background: var(--edu-grad); }
@@ -195,7 +210,7 @@
   #panel-edu .essence-items span { color: #ff9966; }
   #panel-edu .card-body strong { color: var(--edu-accent); }
 
-  /* GUILHERME */
+  /* ===================== GUILHERME ===================== */
   #panel-gui { background: var(--gui-bg); }
   #panel-gui .root { color: var(--gui-text); }
   #panel-gui .hero { background: var(--gui-grad); }
@@ -249,7 +264,7 @@
   #panel-gui .essence-items span { color: #90deff; }
   #panel-gui .card-body strong { color: var(--gui-accent); }
 
-  /* LEONARDO */
+  /* ===================== LEONARDO ===================== */
   #panel-leo { background: var(--leo-bg); }
   #panel-leo .root { color: var(--leo-text); }
   #panel-leo .hero { background: var(--leo-grad); }
@@ -303,7 +318,7 @@
   #panel-leo .essence-items span { color: #d4e870; }
   #panel-leo .card-body strong { color: var(--leo-accent); }
 
-  /* KUROSHIN */
+  /* ===================== KUROSHIN ===================== */
   #panel-kur { background: var(--kur-bg); }
   #panel-kur .root { color: var(--kur-text); }
   #panel-kur .hero { background: var(--kur-grad); }
@@ -356,15 +371,122 @@
   #panel-kur .essence-label { color: var(--kur-muted); }
   #panel-kur .essence-items span { color: #dda0ff; }
   #panel-kur .card-body strong { color: var(--kur-accent); }
-  /* silhueta estilo mangá para Kuroshin */
   .kur-silhouette { width: 100%; display: flex; justify-content: center; margin: 16px 0 8px; }
   .kur-silhouette svg { filter: drop-shadow(0 0 18px rgba(180,80,255,0.55)); }
+
+  /* ===================== AIKO ===================== */
+  #panel-aik { background: var(--aik-bg); }
+  #panel-aik .root { color: var(--aik-text); }
+  #panel-aik .hero { background: var(--aik-grad); }
+  #panel-aik .hero::before { background: radial-gradient(circle, var(--aik-glow) 0%, transparent 70%); }
+  #panel-aik .hero-name { color: #ffc6f5; }
+  #panel-aik .hero-sub { color: var(--aik-muted); }
+  #panel-aik .tag { background: #220028; border: 1px solid var(--aik-border); color: var(--aik-accent); }
+  #panel-aik .quote { color: var(--aik-text); border-color: var(--aik-accent2); }
+  #panel-aik .section-title { color: var(--aik-accent); border-color: var(--aik-border); }
+  #panel-aik .card { background: var(--aik-card); border-color: var(--aik-border); }
+  #panel-aik .card-title { color: #ffc6f5; }
+  #panel-aik .card-body { color: var(--aik-muted); }
+  #panel-aik .dot { background: var(--aik-accent); }
+  #panel-aik .ability-label { color: var(--aik-accent); }
+  #panel-aik .bar-fill { background: linear-gradient(90deg, var(--aik-bar1), var(--aik-bar2)); }
+  #panel-aik .power-card { background: #0c0016; border-color: var(--aik-border); }
+  #panel-aik .power-title { color: #ffc6f5; }
+  #panel-aik .power-jp, #panel-aik .power-body { color: var(--aik-muted); }
+  #panel-aik .power-example { background: #1a0028; color: var(--aik-accent); }
+  #panel-aik .elem { background: #0e0018; }
+  #panel-aik .elem-name { color: var(--aik-accent); }
+  #panel-aik .elem-desc { color: var(--aik-muted); }
+  #panel-aik .synergy { background: #100020; border-color: var(--aik-border); color: var(--aik-accent); }
+  #panel-aik .biju-card { background: #0a0014; border-color: var(--aik-border); }
+  #panel-aik .biju-title { color: #ffc6f5; }
+  #panel-aik .biju-jp { color: var(--aik-muted); }
+  #panel-aik .biju-ability { background: #140020; border-color: var(--aik-border); }
+  #panel-aik .biju-ability-name { color: var(--aik-accent); }
+  #panel-aik .biju-ability-desc { color: var(--aik-muted); }
+  #panel-aik .appear-card { background: var(--aik-card); border-color: var(--aik-border); }
+  #panel-aik .appear-label { color: var(--aik-muted); }
+  #panel-aik .appear-text { color: var(--aik-text); }
+  #panel-aik .personality-card { background: var(--aik-card); border-color: var(--aik-border); }
+  #panel-aik .personality-title { color: #ffc6f5; }
+  #panel-aik .personality-body { color: var(--aik-muted); }
+  #panel-aik .personality-card.modo-combat .personality-mode { background: #2a0040; color: var(--aik-accent2); }
+  #panel-aik .personality-card.modo-social .personality-mode { background: #1a0030; color: #ffc6f5; }
+  #panel-aik .jinc-card { background: #0e0018; border-color: #8a1a70; }
+  #panel-aik .jinc-title { color: #ffc6f5; }
+  #panel-aik .jinc-sub, #panel-aik .jinc-body { color: var(--aik-muted); }
+  #panel-aik .jinc-item { background: #180028; border-color: #6a0a5a; }
+  #panel-aik .jinc-item-name { color: var(--aik-accent); }
+  #panel-aik .jinc-item-desc { color: var(--aik-muted); }
+  #panel-aik .jinc-aura { background: #1a002a; border-color: #8a1a70; color: #ffc6f5; }
+  #panel-aik .weapon-card { background: var(--aik-card); border-color: var(--aik-border); }
+  #panel-aik .weapon-name { color: #ffc6f5; }
+  #panel-aik .weapon-type, #panel-aik .weapon-body { color: var(--aik-muted); }
+  #panel-aik .level-badge { background: #220028; border: 1px solid var(--aik-accent); color: var(--aik-accent); }
+  #panel-aik .essence-bar { background: #0c0016; border-color: var(--aik-border); }
+  #panel-aik .essence-label { color: var(--aik-muted); }
+  #panel-aik .essence-items span { color: #ffc6f5; }
+  #panel-aik .card-body strong { color: var(--aik-accent); }
+
+  /* ===================== AKARI ===================== */
+  #panel-aka { background: var(--aka-bg); }
+  #panel-aka .root { color: var(--aka-text); }
+  #panel-aka .hero { background: var(--aka-grad); }
+  #panel-aka .hero::before { background: radial-gradient(circle, var(--aka-glow) 0%, transparent 70%); }
+  #panel-aka .hero-name { color: #80ffcc; }
+  #panel-aka .hero-sub { color: var(--aka-muted); }
+  #panel-aka .tag { background: #001a0e; border: 1px solid var(--aka-border); color: var(--aka-accent); }
+  #panel-aka .quote { color: var(--aka-text); border-color: var(--aka-accent2); }
+  #panel-aka .section-title { color: var(--aka-accent); border-color: var(--aka-border); }
+  #panel-aka .card { background: var(--aka-card); border-color: var(--aka-border); }
+  #panel-aka .card-title { color: #80ffcc; }
+  #panel-aka .card-body { color: var(--aka-muted); }
+  #panel-aka .dot { background: var(--aka-accent); }
+  #panel-aka .ability-label { color: var(--aka-accent); }
+  #panel-aka .bar-fill { background: linear-gradient(90deg, var(--aka-bar1), var(--aka-bar2)); }
+  #panel-aka .power-card { background: #000c08; border-color: var(--aka-border); }
+  #panel-aka .power-title { color: #80ffcc; }
+  #panel-aka .power-jp, #panel-aka .power-body { color: var(--aka-muted); }
+  #panel-aka .power-example { background: #001a0e; color: var(--aka-accent); }
+  #panel-aka .elem { background: #001008; }
+  #panel-aka .elem-name { color: var(--aka-accent); }
+  #panel-aka .elem-desc { color: var(--aka-muted); }
+  #panel-aka .synergy { background: #001208; border-color: var(--aka-border); color: var(--aka-accent); }
+  #panel-aka .biju-card { background: #000c06; border-color: var(--aka-border); }
+  #panel-aka .biju-title { color: #80ffcc; }
+  #panel-aka .biju-jp { color: var(--aka-muted); }
+  #panel-aka .biju-ability { background: #001610; border-color: var(--aka-border); }
+  #panel-aka .biju-ability-name { color: var(--aka-accent); }
+  #panel-aka .biju-ability-desc { color: var(--aka-muted); }
+  #panel-aka .appear-card { background: var(--aka-card); border-color: var(--aka-border); }
+  #panel-aka .appear-label { color: var(--aka-muted); }
+  #panel-aka .appear-text { color: var(--aka-text); }
+  #panel-aka .personality-card { background: var(--aka-card); border-color: var(--aka-border); }
+  #panel-aka .personality-title { color: #80ffcc; }
+  #panel-aka .personality-body { color: var(--aka-muted); }
+  #panel-aka .personality-card.modo-combat .personality-mode { background: #002018; color: var(--aka-accent2); }
+  #panel-aka .personality-card.modo-social .personality-mode { background: #001510; color: #80ffcc; }
+  #panel-aka .jinc-card { background: #000e08; border-color: #0d6a3a; }
+  #panel-aka .jinc-title { color: #80ffcc; }
+  #panel-aka .jinc-sub, #panel-aka .jinc-body { color: var(--aka-muted); }
+  #panel-aka .jinc-item { background: #001808; border-color: #0a4a2a; }
+  #panel-aka .jinc-item-name { color: var(--aka-accent); }
+  #panel-aka .jinc-item-desc { color: var(--aka-muted); }
+  #panel-aka .jinc-aura { background: #001a0a; border-color: #0d6a3a; color: #80ffcc; }
+  #panel-aka .weapon-card { background: var(--aka-card); border-color: var(--aka-border); }
+  #panel-aka .weapon-name { color: #80ffcc; }
+  #panel-aka .weapon-type, #panel-aka .weapon-body { color: var(--aka-muted); }
+  #panel-aka .level-badge { background: #001a0e; border: 1px solid var(--aka-accent); color: var(--aka-accent); }
+  #panel-aka .essence-bar { background: #000c06; border-color: var(--aka-border); }
+  #panel-aka .essence-label { color: var(--aka-muted); }
+  #panel-aka .essence-items span { color: #80ffcc; }
+  #panel-aka .card-body strong { color: var(--aka-accent); }
 
   @media (max-width: 520px) {
     .grid2, .biju-grid, .jinc-grid, .personality-split { grid-template-columns: 1fr; }
     .elem-row { flex-direction: column; }
     .hero-name { font-size: 18px; }
-    .tab-btn { font-size: 10px; letter-spacing: 0.8px; }
+    .tab-btn { font-size: 10px; letter-spacing: 0.5px; padding: 10px 4px; }
   }
 </style>
 </head>
@@ -375,6 +497,8 @@
   <button class="tab-btn tab-gui" onclick="switchTab('gui')">🔵 Guilherme</button>
   <button class="tab-btn tab-leo" onclick="switchTab('leo')">🟡 Leonardo</button>
   <button class="tab-btn tab-kur" onclick="switchTab('kur')">🟣 Kuroshin</button>
+  <button class="tab-btn tab-aik" onclick="switchTab('aik')">🩷 Aiko</button>
+  <button class="tab-btn tab-aka" onclick="switchTab('aka')">🖤 Akari</button>
 </div>
 
 <!-- ===================== EDUARDO ===================== -->
@@ -382,7 +506,7 @@
   <div class="hero">
     <span class="hero-emblem">🔥</span>
     <div class="hero-name">Eduardo Uchiha</div>
-    <div class="hero-sub">Clã Uchiha · Irmão do Fogo Primordial</div>
+    <div class="hero-sub">Clã Uchiha · Pai de Kuroshin, Aiko & Akari</div>
     <div class="tag-row">
       <span class="tag">Mangekyō Eterno Absoluto</span><span class="tag">Rinne-Sharingan Primordial</span>
       <span class="tag">Fênix de Dez Caudas</span><span class="tag">Kaienten</span>
@@ -394,10 +518,10 @@
     <div class="section-title">Aparência Física</div>
     <div class="appear-card">
       <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Branco puro prateado com brilho sutil. Long layered wolf cut bagunçado e volumoso. Franjas longas assimétricas caindo sobre um olho, camadas fluindo naturalmente.</div></div></div>
-      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Azuis claros intensos em repouso. Rinne-Sharingan ativado: padrão completo vermelho-rosado com anéis concêntricos e tomoe pretos nos dois olhos — glow intenso e flamejante.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Azuis claros intensos em repouso. Rinne-Sharingan Primordial ativado: íris roxa profunda com o padrão completo do Rinnegan — anéis concêntricos e tomoe dispostos nos dois olhos — glow flamejante e intenso.</div></div></div>
       <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços afiados simétricos perfeitos, mandíbula definida, lábios cheios. Sorriso largo charmoso como expressão padrão.</div></div></div>
       <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Camisa preta gola alta manga curta/3-4 com detalhes vermelho vivo no colarinho e bordas. Calça preta ninja solta com faixa vermelha. Luvas pretas sem dedos com acento vermelho. Botas pretas baixas.</div></div></div>
-      <div class="appear-row"><span class="appear-icon">🔥</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra vermelho flamejante ou raio vermelho ao redor do corpo quando ativa o dojutsu. Pressão térmica visível no ar próximo.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🔥</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra vermelho flamejante ao redor do corpo quando ativa o dojutsu. Pressão térmica visível no ar próximo.</div></div></div>
     </div>
   </div>
 
@@ -407,12 +531,12 @@
       <div class="personality-card modo-combat">
         <span class="personality-mode">☠️ Modo Combate</span>
         <div class="personality-title">Sádico. Implacável.</div>
-        <div class="personality-body">Em combate, Eduardo é pura frieza predatória. Encontra o ponto fraco de um inimigo e explora com sorriso no rosto. Não mata com pressa — saboreia cada ruptura. Há um prazer genuíno em assistir uma defesa "impossível" desmoronar. Psicopático por completo quando o alvo é eliminar.</div>
+        <div class="personality-body">Em combate, Eduardo é pura frieza predatória. Encontra o ponto fraco de um inimigo e explora com sorriso no rosto. Não mata com pressa — saboreia cada ruptura. Há um prazer genuíno em assistir uma defesa "impossível" desmoronar.</div>
       </div>
       <div class="personality-card modo-social">
         <span class="personality-mode">😄 Fora de Combate</span>
         <div class="personality-title">Charmoso. Brincalhão.</div>
-        <div class="personality-body">Sorriso largo, piadas sem aviso, anima qualquer ambiente. Genuinamente carinhoso com quem importa — protegeria qualquer inocente sem hesitar. Prioriza salvar quem puder antes de tudo. A mesma energia que destrói em batalha, aquece quem está por perto.</div>
+        <div class="personality-body">Sorriso largo, piadas sem aviso, anima qualquer ambiente. Genuinamente carinhoso com quem importa — protegeria qualquer inocente sem hesitar. A mesma energia que destrói em batalha, aquece quem está por perto.</div>
       </div>
     </div>
   </div>
@@ -431,7 +555,7 @@
     <div class="section-title">Poder Ocular</div>
     <div class="grid2">
       <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Eterno Absoluto</div><div class="card-body">Uso ilimitado, sem desgaste ou cegueira. Técnicas manifestam a vontade direta do usuário com precisão e intensidade absolutas.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Percepção absoluta de chakra, espaço e causalidade.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Íris roxa profunda com anéis concêntricos do Rinnegan e tomoe pretos. Percepção absoluta de chakra, espaço e causalidade.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
     </div>
   </div>
 
@@ -478,7 +602,7 @@
         <span class="jinc-emblem">🦅</span>
         <div><div class="jinc-title">Encarnação da Fênix Primordial</div><div class="jinc-sub">Fusão total · Eduardo + Fênix de Dez Caudas</div></div>
       </div>
-      <div class="jinc-body">Ao liberar o chakra conjunto da Fênix em plenitude, o corpo de Eduardo é envolto por armadura de chakra ígneo de densidade bijū. Asas colossais de fogo eterno surgem das costas — cada batida cria ondas de pressão capazes de apagar jutsus menores. O cabelo branco inflama em pontas vivas de chama, os olhos tornam-se Rinne-Sharingan com brilho incandescente. Marcas de chama negra percorrem a pele. A Fênix manifesta-se parcialmente no campo, lutando de forma autônoma enquanto Eduardo combate — dois predadores em um.</div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Fênix em plenitude, o corpo de Eduardo é envolto por armadura de chakra ígneo de densidade bijū. Asas colossais de fogo eterno surgem das costas — cada batida cria ondas de pressão. O cabelo branco inflama em pontas vivas de chama, o Rinne-Sharingan Primordial brilha incandescente. A Fênix manifesta-se parcialmente no campo, lutando de forma autônoma enquanto Eduardo combate.</div>
       <div class="jinc-grid">
         <div class="jinc-item"><div class="jinc-item-name">Armadura de Chakra Ígneo</div><div class="jinc-item-desc">Camada densa de fogo primordial — absorve impactos e incendeia qualquer contato</div></div>
         <div class="jinc-item"><div class="jinc-item-name">Asas da Fênix</div><div class="jinc-item-desc">Mobilidade tridimensional irrestrita, calor suficiente para derreter terreno ao mergulhar</div></div>
@@ -493,19 +617,13 @@
 
   <div class="section">
     <div class="section-title">Arsenal</div>
-    <div class="weapon-card"><div class="weapon-name">Gunbai da Ruptura</div><div class="weapon-type">Arma Principal · Escudo & Contra-ataque</div><div class="weapon-body">Absorve qualquer ninjutsu e devolve como onda destrutiva devastadora. Revela falhas estruturais ao contato. Pode ser fundida à arma do Susanoo.</div></div>
-    <div class="weapon-card"><div class="weapon-name">Lâmina da Fênix Flamejante</div><div class="weapon-type">Sabre Especial · Katana de Lâmina Negra</div><div class="weapon-body">Lâmina negra com veias de fogo eterno. Revestida permanentemente por Amaterasu moldável. Pode estender alcance com fogo primordial e explodir ao acertar o alvo.</div></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Susanoo — Fênix Negra da Ruptura</div>
-    <div class="card"><div class="card-title"><span class="dot"></span>Parcial · Altíssima Mobilidade</div><div class="card-body">Espada que ignora defesas físicas, de chakra e domínios. Revestimento constante de Amaterasu. <strong>Ataque extremo, defesa média</strong> — pode atuar em conjunto com a Fênix manifestada no campo.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Gunbai da Ruptura</div><div class="weapon-type">Arma Principal · Escudo & Contra-ataque</div><div class="weapon-body">Absorve qualquer ninjutsu e devolve como onda destrutiva devastadora. Revela falhas estruturais ao contato.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Lâmina da Fênix Flamejante</div><div class="weapon-type">Sabre Especial · Katana de Lâmina Negra</div><div class="weapon-body">Lâmina negra com veias de fogo eterno. Revestida permanentemente por Amaterasu moldável.</div></div>
   </div>
 
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
       <span class="level-badge">Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhuma defesa sobrevive ao Kaienten.<br>Nenhum campo resiste à pressão da Fênix.</div>
     </div>
@@ -534,10 +652,10 @@
     <div class="section-title">Aparência Física</div>
     <div class="appear-card">
       <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Branco acinzentado frio — prata metálico luminoso. Undercut com topete alto bagunçado, topo jogado pro lado com mechas sedosas, fade baixo nas laterais.</div></div></div>
-      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Cinza claro penetrante em repouso. Rinne-Sharingan ativado: padrão completo vermelho-rosado com anéis concêntricos e tomoe pretos — glow sutil mas esmagador.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Cinza claro penetrante em repouso. Rinne-Sharingan Primordial ativado: íris roxa profunda com anéis concêntricos do Rinnegan e tomoe pretos — glow sutil mas esmagador.</div></div></div>
       <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços angulares refinados, queixo marcado, olhar magnético. Sorriso tranquilo que inspira confiança imediata.</div></div></div>
       <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Camisa preta gola alta manga longa enrolada nos antebraços, detalhes azul claro no colarinho, zíper e bordas. Calça preta ninja justa com faixa azul claro. Luvas pretas completas com toque azul. Coturnos pretos.</div></div></div>
-      <div class="appear-row"><span class="appear-icon">❄️</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra azul claro ou aura suave ao redor do corpo quando o dojutsu ativa. Cristais de gelo microscópicos surgem no ar imediatamente ao redor.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">❄️</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra azul claro ao redor do corpo quando o dojutsu ativa. Cristais de gelo microscópicos surgem no ar imediatamente ao redor.</div></div></div>
     </div>
   </div>
 
@@ -547,12 +665,12 @@
       <div class="personality-card modo-combat">
         <span class="personality-mode">☠️ Modo Combate</span>
         <div class="personality-title">Clínico. Psicopático.</div>
-        <div class="personality-body">Em combate, Guilherme é o tipo mais assustador: completamente calmo enquanto destrói. Não demonstra emoção ao matar — analisa, suprime, finaliza com eficiência de quem está arrumando uma gaveta. Quanto mais o inimigo sofre, mais tranquilo fica. A crueldade é passiva: o campo torna tudo inevitável antes que o inimigo perceba.</div>
+        <div class="personality-body">Completamente calmo enquanto destrói. Não demonstra emoção ao matar — analisa, suprime, finaliza com eficiência de quem está arrumando uma gaveta. A crueldade é passiva: o campo torna tudo inevitável antes que o inimigo perceba.</div>
       </div>
       <div class="personality-card modo-social">
         <span class="personality-mode">😄 Fora de Combate</span>
         <div class="personality-title">Tranquilo. Adorável.</div>
-        <div class="personality-body">Calmo, presente, ouvinte excepcional. Risadas fáceis com os irmãos, piadas no timing perfeito. A mesma paciência que usa para esgotar um inimigo, usa para cuidar de quem ama. Genuinamente gentil e protetor — salvar quem puder é prioridade absoluta, sem exceção.</div>
+        <div class="personality-body">Calmo, presente, ouvinte excepcional. Risadas fáceis com os irmãos, piadas no timing perfeito. Genuinamente gentil e protetor — salvar quem puder é prioridade absoluta, sem exceção.</div>
       </div>
     </div>
   </div>
@@ -571,7 +689,7 @@
     <div class="section-title">Poder Ocular</div>
     <div class="grid2">
       <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Eterno Absoluto</div><div class="card-body">Uso ilimitado, sem desgaste ou cegueira. O campo obedece completamente ao olhar.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Percepção absoluta de chakra, espaço e causalidade.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Íris roxa profunda com anéis concêntricos do Rinnegan e tomoe pretos.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
     </div>
   </div>
 
@@ -618,7 +736,7 @@
         <span class="jinc-emblem">🦊</span>
         <div><div class="jinc-title">Encarnação da Snow Fox Primordial</div><div class="jinc-sub">Fusão total · Guilherme + Snow Fox de Dez Caudas</div></div>
       </div>
-      <div class="jinc-body">Ao liberar o chakra conjunto da Snow Fox em plenitude, Guilherme é envolto por armadura de gelo translúcido de densidade bijū. O corpo emana frio absoluto — qualquer contato congela, o ar ao redor cristaliza em névoa densa. O cabelo prata se eleva levemente com estática glacial. Os olhos tornam-se o Rinne-Sharingan com brilho frio e sufocante. A Snow Fox manifesta-se no campo em tamanho colossal, executando controle de área enquanto Guilherme finaliza alvos imobilizados com cirurgia fria.</div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Snow Fox em plenitude, Guilherme é envolto por armadura de gelo translúcido de densidade bijū. O corpo emana frio absoluto — qualquer contato congela, o ar ao redor cristaliza em névoa densa. O cabelo prata se eleva com estática glacial. O Rinne-Sharingan Primordial brilha frio e sufocante. A Snow Fox manifesta-se no campo em tamanho colossal, executando controle de área enquanto Guilherme finaliza alvos imobilizados.</div>
       <div class="jinc-grid">
         <div class="jinc-item"><div class="jinc-item-name">Armadura Glacial Bijū</div><div class="jinc-item-desc">Camada de gelo primordial que absorve impactos e congela tudo que toca</div></div>
         <div class="jinc-item"><div class="jinc-item-name">Domínio Congelado Amplificado</div><div class="jinc-item-desc">Hyōkoku em escala bijū — todo o campo sofre desaceleração massiva</div></div>
@@ -633,19 +751,13 @@
 
   <div class="section">
     <div class="section-title">Arsenal</div>
-    <div class="weapon-card"><div class="weapon-name">Gunbai do Domínio</div><div class="weapon-type">Arma Principal · Escudo & Barreira Móvel</div><div class="weapon-body">Absorve ninjutsu e devolve como onda gelada. Cria zonas de desaceleração extrema ao refletir técnicas. Atua como barreira móvel permanente.</div></div>
-    <div class="weapon-card"><div class="weapon-name">Lâmina do Gelo Eterno</div><div class="weapon-type">Sabre Especial · Cristal Translúcido de Frio Absoluto</div><div class="weapon-body">Ao cortar, congela instantaneamente o ponto de contato — desacelera chakra e movimento. Pode estender lâminas de gelo ou criar correntes congelantes ao balançar.</div></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Susanoo — Leviatã Glacial do Domínio</div>
-    <div class="card"><div class="card-title"><span class="dot"></span>Parcial · Altíssima Resistência</div><div class="card-body">Escudo regenerativo absoluto. <strong>Domínio total do campo de batalha.</strong> O Leviatã converte o espaço ao redor em extensão do Hyōkoku — cada metro adicional é mais lento para o inimigo.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Gunbai do Domínio</div><div class="weapon-type">Arma Principal · Escudo & Barreira Móvel</div><div class="weapon-body">Absorve ninjutsu e devolve como onda gelada. Cria zonas de desaceleração extrema ao refletir técnicas.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Lâmina do Gelo Eterno</div><div class="weapon-type">Sabre Especial · Cristal Translúcido de Frio Absoluto</div><div class="weapon-body">Ao cortar, congela instantaneamente o ponto de contato. Pode estender lâminas de gelo ou criar correntes congelantes ao balançar.</div></div>
   </div>
 
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
       <span class="level-badge">Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Combate prolongado é terreno favorável.<br>O campo obedece — o inimigo, não.</div>
     </div>
@@ -674,10 +786,10 @@
     <div class="section-title">Aparência Física</div>
     <div class="appear-card">
       <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Branco puro luminoso. Medium messy spikes com undercut suave, pontas desfiadas elegantes, franja jogada pro lado.</div></div></div>
-      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Amarelo-âmbar intenso em repouso. Rinne-Sharingan ativado: padrão completo vermelho-rosado com anéis concêntricos e tomoe pretos — glow forte e elétrico, quase como descargas visíveis.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Amarelo-âmbar intenso em repouso. Rinne-Sharingan Primordial ativado: íris roxa profunda com anéis concêntricos do Rinnegan e tomoe pretos — glow forte e elétrico, quase como descargas visíveis.</div></div></div>
       <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços aristocráticos perfeitos, mandíbula forte. Expressão séria bonita — comunica peso e inevitabilidade antes de qualquer palavra.</div></div></div>
       <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Camisa preta gola alta imponente manga longa/3-4, detalhes marrom escuro no colarinho e bordas. Calça preta solta com corte funcional. Luvas pretas com reforços marrons. Botas pretas de cano médio.</div></div></div>
-      <div class="appear-row"><span class="appear-icon">⚡</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra marrom terroso ou aura densa explodindo ao redor quando o dojutsu ativa. Relâmpagos dourados e terrosos faíscam na superfície do corpo.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚡</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra marrom terroso explodindo ao redor quando o dojutsu ativa. Relâmpagos dourados e terrosos faíscam na superfície do corpo.</div></div></div>
     </div>
   </div>
 
@@ -687,12 +799,12 @@
       <div class="personality-card modo-combat">
         <span class="personality-mode">☠️ Modo Combate</span>
         <div class="personality-title">Sádico. Inevitável.</div>
-        <div class="personality-body">Em combate, Leonardo é o silêncio antes do terremoto. Não ameaça — executa. Cada golpe é dado sabendo exatamente o que vai acontecer depois. Não demonstra prazer nem raiva: apenas certeza absoluta. Matar é uma equação resolvida. O Shinsei garante o resultado — Leonardo cumpre o julgamento já decidido.</div>
+        <div class="personality-body">O silêncio antes do terremoto. Não ameaça — executa. Cada golpe é dado sabendo exatamente o que vai acontecer depois. Não demonstra prazer nem raiva: apenas certeza absoluta. Matar é uma equação resolvida.</div>
       </div>
       <div class="personality-card modo-social">
         <span class="personality-mode">😄 Fora de Combate</span>
         <div class="personality-title">Sério bonito. Mas brincalhão.</div>
-        <div class="personality-body">Expressão séria que quebra inesperadamente numa risada genuína ou piada seca — e aí todos relaxam. Protetor profundo, coloca salvar quem ama acima de qualquer objetivo. Com os irmãos, a dinâmica é zoeira constante e afeto real. Impossível não querer por perto.</div>
+        <div class="personality-body">Expressão séria que quebra numa risada genuína ou piada seca. Protetor profundo, coloca salvar quem ama acima de qualquer objetivo. Com os irmãos, a dinâmica é zoeira constante e afeto real.</div>
       </div>
     </div>
   </div>
@@ -711,7 +823,7 @@
     <div class="section-title">Poder Ocular</div>
     <div class="grid2">
       <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Eterno Absoluto</div><div class="card-body">Uso ilimitado, sem desgaste ou cegueira. O Shinsei opera de forma constante e invisível, integrado a cada técnica.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Percepção absoluta de chakra, espaço e causalidade.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Primordial</div><div class="card-body">Íris roxa profunda com anéis concêntricos do Rinnegan e tomoe pretos.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu</span><br><span style="font-size:11px">🌀 Espaço-tempo curto/médio alcance</span><br><span style="font-size:11px">🧲 Manipulação gravitacional avançada</span></div></div>
     </div>
   </div>
 
@@ -741,7 +853,7 @@
     <div class="biju-card">
       <div class="biju-title">Dragão de Terra e Relâmpago — Dez Caudas</div>
       <div class="biju-jp">十尾の雷龍 · Chakra tectônico e elétrico primordial · Sincronização total</div>
-      <div class="card-body" style="font-size:12px">O Dragão age como força de ruptura e cerco — Leonardo atua como executor estratégico. Dois predadores com papéis distintos e letais.</div>
+      <div class="card-body" style="font-size:12px">O Dragão age como força de ruptura e cerco — Leonardo atua como executor estratégico.</div>
       <div class="biju-grid">
         <div class="biju-ability"><div class="biju-ability-name">Escamas de Lava e Relâmpago</div><div class="biju-ability-desc">Corpo parcialmente fundido, regeneração extrema contínua</div></div>
         <div class="biju-ability"><div class="biju-ability-name">Pressão Destrutiva</div><div class="biju-ability-desc">Distorce o terreno continuamente, força colossal constante</div></div>
@@ -758,7 +870,7 @@
         <span class="jinc-emblem">🐉</span>
         <div><div class="jinc-title">Encarnação do Dragão Primordial</div><div class="jinc-sub">Fusão total · Leonardo + Dragão de Terra e Relâmpago</div></div>
       </div>
-      <div class="jinc-body">Ao liberar o chakra conjunto do Dragão em plenitude, Leonardo funde parcialmente o corpo com a entidade. Escamas de lava sólida formam-se ao longo dos braços e torso — relâmpagos dourados percorrem a superfície continuamente. Os spikes do cabelo branco erguem-se com a eletricidade, o chão ao redor racha sob o peso da pressão tectônica. Os olhos tornam-se o Rinne-Sharingan com glow forte e elétrico. O Dragão manifesta-se em tamanho colossal, agindo como força de cerco enquanto Leonardo executa o julgamento com precisão absoluta.</div>
+      <div class="jinc-body">Ao liberar o chakra conjunto do Dragão em plenitude, Leonardo funde parcialmente o corpo com a entidade. Escamas de lava sólida formam-se ao longo dos braços e torso — relâmpagos dourados percorrem a superfície continuamente. Os olhos tornam-se o Rinne-Sharingan Primordial com glow forte e elétrico. O Dragão manifesta-se em tamanho colossal, agindo como força de cerco enquanto Leonardo executa o julgamento.</div>
       <div class="jinc-grid">
         <div class="jinc-item"><div class="jinc-item-name">Armadura Tectônica</div><div class="jinc-item-desc">Escamas de lava sólida e relâmpago — absorve impactos e libera descarga ao contato</div></div>
         <div class="jinc-item"><div class="jinc-item-name">Shinsei em Escala Bijū</div><div class="jinc-item-desc">Todos os ataques — do usuário e do Dragão — têm resultado garantido simultaneamente</div></div>
@@ -773,19 +885,13 @@
 
   <div class="section">
     <div class="section-title">Arsenal</div>
-    <div class="weapon-card"><div class="weapon-name">Gunbai do Julgamento</div><div class="weapon-type">Arma Principal · Âncora Causal</div><div class="weapon-body">Absorve ninjutsu e devolve como onda inevitável. Ataques refletidos tornam-se garantidos pelo Shinsei. Atua como âncora causal — pode ser fundida à arma do Susanoo.</div></div>
-    <div class="weapon-card"><div class="weapon-name">Lâmina do Julgamento Tectônico</div><div class="weapon-type">Sabre Especial · Lâmina Serrilhada de Lava e Eletricidade</div><div class="weapon-body">Força sísmica e raios em cada golpe. Fratura o terreno e corrige o resultado pelo Shinsei. Pode canalizar terremotos ao fincar a lâmina no chão.</div></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Susanoo — Dragão do Julgamento Final</div>
-    <div class="card"><div class="card-title"><span class="dot"></span>Parcial · Poder Ofensivo Extremo</div><div class="card-body"><strong>Ataques não falham. Precisão absoluta.</strong> O Shinsei opera integrado ao Susanoo — cada golpe encontra seu alvo. Pressão constante, sem pausa, sem abertura para reação.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Gunbai do Julgamento</div><div class="weapon-type">Arma Principal · Âncora Causal</div><div class="weapon-body">Absorve ninjutsu e devolve como onda inevitável. Ataques refletidos tornam-se garantidos pelo Shinsei.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Lâmina do Julgamento Tectônico</div><div class="weapon-type">Sabre Especial · Lâmina Serrilhada de Lava e Eletricidade</div><div class="weapon-body">Força sísmica e raios em cada golpe. Fratura o terreno e corrige o resultado pelo Shinsei.</div></div>
   </div>
 
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
       <span class="level-badge">Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhum golpe erra. Nenhum resultado falha.<br>O julgamento já foi pronunciado.</div>
     </div>
@@ -797,20 +903,15 @@
   </div>
 </div></div>
 
-
-<div class="panel" id="panel-kur">
-<div class="root">
-
+<!-- ===================== KUROSHIN ===================== -->
+<div class="panel" id="panel-kur"><div class="root">
   <div class="hero">
     <span class="hero-emblem">🟣</span>
     <div class="hero-name">Kuroshin Ōtsutsuki Uchiha</div>
-    <div class="hero-sub">Filho de Eduardo Shimote · Neto de Kaguya · Criança Lendária</div>
+    <div class="hero-sub">19 anos · Filho de Eduardo Uchiha & Kaguya · Neto de Kaguya Ōtsutsuki</div>
     <div class="tag-row">
-      <span class="tag">Uchiha</span>
-      <span class="tag">Ōtsutsuki</span>
-      <span class="tag">Jinchūriki</span>
-      <span class="tag">Mangekyō Primordial</span>
-      <span class="tag">Rinne-Sharingan Ômega</span>
+      <span class="tag">Uchiha</span><span class="tag">Ōtsutsuki</span><span class="tag">Jinchūriki</span>
+      <span class="tag">Mangekyō Primordial</span><span class="tag">Rinne-Sharingan Ômega</span>
     </div>
     <div class="quote" style="border-color:#c87fff">"Ele não precisa provar nada. O silêncio ao redor já diz tudo."</div>
   </div>
@@ -866,34 +967,10 @@
   <div class="section">
     <div class="section-title">Aparência &amp; Presença</div>
     <div class="appear-card">
-      <div class="appear-row">
-        <div class="appear-icon">💇</div>
-        <div class="appear-content">
-          <div class="appear-label">Cabelo</div>
-          <div class="appear-text">Branco puro, médio, chegando ao pescoço. Levemente bagunçado — mechas irregulares, franja cobrindo parcialmente o olho esquerdo. Herdado do pai Eduardo: naturalmente perfeito sem esforço.</div>
-        </div>
-      </div>
-      <div class="appear-row">
-        <div class="appear-icon">👁️</div>
-        <div class="appear-content">
-          <div class="appear-label">Olhos</div>
-          <div class="appear-text">Normal: cinza claro com brilho lilás — herança da Kaguya. Quando focado: olhar pesado, pupila profunda, sensação de pressão. Quando ativa poder: Sharingan sutil + ondulação do Rinnegan. Não é chamativo — é perturbador.</div>
-        </div>
-      </div>
-      <div class="appear-row">
-        <div class="appear-icon">🧥</div>
-        <div class="appear-content">
-          <div class="appear-label">Roupa — Estética do Pai</div>
-          <div class="appear-text">Moletom oversized preto ou vinho escuro, calça preta reta, tênis simples limpo. O Eduardo Shimote veste o filho sem exagero — casual moderno, zero esforço, presença anormal. Capuz geralmente abaixado, mãos nos bolsos.</div>
-        </div>
-      </div>
-      <div class="appear-row">
-        <div class="appear-icon">🌫️</div>
-        <div class="appear-content">
-          <div class="appear-label">Aura</div>
-          <div class="appear-text">Ar fica pesado, sons diminuem, leve pressão constante. Pessoas próximas sentem desconforto e alerta involuntário. Não é intencional — é natural. O caos acontece e ele continua com expressão neutra.</div>
-        </div>
-      </div>
+      <div class="appear-row"><div class="appear-icon">💇</div><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Branco puro, médio, chegando ao pescoço. Levemente bagunçado — mechas irregulares, franja cobrindo parcialmente o olho esquerdo.</div></div></div>
+      <div class="appear-row"><div class="appear-icon">👁️</div><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Normal: cinza claro com brilho lilás — herança da Kaguya. Quando ativa poder: Sharingan sutil + ondulação do Rinnegan. Não é chamativo — é perturbador.</div></div></div>
+      <div class="appear-row"><div class="appear-icon">🧥</div><div class="appear-content"><div class="appear-label">Roupa</div><div class="appear-text">Moletom oversized preto ou vinho escuro, calça preta reta, tênis simples limpo. Casual moderno, zero esforço, presença anormal.</div></div></div>
+      <div class="appear-row"><div class="appear-icon">🌫️</div><div class="appear-content"><div class="appear-label">Aura</div><div class="appear-text">Ar fica pesado, sons diminuem, leve pressão constante. Pessoas próximas sentem desconforto e alerta involuntário.</div></div></div>
     </div>
   </div>
 
@@ -902,7 +979,7 @@
     <div class="power-card">
       <div class="power-title">Shinkai — Vontade Absoluta</div>
       <div class="power-jp">真界 · Controle do resultado direto de ações em combate</div>
-      <div class="power-body">O poder mais importante de Kuroshin. Golpes passam a acertar, defesas falham no ponto certo, ataques inimigos perdem eficiência, trocas ficam inevitavelmente favoráveis. Não apaga existência — cria vantagem inevitável dentro do alcance de combate.</div>
+      <div class="power-body">Golpes passam a acertar, defesas falham no ponto certo, ataques inimigos perdem eficiência, trocas ficam inevitavelmente favoráveis.</div>
       <div class="power-example">⚠️ Limites: alcance de combate · não altera tudo ao mesmo tempo · exige foco concentrado</div>
     </div>
   </div>
@@ -910,38 +987,27 @@
   <div class="section">
     <div class="section-title">Poder Ocular</div>
     <div class="grid2">
-      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Primordial</div><div class="card-body">Uso ilimitado, sem desgaste. Leitura avançada de movimentos, genjutsu refinado, antecipação de ações antes de serem executadas.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Ômega</div><div class="card-body">Percepção de chakra, energia, movimento e intenção.<br><br><span style="font-size:11px">⚫ Absorção de ninjutsu</span><br><span style="font-size:11px">🧲 Manipulação gravitacional</span><br><span style="font-size:11px">🌀 Teleporte curto/médio alcance</span><br><span style="font-size:11px">🧠 Análise rápida de padrões</span></div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Primordial</div><div class="card-body">Uso ilimitado, sem desgaste. Leitura avançada de movimentos, genjutsu refinado, antecipação de ações.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinne-Sharingan Ômega</div><div class="card-body">Percepção de chakra, energia, movimento e intenção.<br><br><span style="font-size:11px">⚫ Absorção de ninjutsu</span><br><span style="font-size:11px">🧲 Manipulação gravitacional</span><br><span style="font-size:11px">🌀 Teleporte curto/médio alcance</span></div></div>
     </div>
   </div>
 
   <div class="section">
     <div class="section-title">Atributos de Combate</div>
     <div class="card">
-      <div class="ability-bar"><div class="ability-label"><span>Velocidade</span><span>95/100</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
-      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>92/100</span></div><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
-      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Inteligência Tática</span><span>98/100</span></div><div class="bar-track"><div class="bar-fill" style="width:98%"></div></div></div>
-      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>97/100</span></div><div class="bar-track"><div class="bar-fill" style="width:97%"></div></div></div>
-      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Defesa / Resistência</span><span>80/100</span></div><div class="bar-track"><div class="bar-fill" style="width:80%"></div></div></div>
+      <div class="ability-bar"><div class="ability-label"><span>Velocidade</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Inteligência Tática</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Defesa / Resistência</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
     </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Afinidades Elementais</div>
-    <div class="elem-row">
-      <div class="elem" style="border-color:#2a5a00"><div class="elem-name">🌿 Mokuton Negro</div><div class="elem-desc">Invisível, absorve chakra, se adapta. Raízes dominam o campo sem serem vistas.</div></div>
-      <div class="elem" style="border-color:#6a1a00"><div class="elem-name">🔥 Katon Comprimido</div><div class="elem-desc">Fogo surge de estruturas invisíveis sem aviso — complementa a madeira negra.</div></div>
-      <div class="elem" style="border-color:#3a3a80"><div class="elem-name">⚡💧 Raiton + Suiton</div><div class="elem-desc">Velocidade, perfuração elétrica. Suiton amplifica os ataques do Lobo em sinergia.</div></div>
-    </div>
-    <div class="synergy">Campo invisível + tempestade viva + pressão constante — o terreno obedece a Kuroshin</div>
   </div>
 
   <div class="section">
     <div class="section-title">Jinchūriki — Raijū Suiryū no Ōkami</div>
     <div class="biju-card">
       <div class="biju-title">🐺 Lobo Tempestuoso Primordial</div>
-      <div class="biju-jp">雷獣水龍の狼 · Raiton + Suiton + Chakra Primordial · Uma tempestade viva com forma de predador</div>
-      <div class="card-body" style="font-size:12px;margin-bottom:10px">Lobo gigante — corpo de água densa em movimento, relâmpagos correndo internamente, partes que se desfazem e recombinam. Inteligente, predador puro, sincronizado com Kuroshin. Combate conjunto: Kuroshin controla, o Lobo pressiona e finaliza.</div>
+      <div class="biju-jp">雷獣水龍の狼 · Uma tempestade viva com forma de predador</div>
       <div class="biju-grid">
         <div class="biju-ability"><div class="biju-ability-name">⚡ Mordida Tempestuosa</div><div class="biju-ability-desc">Impacto elétrico + pressão de água. Dano interno intenso.</div></div>
         <div class="biju-ability"><div class="biju-ability-name">💧 Corpo Fluido</div><div class="biju-ability-desc">Reduz dano físico. Reforma partes destruídas continuamente.</div></div>
@@ -952,63 +1018,381 @@
   </div>
 
   <div class="section">
-    <div class="section-title">Modo Jinchūriki — Forma Tempestuosa</div>
-    <div class="jinc-card">
-      <div class="jinc-header">
-        <span class="jinc-emblem">🐺</span>
-        <div><div class="jinc-title">Encarnação do Lobo Primordial</div><div class="jinc-sub">Fusão total · Kuroshin + Raijū Suiryū no Ōkami</div></div>
-      </div>
-      <div class="jinc-body">Chakra negro e azul elétrico envolve o corpo. Marcas surgem pela pele, relâmpagos refletem nos olhos. O vento ao redor começa a se mover e a água no ambiente reage. Velocidade extrema, regeneração elevada, sensoriamento completo. E Kuroshin continua sem mudar a expressão — isso deixa tudo mais pesado.</div>
-      <div class="jinc-grid">
-        <div class="jinc-item"><div class="jinc-item-name">Regeneração Elevada</div><div class="jinc-item-desc">Recuperação contínua pelo chakra conjunto do Lobo</div></div>
-        <div class="jinc-item"><div class="jinc-item-name">Velocidade Extrema</div><div class="jinc-item-desc">Movimentos quase imperceptíveis — herança elétrica do Okami</div></div>
-        <div class="jinc-item"><div class="jinc-item-name">Sensoriamento Completo</div><div class="jinc-item-desc">Chakra, intenção e presença detectados no campo inteiro</div></div>
-        <div class="jinc-item"><div class="jinc-item-name">Pressão Constante</div><div class="jinc-item-desc">Aura tempestuosa desestabiliza inimigos próximos automaticamente</div></div>
-      </div>
-      <div class="jinc-aura">Relâmpagos azuis faíscam nos olhos — o Lobo manifesta-se e Kuroshin segue calmo</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Técnicas &amp; Arsenal</div>
-    <div class="grid2">
-      <div class="card"><div class="card-title"><span class="dot"></span>🌑 Floresta Invisível</div><div class="card-body">Raízes de Mokuton invisíveis dominam o campo inteiro sem aviso visual.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>🔥🌿 Inferno Oculto</div><div class="card-body">Fogo comprimido surge das estruturas invisíveis sem qualquer sinal prévio.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>💧⚡ Mar da Tempestade</div><div class="card-body">Água e eletricidade em larga escala — campo de combate instável e letal.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>🌿⚡🔥 Trindade Primordial</div><div class="card-body">Avatar elemental autônomo — três elementos em forma independente e sincronizada.</div></div>
-    </div>
-    <div class="weapon-card" style="margin-top:12px">
-      <div class="weapon-name">🕳️ Lâmina do Vazio Primordial</div>
-      <div class="weapon-type">Arma Principal · Corta matéria e chakra</div>
-      <div class="weapon-body">Ignora defesas comuns. Ataques rápidos e precisos — cada golpe guiado pelo Shinkai para resultado inevitável.</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Susanoo — Deus Invisível da Madeira Negra</div>
-    <div class="card"><div class="card-title"><span class="dot"></span>Chakra + Mokuton Invisível</div><div class="card-body"><strong>Defesa impossível de ler.</strong> Estrutura invisível real — o inimigo não sabe o que bloquear. Regeneração rápida, núcleo com disparos massivos, revestimento de fogo e espada invisível. Campo inteiro sob domínio escuro.</div></div>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Fraquezas</div>
-    <div class="grid2">
-      <div class="card"><div class="card-title"><span class="dot"></span>Ainda Criança</div><div class="card-body">Decisões com lógica de garoto. Pode subestimar consequências emocionais de escolhas em combate.</div></div>
-      <div class="card"><div class="card-title"><span class="dot"></span>Alto Consumo</div><div class="card-body">Técnicas grandes consomem chakra intensamente. Pode ser pressionado por múltiplos inimigos simultâneos.</div></div>
-    </div>
-  </div>
-
-  <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <div style="font-size:12px;margin-bottom:8px;opacity:0.6">Classificação</div>
-      <span class="level-badge">Nível Lendário — Potencial em Crescimento</span>
-      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Muito acima de ninjas comuns.<br>Comparável a versões altas de Madara Uchiha.<br>Potencial ainda não atingiu o limite.</div>
+      <span class="level-badge">Nível Absoluto — Limite Máximo Auge — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo absoluto.<br>Poder equivalente ao dos maiores Uchiha da história.<br>Limite atingido — nenhuma barreira além deste ponto.</div>
     </div>
   </div>
 
   <div class="essence-bar">
     <div class="essence-label">Essência</div>
     <div class="essence-items"><span>Silêncio que pesa</span><span style="opacity:0.3">·</span><span>Tempestade com forma</span><span style="opacity:0.3">·</span><span>Vantagem inevitável</span></div>
+  </div>
+</div></div>
+
+<!-- ===================== AIKO ===================== -->
+<div class="panel" id="panel-aik"><div class="root">
+  <div class="hero">
+    <span class="hero-emblem">🐯</span>
+    <div class="hero-name">Aiko Uchiha</div>
+    <div class="hero-sub">18 anos · Clã Uchiha · A Predadora do Tempo</div>
+    <div class="tag-row">
+      <span class="tag">Rinne-Sharingan Primordial</span>
+      <span class="tag">Tigre de 11 Caudas</span>
+      <span class="tag">Amaterasu Absoluto</span>
+      <span class="tag">Domínio Temporal</span>
+    </div>
+    <div class="quote">"O passado me tentou a destruir tudo. Escolhi proteger. Mas não confunda escolha com fraqueza."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Linhagem & Família</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Origem</div><div class="card-body">Filha biológica de <strong>Eduardo Uchiha</strong> (Jinchūriki da Fênix de Fogo de Dez Caudas) e <strong>Konan</strong> (ex-Akatsuki). Madrasta: <strong>Raquel Hyūga</strong>. Irmã de sangue de Kuroshin Uchiha (19 anos) e Akari Uchiha-Hyūga (17 anos).</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Idade & Altura</div><div class="card-body">18 anos · 1,72 m<br><br>Herdou os traços etéreos de Konan e a presença magnética e intensa de Eduardo — beleza que intimida antes de qualquer palavra.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência Física</div>
+    <div class="appear-card">
+      <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Preto curto e bagunçado, com algumas mechas mais longas nas laterais — dando um ar selvagem e determinado. Natural e feral, como uma predadora que não perde tempo com frivolidades.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos — Rinne-Sharingan Primordial</div><div class="appear-text">Em repouso: olhar penetrante e hipnótico herdado de Eduardo. Quando ativado: íris roxa profunda com o padrão completo do Rinnegan — anéis concêntricos e tomoe sobrepostos pulsam lentamente, irradiando uma sensação de inevitabilidade e perigo. Glow roxo-escuro com veios carmesim no limbo.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Feições finas e elegantes como as de Konan — pele clara e suave, lábios bem desenhados, queixo delicado. Olhos grandes e expressivos com aquele olhar que para o ar ao redor.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">💪</span><div class="appear-content"><div class="appear-label">Corpo</div><div class="appear-text">Atlético e bem definido pelos anos de treinamento intenso no Vazio Eterno, com curvas femininas elegantes. Cicatrizes discretas de treinamento — a regeneração quase infinita as mantém sutis.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🖤</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Top preto justo sem mangas (tank top cropped). Calça preta justa de combate com tiras funcionais. Cinto largo marrom. Luvas pretas sem dedos. Jaqueta preta longa e rasgada estilo trench coat destruído — usada aberta. Botas pretas de cano alto. Visual: força, praticidade e beleza fria intimidante.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🟠</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Quando o Rinne-Sharingan Primordial ativa: véu roxo-escuro pulsa ao redor do corpo. No Modo Jinchūriki: chakra laranja-escuro com listras pretas envolve a silhueta inteira — garras e presas de energia brilham nas extremidades.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personalidade</div>
+    <div class="personality-split">
+      <div class="personality-card modo-combat">
+        <span class="personality-mode">🐯 Modo Predatório</span>
+        <div class="personality-title">Feral. Inevitável.</div>
+        <div class="personality-body">Em combate, Aiko luta como um tigre caçando — rápida, precisa, usando o tempo como arma principal. A fúria da Tigre de 11 Caudas pulsa abaixo da superfície, mas ela a direciona com precisão cirúrgica. Resquícios da maldição de Indra surgem como raiva intensa, mas são controlados por força de vontade inabalável.</div>
+      </div>
+      <div class="personality-card modo-social">
+        <span class="personality-mode">🤍 Fora de Combate</span>
+        <div class="personality-title">Protetora. Difícil de abrir.</div>
+        <div class="personality-body">Escolheu o bem, mas carrega cicatrizes profundas do ódio que quase a consumiu. Direta e protetora ao extremo com a família — especialmente com Kuroshin, Akari e Raquel. Tem dificuldade genuína em demonstrar afeto, mas agiria sem hesitar para defender quem ama.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular Central</div>
+    <div class="power-card">
+      <div class="power-title">Rinne-Sharingan Primordial</div>
+      <div class="power-jp">輪廻写輪眼·原初 · Dōjutsu da linhagem de Indra e dos Seis Caminhos</div>
+      <div class="power-body">A forma mais elevada do Sharingan fundida com o poder do Rinnegan. Íris roxa profunda com anéis concêntricos completos e tomoe sobrepostos — percepção absoluta de chakra, espaço, causalidade e fluxo temporal. Base para o Amaterasu Absoluto e o domínio temporal pessoal de Aiko.</div>
+      <div class="power-example">
+        · <strong>Amaterasu Absoluto aprimorado</strong> → chamas negras moldáveis com propriedades temporais<br>
+        · <strong>Rei no Hōkai</strong> → portais negros que redirecionam ou revertem o tempo de ataques (defesa perfeita)<br>
+        · <strong>Domínio temporal pessoal avançado</strong> → percepção e manipulação do fluxo do tempo<br>
+        · <strong>Absorção total de ninjutsu</strong> + manipulação gravitacional
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Uso Ilimitado</div><div class="card-body">Rinne-Sharingan Primordial ativo sem cegueira ou desgaste. Técnicas oculares fluem com a mesma naturalidade que respirar.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rei no Hōkai — Portais da Ruptura</div><div class="card-body">Portais negros que capturam e redirecionam ataques — ou revertem o tempo de técnicas inimigas antes do impacto. <strong>Defesa perfeita com custo zero.</strong></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Velocidade Predatória</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Temporal</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Regeneração Quase Infinita</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#6a0a5a"><div class="elem-name">Katon + Amaterasu Temporal</div><div class="elem-desc">Chamas negras moldáveis com propriedades temporais — queimam no passado, presente e futuro simultaneamente.</div></div>
+      <div class="elem" style="border-color:#4a0840"><div class="elem-name">Inton + Onmyōton Avançado</div><div class="elem-desc">Manipulação de sombra e equilíbrio primordial. Base para o domínio temporal e os portais do Rei no Hōkai.</div></div>
+      <div class="elem" style="border-color:#380630"><div class="elem-name">Todos os Elementos</div><div class="elem-desc">Katon, Suiton, Doton, Fūton, Raiton, Mokuton, Yōton, Hyōton, Bakuton, Inton, Yang, Onmyōton Avançado.</div></div>
+    </div>
+    <div class="synergy">Rinne-Sharingan percebe o momento → Amaterasu Temporal penetra → Rei no Hōkai nega qualquer contra-ataque</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jinchūriki — Tigre de 11 Caudas</div>
+    <div class="biju-card">
+      <div class="biju-title">Tigre de 11 Caudas</div>
+      <div class="biju-jp">十一尾の虎 · Chakra selvagem, fúria controlada, instinto predatório absoluto</div>
+      <div class="card-body" style="font-size:12px;margin-bottom:10px">Entidade primordial de poder bruto e instinto de caça. A Tigre combina fúria e precisão — age como extensão de Aiko em campo, manifestando-se parcialmente como entidade independente enquanto ambas lutam em sincronia.</div>
+      <div class="biju-grid">
+        <div class="biju-ability"><div class="biju-ability-name">Manto Laranja-Escuro</div><div class="biju-ability-desc">Chakra selvagem com listras pretas — garras e presas de energia, força e velocidade predatória absurda</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Regeneração Extrema</div><div class="biju-ability-desc">Recuperação quase infinita de danos — cicatrizes mal se formam antes de desaparecerem</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Manifestação Parcial</div><div class="biju-ability-desc">A Tigre luta como entidade independente ao lado de Aiko — dois predadores num só campo</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Instinto Predatório Absoluto</div><div class="biju-ability-desc">Percepção de caça elevada ao máximo — inimigos são rastreados sem possibilidade de fuga</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Forma Jinchūriki Completa — Modo Besta</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">🐯</span>
+        <div><div class="jinc-title">Encarnação da Tigre Primordial</div><div class="jinc-sub">Fusão total · Aiko + Tigre de 11 Caudas</div></div>
+      </div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Tigre em plenitude, o corpo de Aiko é revestido por chakra laranja-escuro denso com listras pretas energéticas. Garras e presas de energia surgem das extremidades. O cabelo preto se agita com a pressão do chakra, o Rinne-Sharingan Primordial pulsa mais intenso — roxo profundo com veios carmesim. A Tigre manifesta-se em tamanho colossal ao seu lado, caçando de forma autônoma enquanto Aiko combate com controle temporal absoluto. Juntas, são uma tempestade de instinto e precisão.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Manto Bijū Laranja-Preto</div><div class="jinc-item-desc">Chakra selvagem denso — absorve impactos e amplia força, velocidade e garras</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Amaterasu Temporal Bijū</div><div class="jinc-item-desc">Chamas negras em escala de 11 caudas — queimam através de defesas e dimensões temporais</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Regeneração Bijū Absoluta</div><div class="jinc-item-desc">Aiko e a Tigre se reconstituem mutuamente de forma contínua e automática</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Garra do Vazio em Escala</div><div class="jinc-item-desc">Golpe que combina força bijū com domínio temporal — rasga o alvo e desacelera sua regeneração</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Pressão Predatória Dupla</div><div class="jinc-item-desc">Instinto de caça amplificado — inimigos sentem o peso de dois predadores simultaneamente</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Rei no Hōkai Amplificado</div><div class="jinc-item-desc">Portais temporais em escala bijū — reverte ou redireciona qualquer ataque de nível bijū</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: chakra laranja-escuro com listras pretas pulsando — o ar ao redor cheira a fogo e instinto puro</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Tigre Esquelético das Sombras Eternas</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">💀</span>
+        <div><div class="jinc-title">Tigre Esquelético das Sombras Eternas</div><div class="jinc-sub">Susanoo Completo · Manifestação da Tigre e do Rinne-Sharingan</div></div>
+      </div>
+      <div class="jinc-body">Susanoo esquelético puro com forte temática de tigre. Corpo negro-prateado com listras flamejantes azuis que parecem veias de fogo primordial. Cabeça de tigre esquelética com presas longas e olhos brilhando com o Rinne-Sharingan Primordial. Asas esqueléticas de sombra e fogo primordial nas costas permitem voo e ataques aéreos devastadores.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Corpo Negro-Prateado</div><div class="jinc-item-desc">Costelas e coluna vertebral visíveis — visual de tigre esquelético que voltou do além</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Cauda Chicote Temporal</div><div class="jinc-item-desc">Cauda longa de chakra sólido que desacelera o tempo ao redor do alvo ao acertar</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Asas Esqueléticas</div><div class="jinc-item-desc">Sombra e fogo primordial — voo irrestrito e ataques aéreos devastadores</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Espadas Kōjin no Ha Duplas</div><div class="jinc-item-desc">Duas espadas curvas fundidas com a lâmina — cortam espaço-tempo e aplicam Amaterasu temporal</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Garra do Vazio</div><div class="jinc-item-desc">Golpe que combina força física da Tigre com domínio temporal — rasga e desacelera a regeneração simultaneamente</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Olhos do Rinne-Sharingan</div><div class="jinc-item-desc">O Susanoo enxerga com o dojutsu completo — nenhum ataque, domínio ou fuga passa despercebido</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: listras de fogo azul pulsam nas costelas — sombras ao redor se movem como predadores independentes</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal</div>
+    <div class="weapon-card">
+      <div class="weapon-name">Kōjin no Ha — Lâmina do Fogo Divino</div>
+      <div class="weapon-type">Katana Principal · Lâmina Negra com Veios Dourados e Prateados</div>
+      <div class="weapon-body">Katana negra com veios dourados e prateados. Habilidades: <strong>Chidori Envolvente</strong> — revestimento de raios que perfuram chakra; <strong>Tatsumaki Ryū</strong> — redemoinho cortante de chakra; <strong>Amaterasu Vinculado</strong> — chamas negras propagadas pelo corte; <strong>Fusão Temporal</strong> — a lâmina corta no tempo além do espaço.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Estilo de Combate</div>
+    <div class="power-card">
+      <div class="power-title">Predatório e Inevitável</div>
+      <div class="power-jp">Tigre que caça · Tempo como arma</div>
+      <div class="power-body">Aiko luta como um tigre caçando: rápida, precisa, silenciosa antes do golpe final. Combina a fúria selvagem da Tigre de 11 Caudas com o controle ocular e temporal do Rinne-Sharingan Primordial. Cada movimento é calculado — o tempo ao redor do inimigo já está sendo manipulado antes que percebam. Ofensiva, mas com defesa perfeita pelo Rei no Hōkai: atacar Aiko é um erro causal, não apenas tático.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <span class="level-badge">Nível Absoluto — Limite Máximo Auge — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Filha do Jinchūriki mais poderoso da linhagem.<br>Rinne-Sharingan Primordial + Tigre de 11 Caudas.<br>Tempo, chamas e instinto: nada escapa.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Predadora do tempo</span><span style="opacity:0.3">·</span><span>Chamas que não perdoam</span><span style="opacity:0.3">·</span><span>Proteção que consome</span></div>
+  </div>
+
+</div></div>
+
+<!-- ===================== AKARI ===================== -->
+<div class="panel" id="panel-aka"><div class="root">
+  <div class="hero">
+    <span class="hero-emblem">🖤</span>
+    <div class="hero-name">Akari Uchiha-Hyūga</div>
+    <div class="hero-sub">17 anos · Filha de Eduardo & Raquel Hyūga · A Pantera Silenciosa</div>
+    <div class="tag-row">
+      <span class="tag">Tenseigan + Mangekyō Primordial</span>
+      <span class="tag">Pantera Preta de 12 Caudas</span>
+      <span class="tag">Onmyōton Avançado</span>
+      <span class="tag">Night Silent</span>
+    </div>
+    <div class="quote">"Em família sou a luz. Em batalha, sou o que você não viu chegar."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Linhagem & Família</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Origem</div><div class="card-body">Filha biológica de <strong>Eduardo Uchiha</strong> (Jinchūriki da Fênix de Fogo de Dez Caudas) e <strong>Raquel Hyūga</strong>. Irmã mais nova de <strong>Aiko Uchiha (18 anos)</strong>. Irmã mais nova de <strong>Kuroshin Uchiha (19 anos)</strong>. Herdeira de duas linhagens lendárias: Uchiha e Hyūga.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Idade & Altura</div><div class="card-body">17 anos · 1,65 m<br><br>Mistura perfeita entre a beleza serena e delicada de Raquel Hyūga e a presença forte, carismática e penetrante de Eduardo — luminosa, elegante e sutilmente perigosa.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência Física</div>
+    <div class="appear-card">
+      <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Preto curto e liso, com franja reta e irregular — estilo simples e prático. Algumas mechas caem naturalmente sobre a testa e as laterais do rosto.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos — Tenseigan + Mangekyō Sharingan Primordial</div><div class="appear-text">Em repouso: cinza-claro por trás de óculos redondos de armação fina preta. Quando ativados: veias brancas do Byakugan/Tenseigan com tomoe dourados do Sharingan girando dentro — padrão híbrido elegante e hipnótico.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços finos e harmoniosos. Olhos grandes e penetrantes herdados de Eduardo, com a suavidade delicada e serena de Raquel. Nariz pequeno, lábios suaves, queixo delicado. Quando sorri, o rosto inteiro se ilumina de forma contagiante.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">💪</span><div class="appear-content"><div class="appear-label">Corpo</div><div class="appear-text">1,65 m · corpo esguio e atlético com movimentos silenciosos e precisos. Curvas femininas suaves e naturais resultado de treinamento equilibrado.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🖤</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Blusa preta de manga longa justa, gola alta. Calça jeans azul escura simples. Tênis verde-água. Colar dourado com crucifixo. Pulseiras douradas finas nos pulsos. Visual casual e discreto — parece estudante comum, mas com aura sutilmente perigosa e elegante.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🌑</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra negro-azulado com manchas de pantera envolve o corpo. No Modo Jinchūriki: manchas de energia escura pulsam pela pele, olhos brilham com o padrão híbrido Tenseigan-Mangekyō e a Pantera manifesta-se ao lado como entidade autônoma.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personalidade</div>
+    <div class="personality-split">
+      <div class="personality-card modo-combat">
+        <span class="personality-mode">🐆 Modo Pantera</span>
+        <div class="personality-title">Silenciosa. Implacável.</div>
+        <div class="personality-body">Em combate, Akari muda completamente. Silenciosa, focada e predatória. A voz fica mais baixa e fria. Não há mais hesitação ou gentileza — luta como pantera caçando: eficiente, furtiva e precisa. Usa o mínimo de palavras possível. Demonstra frieza calculada e determinação quase assustadora.</div>
+      </div>
+      <div class="personality-card modo-social">
+        <span class="personality-mode">✨ Luz da Casa</span>
+        <div class="personality-title">Luminosa. Carinhosa. O coração da família.</div>
+        <div class="personality-body">Transforma qualquer ambiente em algo mais quente e vivo. Conversa muito, escuta com atenção genuína, abraça todo mundo várias vezes ao dia. Zoa carinhosamente os irmãos, faz piadas leves, conta histórias da academia. Com Aiko é protetora; com Kuroshin é admiradora e brincalhona. Onde ela passa, vira uma luz.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular Central</div>
+    <div class="power-card">
+      <div class="power-title">Tenseigan + Mangekyō Sharingan Primordial</div>
+      <div class="power-jp">転生眼·写輪眼·原初 · Fusão rara e poderosa das duas linhagens</div>
+      <div class="power-body">Fusão única entre o Tenseigan dos Hyūga e o Mangekyō Sharingan Primordial dos Uchiha. Veias brancas do Byakugan/Tenseigan com tomoe dourados girando — padrão híbrido hipnótico que combina percepção absoluta do Tenseigan com o poder destrutivo e ocular do Mangekyō. Uso ilimitado, sem cegueira ou desgaste.</div>
+      <div class="power-example">
+        · <strong>Tenseigan</strong> → visão de 360°, percepção de chakra e pontos vitais absoluta<br>
+        · <strong>Amaterasu Vinculado</strong> → chamas negras canalizadas pela lâmina Night Silent<br>
+        · <strong>Genjutsu híbrido</strong> → ilusões que combinam o peso do Tenseigan com a profundidade do Sharingan<br>
+        · <strong>Corte temporal</strong> → capacidade de atacar no espaço-tempo através da lâmina
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Tenseigan Ativo</div><div class="card-body">Visão de 360° sem ponto cego. Percepção absoluta de pontos de chakra e pontos vitais. Movimento de força cósmica — <strong>gravidade e energia vital</strong> sob controle direto.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Primordial</div><div class="card-body">Amaterasu Vinculado + Susanoo Completo + Genjutsu de precisão extrema.<br><br><span style="font-size:11px">🌑 Furtividade ocular absoluta</span><br><span style="font-size:11px">⚔️ Corte espaço-temporal</span><br><span style="font-size:11px">🔥 Chamas negras em silêncio</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Velocidade & Furtividade</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Precisão & Instinto Predatório</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Controle Ocular</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Regeneração Bijū</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#0a4a2a"><div class="elem-name">Katon + Suiton + Raiton</div><div class="elem-desc">Base de ataque — fogo, água e relâmpago canalizados com precisão predatória.</div></div>
+      <div class="elem" style="border-color:#085a30"><div class="elem-name">Mokuton + Bakuton + Hyōton</div><div class="elem-desc">Controle avançado do campo — madeira, explosão e gelo para domínio de terreno.</div></div>
+      <div class="elem" style="border-color:#064020"><div class="elem-name">Inton + Yang + Onmyōton Avançado</div><div class="elem-desc">Poder primordial de linhagem. Base para furtividade absoluta e chakra sombrio da Pantera.</div></div>
+    </div>
+    <div class="synergy">Tenseigan localiza o ponto vital → Night Silent corta no silêncio → Amaterasu sela o alvo</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jinchūriki — Pantera Preta de 12 Caudas</div>
+    <div class="biju-card">
+      <div class="biju-title">Pantera Preta de 12 Caudas</div>
+      <div class="biju-jp">十二尾の黒豹 · Chakra sombrio · Furtividade absoluta · Instinto predatório letal</div>
+      <div class="card-body" style="font-size:12px;margin-bottom:10px">Entidade primordial de chakra negro-azulado, ágil, silenciosa e letal. Representa furtividade absoluta, instinto predatório e poder oculto. Akari e a Pantera compartilham consciência perfeita — duas predadoras em uníssono.</div>
+      <div class="biju-grid">
+        <div class="biju-ability"><div class="biju-ability-name">Manto Sombrio</div><div class="biju-ability-desc">Chakra negro-azulado com manchas de pantera — velocidade extrema e furtividade absoluta no campo</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Regeneração Poderosa</div><div class="biju-ability-desc">Recuperação contínua de danos — compartilhada entre Akari e a Pantera mutuamente</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Manifestação Paralela</div><div class="biju-ability-desc">A Pantera luta como entidade autônoma ao lado de Akari — duas predadoras no mesmo campo</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Instinto Predatório Letal</div><div class="biju-ability-desc">Percepção de caça elevada ao máximo — rastreamento absoluto, fuga impossível</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Forma Jinchūriki Completa — Modo Besta</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">🐆</span>
+        <div><div class="jinc-title">Encarnação da Pantera Primordial</div><div class="jinc-sub">Fusão total · Akari + Pantera Preta de 12 Caudas</div></div>
+      </div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Pantera em plenitude, o corpo de Akari é revestido por chakra negro-azulado denso com manchas de energia escura pulsando. Garras de sombra surgem das mãos, os óculos desaparecem — o padrão Tenseigan-Mangekyō brilha em verde-dourado hipnótico. A Pantera manifesta-se em tamanho colossal ao lado, caçando de forma autônoma enquanto Akari golpeia em silêncio absoluto. Juntas, são invisíveis até o momento do golpe fatal.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Manto Bijū Sombrio</div><div class="jinc-item-desc">Chakra negro-azulado denso — absorve impactos, amplifica velocidade e furtividade ao extremo</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Amaterasu Bijū Silencioso</div><div class="jinc-item-desc">Chamas negras em escala de 12 caudas — sem som, sem aviso, sem escape</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Regeneração Bijū Absoluta</div><div class="jinc-item-desc">Akari e a Pantera se reconstituem mutuamente de forma contínua e automática</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Garra Sombria em Escala</div><div class="jinc-item-desc">Golpe que combina força bijū com precisão do Tenseigan — destrói pontos de chakra com exatidão</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Pressão Predatória Dupla</div><div class="jinc-item-desc">Instinto de caça amplificado — inimigos sentem o peso de duas predadoras invisíveis</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Night Silent em Escala Bijū</div><div class="jinc-item-desc">Lâmina amplificada pelo chakra bijū — cortes que rasgam espaço-tempo em silêncio absoluto</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: chakra negro-azulado com manchas pulsando — o ar ao redor fica pesado e silencioso como antes de uma caçada</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Pantera Esquelética das Sombras Eternas</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">💀</span>
+        <div><div class="jinc-title">Pantera Esquelética das Sombras Eternas</div><div class="jinc-sub">Susanoo Completo · Manifestação da Pantera e do Tenseigan-Mangekyō</div></div>
+      </div>
+      <div class="jinc-body">Susanoo esquelético de corpo negro-esverdeado com manchas de pantera energéticas pulsando nas costelas. Cabeça de pantera esquelética com presas longas e olhos brilhando com o padrão Tenseigan-Mangekyō em verde-dourado. Movimentos silenciosos e fluidos — ao contrário de outros Susanoos, não emite som ao se mover. Asas esqueléticas sombrias permitem voo e ataques aéreos furtivos.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Corpo Negro-Esverdeado</div><div class="jinc-item-desc">Costelas e coluna de pantera esquelética — manchas de energia sombria pulsam como veias</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Cauda Chicote Sombria</div><div class="jinc-item-desc">Cauda longa de chakra negro sólido — destrói pontos de chakra ao acertar com precisão do Tenseigan</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Asas Esqueléticas Silenciosas</div><div class="jinc-item-desc">Sombra pura — voo absolutamente silencioso, ataques aéreos sem aviso algum</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Night Silent Amplificado</div><div class="jinc-item-desc">Lâmina empunhada pelo Susanoo — escala de 12 caudas, corta espaço-tempo em silêncio</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Garra de Ponto Vital</div><div class="jinc-item-desc">Tenseigan guia as garras para pontos críticos de chakra — paralisia ou destruição instantânea</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Olhos do Tenseigan-Mangekyō</div><div class="jinc-item-desc">O Susanoo enxerga com o dojutsu híbrido completo — nenhum movimento, chakra ou fuga passa despercebido</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: manchas de energia sombria pulsam nas costelas — o Susanoo não faz som ao se mover</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal</div>
+    <div class="weapon-card">
+      <div class="weapon-name">Night Silent — Lâmina do Silêncio Eterno</div>
+      <div class="weapon-type">Sabre Principal · Lâmina Negra com Veios Prateados</div>
+      <div class="weapon-body">Sabre longo e elegante de lâmina negra com veios prateados. Leve, extremamente afiado e quase silencioso ao ser brandido. Habilidades: <strong>Amaterasu Vinculado</strong> — chamas negras propagadas pelo corte sem som; <strong>Corte Temporal</strong> — a lâmina ataca no espaço-tempo além do espaço físico; <strong>Furtividade Absoluta</strong> — o sabre não reflete luz nem emite som em movimento.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Estilo de Combate</div>
+    <div class="power-card">
+      <div class="power-title">Silencioso e Inevitável</div>
+      <div class="power-jp">Pantera que caça · Golpe que não se ouve · Presença que não se vê</div>
+      <div class="power-body">Akari luta como uma pantera caçando: silenciosa, furtiva, precisa — o golpe fatal chega antes do inimigo perceber que foi detectado. O Tenseigan localiza todos os pontos vitais em tempo real; a Pantera força o inimigo a reagir em duas frentes simultâneas; o Night Silent corta em silêncio absoluto. Não há confronto direto desnecessário — há predação calculada até o fim inevitável.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <span class="level-badge">Nível Absoluto — Limite Máximo Auge — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Filha de Eduardo Uchiha e Raquel Hyūga — duas linhagens lendárias em uma.<br>Tenseigan + Mangekyō Primordial + Pantera de 12 Caudas.<br>Furtividade, precisão e poder: você não vê chegar.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Luz em família</span><span style="opacity:0.3">·</span><span>Sombra em batalha</span><span style="opacity:0.3">·</span><span>Golpe que nunca se ouve</span></div>
   </div>
 
 </div></div>
