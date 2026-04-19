@@ -88,6 +88,9 @@
   .tab-miz { background: #060010; color: var(--miz-muted); border-left: 1px solid #111; }
   .tab-miz.active, .tab-miz:hover { background: var(--miz-bg); color: var(--miz-accent); }
   .tab-miz.active::after { background: var(--miz-accent); transform: scaleX(1); }
+  .tab-rot { background: #0a0800; color: #5a4a20; border-left: 1px solid #111; }
+  .tab-rot.active, .tab-rot:hover { background: #120f00; color: #d4a800; }
+  .tab-rot.active::after { background: #d4a800; transform: scaleX(1); }
 
   .panel { display: none; width: 100%; max-width: 720px; border: 1px solid #222; border-radius: 0 0 16px 16px; overflow: hidden; }
   .panel.active { display: block; animation: fadeIn 0.35s ease; }
@@ -630,6 +633,130 @@
     .hero-name { font-size: 18px; }
     .tab-btn { font-size: 10px; letter-spacing: 0.5px; padding: 10px 4px; }
   }
+
+  /* ===================== ROTEIRO ===================== */
+  #panel-rot { background: #0a0800; }
+  #panel-rot .root { color: #c8a870; }
+  #panel-rot .hero { background: linear-gradient(135deg, #0a0800 0%, #1e1400 50%, #050400 100%); }
+  #panel-rot .hero-name { color: #f0c840; }
+  #panel-rot .hero-sub { color: #6a5820; }
+  #panel-rot .section-title { color: #d4a800; border-color: #3a2e00; }
+  #panel-rot .card { background: #100d00; border-color: #3a2e00; }
+  #panel-rot .card-title { color: #f0c840; }
+  #panel-rot .card-body { color: #8a7840; }
+  #panel-rot .arc-card { border-radius: 14px; padding: 18px; border: 1px solid #3a2e00; background: #0e0b00; margin-bottom: 14px; }
+  #panel-rot .arc-num { font-size: 10px; text-transform: uppercase; letter-spacing: 3px; color: #5a4a18; margin-bottom: 4px; font-family: var(--font-title); }
+  #panel-rot .arc-title { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: #f0c840; margin-bottom: 6px; letter-spacing: 1px; }
+  #panel-rot .arc-subtitle { font-size: 11px; color: #7a6830; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+  #panel-rot .arc-body { font-size: 12px; line-height: 1.8; color: #9a8850; }
+  #panel-rot .arc-divider { border: none; border-top: 1px solid #2a2200; margin: 12px 0; }
+  #panel-rot .arc-detail { font-size: 12px; line-height: 1.75; color: #8a7840; }
+  #panel-rot .arc-highlight { color: #f0c840; font-weight: 600; }
+  #panel-rot .alliance-card { border-radius: 12px; padding: 16px; border: 1px solid #2a5a00; background: #080e00; margin-bottom: 12px; }
+  #panel-rot .alliance-title { font-family: var(--font-title); font-size: 14px; font-weight: 600; color: #80d040; margin-bottom: 8px; }
+  #panel-rot .alliance-body { font-size: 12px; line-height: 1.75; color: #5a8030; }
+  #panel-rot .susanoo-card { border-radius: 14px; padding: 18px; border: 1px solid; margin-bottom: 14px; }
+  #panel-rot .sus-title { font-family: var(--font-title); font-size: 15px; font-weight: 700; margin-bottom: 3px; letter-spacing: 1px; }
+  #panel-rot .sus-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.6; }
+  #panel-rot .sus-body { font-size: 12px; line-height: 1.75; margin-bottom: 10px; }
+  #panel-rot .sus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  #panel-rot .sus-item { border-radius: 8px; padding: 10px; border: 1px solid; }
+  #panel-rot .sus-item-name { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+  #panel-rot .sus-item-desc { font-size: 11px; line-height: 1.5; opacity: 0.7; }
+  #panel-rot .sus-edu { border-color: #6b1c00; background: #0e0200; }
+  #panel-rot .sus-edu .sus-title { color: #ff9966; }
+  #panel-rot .sus-edu .sus-sub { color: #8a4a2a; }
+  #panel-rot .sus-edu .sus-body { color: #8a4a2a; }
+  #panel-rot .sus-edu .sus-item { background: #150300; border-color: #6b1c00; }
+  #panel-rot .sus-edu .sus-item-name { color: #ff6b2b; }
+  #panel-rot .sus-edu .sus-item-desc { color: #8a4a2a; }
+  #panel-rot .sus-gui { border-color: #0a3a6e; background: #00050e; }
+  #panel-rot .sus-gui .sus-title { color: #4dcfff; }
+  #panel-rot .sus-gui .sus-sub { color: #2a6a8a; }
+  #panel-rot .sus-gui .sus-body { color: #2a6a8a; }
+  #panel-rot .sus-gui .sus-item { background: #00080f; border-color: #0a3a6e; }
+  #panel-rot .sus-gui .sus-item-name { color: #4dcfff; }
+  #panel-rot .sus-gui .sus-item-desc { color: #2a6a8a; }
+  #panel-rot .sus-leo { border-color: #4a5a00; background: #070900; }
+  #panel-rot .sus-leo .sus-title { color: #c8e000; }
+  #panel-rot .sus-leo .sus-sub { color: #5a6a20; }
+  #panel-rot .sus-leo .sus-body { color: #5a6a20; }
+  #panel-rot .sus-leo .sus-item { background: #0a0c00; border-color: #4a5a00; }
+  #panel-rot .sus-leo .sus-item-name { color: #c8e000; }
+  #panel-rot .sus-leo .sus-item-desc { color: #5a6a20; }
+
+  /* Susanoo inside individual panels */
+  .susanoo-card { border-radius: 14px; padding: 18px; border: 1px solid; margin-bottom: 14px; }
+  .sus-title { font-family: var(--font-title); font-size: 15px; font-weight: 700; margin-bottom: 3px; letter-spacing: 1px; }
+  .sus-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; opacity: 0.6; }
+  .sus-body { font-size: 12px; line-height: 1.75; margin-bottom: 10px; }
+  .sus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+  .sus-item { border-radius: 8px; padding: 10px; border: 1px solid; }
+  .sus-item-name { font-size: 11px; font-weight: 600; margin-bottom: 3px; }
+  .sus-item-desc { font-size: 11px; line-height: 1.5; opacity: 0.7; }
+  #panel-edu .susanoo-card.sus-edu { border-color: #6b1c00; background: #0e0200; }
+  #panel-edu .sus-edu .sus-title { color: #ff9966; }
+  #panel-edu .sus-edu .sus-sub { color: #8a4a2a; }
+  #panel-edu .sus-edu .sus-body { color: #8a4a2a; }
+  #panel-edu .sus-edu .sus-item { background: #150300; border-color: #6b1c00; }
+  #panel-edu .sus-edu .sus-item-name { color: #ff6b2b; }
+  #panel-edu .sus-edu .sus-item-desc { color: #8a4a2a; }
+  #panel-gui .susanoo-card.sus-gui { border-color: #0a3a6e; background: #00050e; }
+  #panel-gui .sus-gui .sus-title { color: #4dcfff; }
+  #panel-gui .sus-gui .sus-sub { color: #2a6a8a; }
+  #panel-gui .sus-gui .sus-body { color: #2a6a8a; }
+  #panel-gui .sus-gui .sus-item { background: #00080f; border-color: #0a3a6e; }
+  #panel-gui .sus-gui .sus-item-name { color: #4dcfff; }
+  #panel-gui .sus-gui .sus-item-desc { color: #2a6a8a; }
+  #panel-leo .susanoo-card.sus-leo { border-color: #4a5a00; background: #070900; }
+  #panel-leo .sus-leo .sus-title { color: #c8e000; }
+  #panel-leo .sus-leo .sus-sub { color: #5a6a20; }
+  #panel-leo .sus-leo .sus-body { color: #5a6a20; }
+  #panel-leo .sus-leo .sus-item { background: #0a0c00; border-color: #4a5a00; }
+  #panel-leo .sus-leo .sus-item-name { color: #c8e000; }
+  #panel-leo .sus-leo .sus-item-desc { color: #5a6a20; }
+
+  /* Roteiro rewrite styles */
+  #panel-rot .linhagem-banner { border-radius: 12px; padding: 18px; background: linear-gradient(135deg, #0a0500 0%, #0a0a00 50%, #000a08 100%); border: 1px solid #3a3000; text-align: center; margin-bottom: 18px; }
+  #panel-rot .linhagem-title { font-family: var(--font-title); font-size: 14px; color: #d4a800; letter-spacing: 2px; margin-bottom: 10px; }
+  #panel-rot .linhagem-five { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; margin-bottom: 10px; }
+  #panel-rot .linhagem-member { font-size: 11px; text-align: center; color: #8a7840; }
+  #panel-rot .linhagem-member .l-icon { font-size: 20px; display: block; margin-bottom: 3px; }
+  #panel-rot .linhagem-member strong { color: #d4a800; display: block; }
+  #panel-rot .konton-card { border-radius: 16px; padding: 22px; border: 2px solid #5a4000; background: linear-gradient(135deg, #0a0500 0%, #12080a 40%, #000a10 100%); margin-bottom: 16px; position: relative; overflow: hidden; }
+  #panel-rot .konton-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(255,160,0,0.06) 0%, transparent 70%); }
+  #panel-rot .konton-title { font-family: var(--font-title); font-size: 19px; font-weight: 700; color: #ffd040; letter-spacing: 2px; margin-bottom: 3px; text-align: center; }
+  #panel-rot .konton-jp { font-size: 24px; color: rgba(255,200,0,0.2); letter-spacing: 4px; text-align: center; margin-bottom: 4px; font-family: var(--font-title); }
+  #panel-rot .konton-sub { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: #6a5820; text-align: center; margin-bottom: 16px; }
+  #panel-rot .konton-body { font-size: 12px; line-height: 1.85; color: #9a8850; margin-bottom: 14px; }
+  #panel-rot .konton-phases { display: flex; flex-direction: column; gap: 10px; }
+  #panel-rot .konton-phase { border-radius: 10px; padding: 12px 14px; border: 1px solid; }
+  #panel-rot .konton-phase-name { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+  #panel-rot .konton-phase-desc { font-size: 12px; line-height: 1.7; }
+  #panel-rot .phase-1 { background: #120300; border-color: #6b1c00; }
+  #panel-rot .phase-1 .konton-phase-name { color: #ff6b2b; }
+  #panel-rot .phase-1 .konton-phase-desc { color: #8a4a2a; }
+  #panel-rot .phase-2 { background: #00050e; border-color: #0a3a6e; }
+  #panel-rot .phase-2 .konton-phase-name { color: #4dcfff; }
+  #panel-rot .phase-2 .konton-phase-desc { color: #2a6a8a; }
+  #panel-rot .phase-3 { background: #070900; border-color: #4a5a00; }
+  #panel-rot .phase-3 .konton-phase-name { color: #c8e000; }
+  #panel-rot .phase-3 .konton-phase-desc { color: #5a6a20; }
+  #panel-rot .phase-4 { background: #080400; border-color: #5a3000; }
+  #panel-rot .phase-4 .konton-phase-name { color: #ff8c00; }
+  #panel-rot .phase-4 .konton-phase-desc { color: #7a5020; }
+  #panel-rot .phase-5 { background: #050010; border-color: #3a1060; }
+  #panel-rot .phase-5 .konton-phase-name { color: #9040ff; }
+  #panel-rot .phase-5 .konton-phase-desc { color: #5a3080; }
+  #panel-rot .phase-final { background: linear-gradient(135deg, #150a00 0%, #0a0810 100%); border: 2px solid #8a6000; }
+  #panel-rot .phase-final .konton-phase-name { color: #ffd040; font-size: 13px; }
+  #panel-rot .phase-final .konton-phase-desc { color: #c8a060; }
+  #panel-rot .hagoromo-banner { text-align: center; padding: 16px; border-radius: 12px; background: #08060a; border: 1px solid #2a1a40; margin-bottom: 16px; }
+  #panel-rot .hagoromo-banner .hag-icon { font-size: 28px; margin-bottom: 6px; }
+  #panel-rot .hagoromo-banner .hag-title { font-family: var(--font-title); font-size: 13px; color: #a060e0; letter-spacing: 2px; margin-bottom: 8px; }
+  #panel-rot .hagoromo-banner .hag-body { font-size: 12px; color: #6a4a90; line-height: 1.8; }
+  #panel-rot .hagoromo-banner .hag-five { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  #panel-rot .hagoromo-banner .hag-tag { font-size: 10px; padding: 3px 10px; border-radius: 20px; background: #1a0a30; border: 1px solid #4a2a80; color: #c090ff; }
 </style>
 </head>
 <body>
@@ -643,6 +770,7 @@
   <button class="tab-btn tab-aka" onclick="switchTab('aka')">🖤 Akari</button>
   <button class="tab-btn tab-kae" onclick="switchTab('kae')">🐉 Kael</button>
   <button class="tab-btn tab-miz" onclick="switchTab('miz')">🌙 Mizuki</button>
+  <button class="tab-btn tab-rot" onclick="switchTab('rot')">📜 Roteiro</button>
 </div>
 
 <!-- ===================== EDUARDO ===================== -->
@@ -770,6 +898,23 @@
     <div class="card" style="text-align:center;padding:20px">
       <span class="level-badge">Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhuma defesa sobrevive ao Kaienten.<br>Nenhum campo resiste à pressão da Fênix.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Fenrir da Fênix Eterna</div>
+    <div class="susanoo-card sus-edu">
+      <div class="sus-title">🔥 Fenrir da Fênix Eterna</div>
+      <div class="sus-sub">炎鳳スサノオ · Susanoo Completo · Modo Final</div>
+      <div class="sus-body">O Susanoo de Eduardo não é uma armadura — é uma encarnação. Uma figura humanoide colossal envolta em chamas negras com bordas de fogo branco incandescente. A cabeça é encimada por uma coroa de chamas vivas em forma de asas abertas, remetendo à Fênix. Os olhos do Susanoo brilham com o padrão do Rinne-Sharingan em escala colossal, visíveis a quilômetros. Cada passo faz o solo queimar. A Fênix de Dez Caudas manifesta-se parcialmente ao redor da forma completa, lutando de forma autônoma.</div>
+      <div class="sus-grid">
+        <div class="sus-item"><div class="sus-item-name">Kōtō — Espada da Ruptura Eterna</div><div class="sus-item-desc">Katana de chama negra com veias de Amaterasu — cada golpe carrega o Kaienten, identificando e destruindo o ponto fraco de qualquer defesa</div></div>
+        <div class="sus-item"><div class="sus-item-name">Escudo da Fênix Primordial</div><div class="sus-item-desc">Asa cristalizada de chakra ígneo — absorve ninjutsu e devolve como Bijūdama de Amaterasu inextinguível</div></div>
+        <div class="sus-item"><div class="sus-item-name">Asas Colossais da Fênix</div><div class="sus-item-desc">Asas de fogo eterno emergem das costas — cada batida gera ondas de pressão que derretem terreno num raio devastador</div></div>
+        <div class="sus-item"><div class="sus-item-name">Modo Kaienten Absoluto</div><div class="sus-item-desc">O Susanoo inteiro pulsa com a técnica — qualquer estrutura defensiva no campo começa a fraturar pela mera presença da forma</div></div>
+        <div class="sus-item"><div class="sus-item-name">Bijūdama Flamejante</div><div class="sus-item-desc">Esfera de chakra ígneo primordial carregada na palma — combinada ao Amaterasu, arde sem extinção após o impacto</div></div>
+        <div class="sus-item"><div class="sus-item-name">Aura de Ruptura</div><div class="sus-item-desc">Chamas negras e vermelhas em rotação ao redor da forma — o ar vibra com calor e o chão se fissura em padrões radiais</div></div>
+      </div>
     </div>
   </div>
 
@@ -907,6 +1052,23 @@
     </div>
   </div>
 
+  <div class="section">
+    <div class="section-title">Susanoo — Rei do Domínio Glacial</div>
+    <div class="susanoo-card sus-gui">
+      <div class="sus-title">❄️ Rei do Domínio Glacial</div>
+      <div class="sus-sub">氷獄スサノオ · Susanoo Completo · Modo Final</div>
+      <div class="sus-body">O Susanoo de Guilherme manifesta-se em silêncio. Não há explosão — apenas uma queda súbita de temperatura e o aparecimento de uma forma humanoide de gelo translúcido de densidade bijū, com proporções régias e cristais em cada superfície. A estrutura interna brilha com o azul profundo do chakra da Snow Fox. O rosto do Susanoo carrega o Rinne-Sharingan Primordial com glow frio e absoluto. É a forma mais bela e mais aterrorizante do campo: gelada, silenciosa, inevitável.</div>
+      <div class="sus-grid">
+        <div class="sus-item"><div class="sus-item-name">Hyōryū — Lança do Domínio Eterno</div><div class="sus-item-desc">Lança de gelo primordial bijū — ao tocar qualquer estrutura de chakra, aplica o Hyōkoku diretamente, desacelerando o alvo ao nível molecular</div></div>
+        <div class="sus-item"><div class="sus-item-name">Escudo de Gelo Primordial</div><div class="sus-item-desc">Placa de cristal que absorve ninjutsu e os encapsula — congelando a técnica e devolvendo como projétil de gelo eterno</div></div>
+        <div class="sus-item"><div class="sus-item-name">Névoa de Domínio</div><div class="sus-item-desc">O Susanoo emite névoa glacial em todas as direções — qualquer ser dentro do raio sofre o Hyōkoku passivamente, sem contato direto</div></div>
+        <div class="sus-item"><div class="sus-item-name">Prisões Colossais</div><div class="sus-item-desc">As mãos do Susanoo criam estruturas de gelo eterno bijū — capazes de encerrar bijū inteiros em prisões que jamais descongelam</div></div>
+        <div class="sus-item"><div class="sus-item-name">Bijūdama Congelante</div><div class="sus-item-desc">Esfera de chakra glacial primordial — ao impacto, congela tudo no raio em gelo eterno de densidade bijū</div></div>
+        <div class="sus-item"><div class="sus-item-name">Armadura Translúcida</div><div class="sus-item-desc">O corpo do Susanoo é parcialmente transparente — desorienta o senso de profundidade e distância dos adversários no campo</div></div>
+      </div>
+    </div>
+  </div>
+
   <div class="essence-bar">
     <div class="essence-label">Essência</div>
     <div class="essence-items"><span>Paciência como arma</span><span style="opacity:0.3">·</span><span>Campo que aprisiona</span><span style="opacity:0.3">·</span><span>Gelo que nunca derrete</span></div>
@@ -1038,6 +1200,23 @@
     <div class="card" style="text-align:center;padding:20px">
       <span class="level-badge">Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhum golpe erra. Nenhum resultado falha.<br>O julgamento já foi pronunciado.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo — Juízo do Dragão Tectônico</div>
+    <div class="susanoo-card sus-leo">
+      <div class="sus-title">⚡ Juízo do Dragão Tectônico</div>
+      <div class="sus-sub">雷龍スサノオ · Susanoo Completo · Modo Final</div>
+      <div class="sus-body">O Susanoo de Leonardo emerge da terra — literalmente. O chão racha em padrões radiais e a forma ascende das fissuras, constituída de lava solidificada com relâmpagos dourados percorrendo cada superfície. Um colosso de pedra e eletricidade com armadura de escamas de lava, capacete com chifres de relâmpago estático, e os olhos do Rinne-Sharingan Primordial visíveis entre as placas de rocha como tochas douradas. Cada golpe causa tremores sísmicos perceptíveis a quilômetros. O Shinsei opera invisível em cada movimento — o Susanoo de Leonardo não erra. Nunca.</div>
+      <div class="sus-grid">
+        <div class="sus-item"><div class="sus-item-name">Shinzan — Espada do Julgamento Inevitável</div><div class="sus-item-desc">Lâmina de lava solidificada com relâmpagos vivos na borda — cada golpe é corrigido pelo Shinsei, garantindo acerto absoluto independente de qualquer defesa</div></div>
+        <div class="sus-item"><div class="sus-item-name">Escudo Tectônico</div><div class="sus-item-desc">Placa de rocha primordial temperada com relâmpago — absorve impactos sísmicos e libera descarga massiva ao contato adversário</div></div>
+        <div class="sus-item"><div class="sus-item-name">Distorção Sísmica</div><div class="sus-item-desc">O Susanoo remolda ativamente o terreno — criando armadilhas e corredores que forçam o inimigo para posições de desvantagem absoluta</div></div>
+        <div class="sus-item"><div class="sus-item-name">Relâmpago Natural</div><div class="sus-item-desc">Raios caem do céu continuamente na presença do Susanoo — gerados pela pressão de chakra tectônico e elétrico simultâneos, sem necessitar de controle</div></div>
+        <div class="sus-item"><div class="sus-item-name">Bijūdama Tectônica</div><div class="sus-item-desc">Esfera de lava e relâmpago bijū — o Shinsei corrige a trajetória em tempo real, tornando o desvio impossível</div></div>
+        <div class="sus-item"><div class="sus-item-name">Modo Shinsei Total</div><div class="sus-item-desc">Ao ativar o Mangekyō Eterno dentro do Susanoo, todos os golpes — do Susanoo e do Dragão — têm resultado garantido simultaneamente</div></div>
+      </div>
     </div>
   </div>
 
@@ -1924,6 +2103,218 @@
   </div>
 
 </div></div>
+
+<!-- ===================== ROTEIRO ===================== -->
+<div class="panel" id="panel-rot"><div class="root">
+
+  <div class="hero" style="background:linear-gradient(135deg,#0a0800 0%,#1e1400 50%,#050400 100%)">
+    <span class="hero-emblem">📜</span>
+    <div class="hero-name">Roteiro — Crônica dos Uchiha</div>
+    <div class="hero-sub">A guerra. A fundação. O legado.</div>
+    <div class="tag-row">
+      <span class="tag" style="background:#1a1200;border:1px solid #5a4000;color:#d4a800">Guerra Madara &amp; Kaguya</span>
+      <span class="tag" style="background:#1a1200;border:1px solid #5a4000;color:#d4a800">Yami no Sato</span>
+      <span class="tag" style="background:#1a1200;border:1px solid #5a4000;color:#d4a800">Aliança das Vilas</span>
+      <span class="tag" style="background:#1a1200;border:1px solid #5a4000;color:#d4a800">Semi-Hokages</span>
+    </div>
+    <div class="quote" style="border-color:#8a7000;color:#c8a870">"Não lutamos pela glória. Lutamos para que os que vierem depois nunca precisem saber o que é a guerra."</div>
+  </div>
+
+  <!-- Linhagem Banner -->
+  <div class="linhagem-banner">
+    <div class="linhagem-title">⚡ OS CINCO FILHOS DE HAGOROMO ⚡</div>
+    <div class="linhagem-five">
+      <div class="linhagem-member"><span class="l-icon">🔥</span><strong>Eduardo</strong>Fênix · Kaienten</div>
+      <div class="linhagem-member"><span class="l-icon">❄️</span><strong>Guilherme</strong>Snow Fox · Hyōkoku</div>
+      <div class="linhagem-member"><span class="l-icon">⚡</span><strong>Leonardo</strong>Dragão · Shinsei</div>
+      <div class="linhagem-member"><span class="l-icon">🌀</span><strong>Naruto</strong>Kurama · Seis Caminhos</div>
+      <div class="linhagem-member"><span class="l-icon">🌑</span><strong>Sasuke</strong>Rinnegan · Susanoo</div>
+    </div>
+    <div style="font-size:11px;color:#5a4a18;text-align:center;letter-spacing:1px">Cinco linhas do mesmo sangue primordial · Cinco portadores do Rinne-Sharingan</div>
+  </div>
+
+  <!-- Hagoromo context -->
+  <div class="hagoromo-banner">
+    <div class="hag-icon">☯️</div>
+    <div class="hag-title">A Profecia de Hagoromo Ōtsutsuki</div>
+    <div class="hag-body">O Sábio dos Seis Caminhos deixou mais que chakra — deixou linhagem. Naruto e Sasuke foram reconhecidos como seus filhos espirituais, herdando o Yin e o Yang. Eduardo, Guilherme e Leonardo carregam a mesma essência: o Rinne-Sharingan Primordial que nasce diretamente do chakra dos Seis Caminhos. Os cinco são ramos da mesma raiz — e quando os cinco agem juntos, a realidade não tem defesa.</div>
+    <div class="hag-five">
+      <span class="hag-tag">Naruto — Força do Yang</span>
+      <span class="hag-tag">Sasuke — Poder do Yin</span>
+      <span class="hag-tag">Eduardo — Fogo Primordial</span>
+      <span class="hag-tag">Guilherme — Gelo Eterno</span>
+      <span class="hag-tag">Leonardo — Terra e Juízo</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arco I — A Grande Guerra das Trevas</div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 01 · Prólogo</div>
+      <div class="arc-title">O Chamado dos Cinco</div>
+      <div class="arc-subtitle">Antes da batalha final — os guerreiros se reúnem</div>
+      <div class="arc-body">O mundo shinobi estava à beira do colapso. <span class="arc-highlight">Madara Uchiha</span>, ressurgido além de qualquer limite humano e alimentado por chakra de proporções divinas, havia ativado o Infinito Tsukuyomi — um genjutsu planetário que transformava a humanidade em sonho. Ao seu lado, <span class="arc-highlight">Kaguya Ōtsutsuki</span> — a Mãe do Chakra — havia retornado. Libertada dos selos e alimentada pelos frutos de sofrimento de gerações, Kaguya não buscava paz nem guerra: buscava colheita. Todo o chakra do mundo seria reabsorvido.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail">Cinco guerreiros foram convocados — não pelos kages, mas pelo próprio fluxo do destino. <span class="arc-highlight">Naruto Uzumaki</span>, Jinchūriki do Kyūbi, portador do Yang dos Seis Caminhos. <span class="arc-highlight">Sasuke Uchiha</span>, último sobrevivente do clã, portador do Yin e do Rinnegan. <span class="arc-highlight">Eduardo Uchiha</span>, <span class="arc-highlight">Guilherme Uchiha</span> e <span class="arc-highlight">Leonardo Uchiha</span>, com o Rinne-Sharingan Primordial que deriva da mesma fonte. Os cinco — filhos da mesma linhagem de Hagoromo — eram a única resposta que o mundo possuía.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail">Quando os cinco se olharam pela primeira vez no campo de batalha devastado, houve um reconhecimento silencioso. Não precisavam de palavras. O chakra dos cinco pulsava na mesma frequência ancestral. <span class="arc-highlight">Leonardo</span> foi quem falou: <em style="color:#d4a800">"Nenhum de nós sozinho. Os cinco ou nenhum."</em> Ninguém discutiu.</div>
+    </div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 01 · Capítulo I</div>
+      <div class="arc-title">Fase I — Contenção de Madara</div>
+      <div class="arc-subtitle">O sonho de ferro · Cinco vontades contra uma</div>
+      <div class="arc-body">Madara era a síntese de tudo que o mundo shinobi havia produzido de mais extremo: o Susanoo Completo como armadura viva de escala continental, o Rinnegan como instrumento de controle planetário, o chakra dos Dez-Caudas integralmente absorvido. Não havia ataque único que pudesse alcançá-lo. Ele era o próprio campo de batalha.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Naruto</span> abriu a batalha. O Modo Sábio dos Seis Caminhos com Kurama amplificado criou Bijūdamas em escala capaz de pressionar o Susanoo de Madara — não para destruir, mas para forçar reação. Naruto era o martelo que obrigava Madara a usar chakra constantemente, sem pausa para planejamento.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Sasuke</span> coordenou o Susanoo Final contra o Susanoo de Madara — não para vencer em força bruta, mas para travar o movimento. O Rinnegan analisava em tempo real as camadas de chakra de Madara, identificando padrões. <em style="color:#9040c0">"Três camadas de Yin antes de cada reconfiguração"</em>, Sasuke informou ao grupo sem hesitar. A inteligência tática de Sasuke era o mapa que os outros seguiam.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Guilherme</span> operou no campo como arquiteto de contenção. O <span class="arc-highlight">Hyōkoku</span> desacelerou os jutsus de escala planetária de Madara — meteoritos que deveriam cair em segundos levaram minutos. A Snow Fox de Dez Caudas criou prisões de gelo primordial ao redor das estruturas de chakra negativo. Madara percebeu que o campo estava conspirando contra ele. Pela primeira vez em décadas, precisou recalcular.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Eduardo</span> foi o primeiro a colidir diretamente com o Susanoo de Madara. O <span class="arc-highlight">Kaienten</span> encontrou, pela primeira vez, uma defesa que não colapsava imediatamente — Madara havia integrado todas as formas de chakra em sua estrutura. Eduardo identificou três fraturas na estrutura interna, cada uma protegida por camadas regenerativas. <em style="color:#ff6b2b">"São nove pontos no total — seis cobertos, três expostos. Eu cuido dos três."</em> A batalha durou horas. Eduardo sorriu durante toda ela.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Leonardo</span> foi o arquiteto da virada. O <span class="arc-highlight">Shinsei</span> corrigiu a causalidade de golpes que deveriam errar por margem milimétrica. O Susanoo Tectônico emergiu da terra e distorceu o solo sob Madara, privando-o de âncoras de chakra. Calculou o instante exato — imediatamente após Madara usar a técnica de absorção dimensional — quando o consumo de chakra atingia o pico e a reconfiguração durava 0,3 segundos. Nesse intervalo, os cinco agiram juntos pela primeira vez. <span class="arc-highlight">Madara foi selado.</span> O Infinito Tsukuyomi começou a se dissolver.</div>
+    </div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 01 · Capítulo II</div>
+      <div class="arc-title">Fase II — O Retorno de Kaguya</div>
+      <div class="arc-subtitle">A Mãe do Chakra · O que não pode ser destruído, apenas selado</div>
+      <div class="arc-body">Kaguya não lutava como Madara. Ela <em>era</em> o campo de batalha. Com um piscar de olhos trocava dimensões — lava, gelo eterno, gravidade zero, vácuo absoluto. Controlava o chakra em nível molecular; qualquer jutsu se tornava extensão dela. Atacar Kaguya diretamente era atacar o próprio conceito de chakra. Os cinco precisavam de outro caminho.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Naruto</span> usou o Modo Seis Caminhos para perceber o padrão das trocas dimensionais de Kaguya — cada mudança consumia um quantum específico de chakra com assinatura detectável 0,4 segundos antes. Naruto distribuiu essa percepção pelo vínculo de chakra com os outros quatro. <em style="color:#ff8c00">"Ela vai trocar em quatro passos — eu marco o momento, vocês posicionam."</em> O grupo passou a operar com antecipação.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Eduardo</span> enfrentou a dimensão de lava de Kaguya — o ambiente onde ela era mais letal. Mergulhou nela. A Fênix de Dez Caudas era imune ao calor primordial. O <span class="arc-highlight">Kaienten</span> fraturou as estruturas de chakra que Kaguya havia implantado como âncoras dimensionais, desestabilizando a própria dimensão. Kaguya percebeu — pela primeira vez em milênios — que algo estava destruindo a base do que ela havia construído. Sua atenção se dividiu.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Guilherme</span> descobriu que o <span class="arc-highlight">Hyōkoku</span> criava janelas críticas de vulnerabilidade — desacelerar o ambiente ao redor de Kaguya equivalia a congelar o processo de troca dimensional. Durante essas janelas, Kaguya ficava exposta por frações de segundo que seriam invisíveis sem o Rinne-Sharingan. O Susanoo Glacial de Guilherme operou como âncora de contenção: cada janela criada era imediatamente ocupada pelos outros.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Sasuke</span> usou o Rinnegan para mapear a estrutura astral de Kaguya — identificou os seis pontos de chakra que precisavam ser selados simultaneamente. Nenhum dos anteriores selamentos havia conseguido isso — Hagoromo e Hamura precisaram de horas. Com cinco portadores do Rinne-Sharingan, cada ponto seria travado em paralelo. <em style="color:#9040c0">"Um ponto cada. Leonardo coordena o tempo."</em></div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Leonardo</span> foi o executor do plano de selamento. O <span class="arc-highlight">Shinsei</span> foi aplicado não a ataques físicos — mas ao próprio processo ritual do selar. Cada etapa era corrigida causalmente para ter resultado garantido, eliminando qualquer margem de erro. O Susanoo Tectônico manteve o campo físico estável. Leonardo contou para os cinco: <em style="color:#c8e000">"No momento em que Eduardo abre a última fratura dimensional — selamos. Todos. Ao mesmo tempo."</em></div>
+      <hr class="arc-divider">
+      <div class="arc-detail">Eduardo abriu a fratura. Os cinco convergiram em sincronia perfeita — o chakra de cada um fundindo-se em uma frequência única que só existia quando os cinco filhos de Hagoromo atuavam como um. O selamento levou três segundos. <span class="arc-highlight">Kaguya foi selada permanentemente</span> — distribuída entre os cinco portadores do Rinne-Sharingan como guardiões eternos.</div>
+    </div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 01 · Clímax</div>
+      <div class="arc-title">混沌輪廻爆 · Konton Rinne Baku</div>
+      <div class="arc-subtitle">A Explosão do Samsara Caótico · O Jutsu Final dos Cinco</div>
+      <div class="arc-body">Após o selamento de Kaguya, a estrutura dimensional estava em colapso — as fronteiras entre as dimensões que ela havia criado começavam a se rasgar. Fragmentos de chakra de escala bijū vazavam de todos os lados. Um único jutsu de selamento era insuficiente. Era necessário um ataque que não apenas destruísse, mas reescrevesse o tecido de chakra em toda a área ao mesmo tempo. Os cinco se olharam. Leonardo confirmou o que todos sabiam: <em style="color:#c8e000">"É agora."</em></div>
+    </div>
+  </div>
+
+  <!-- KONTON RINNE BAKU CARD -->
+  <div class="konton-card">
+    <div class="konton-jp">混沌輪廻爆</div>
+    <div class="konton-title">KONTON RINNE BAKU</div>
+    <div class="konton-sub">Explosão do Samsara Caótico · Jutsu Final dos Cinco Filhos de Hagoromo</div>
+    <div class="konton-body">Não é uma técnica criada — é uma técnica <em>descoberta</em>. Quando os cinco portadores do Rinne-Sharingan da linhagem de Hagoromo unem chakra no mesmo instante, ressonando na frequência primordial dos Seis Caminhos, o resultado transcende a soma das partes. O Konton Rinne Baku não é disparado — <strong style="color:#ffd040">ele ocorre</strong>. A realidade ao redor dos cinco colapsa para dentro e então explode para fora como uma nova criação. Tudo que existia como ameaça deixa de existir. O espaço é reescrito. O tempo dentro do raio é resetado ao estado anterior à corrupção.</div>
+    <div class="konton-phases">
+      <div class="konton-phase phase-1">
+        <div class="konton-phase-name">🔥 Fase 1 — Eduardo · A Ruptura</div>
+        <div class="konton-phase-desc">O Kaienten de Eduardo varre o campo — identificando e fraturando cada estrutura de chakra residual de Kaguya e Madara ainda ativa. O Susanoo Fenrir abre as asas ao máximo. Amaterasu reveste o espaço inteiro em chamas negras que marcam as fraturas como alvos. <em>Tudo o que tinha defesa, agora tem uma fenda aberta.</em></div>
+      </div>
+      <div class="konton-phase phase-2">
+        <div class="konton-phase-name">❄️ Fase 2 — Guilherme · O Congelamento</div>
+        <div class="konton-phase-desc">O Hyōkoku expande ao máximo — o campo inteiro desacelera ao nível molecular. Tudo dentro do raio fica suspenso: fragmentos de chakra, estruturas dimensionais abertas, resíduos de jutsus. O Susanoo Glacial emite névoa primordial em todas as direções. <em>O caos para. Por 1,3 segundos, nada se move exceto os cinco.</em></div>
+      </div>
+      <div class="konton-phase phase-3">
+        <div class="konton-phase-name">⚡ Fase 3 — Leonardo · O Alinhamento</div>
+        <div class="konton-phase-desc">O Shinsei é aplicado ao jutsu coletivo inteiro — não a um ataque, mas ao processo. Todos os passos seguintes têm resultado garantido. O Susanoo Tectônico remolda o terreno, criando uma formação de ancoragem em círculo perfeito ao redor dos cinco. O Dragão manifesta-se em tamanho colossal como barreira externa. <em>O jutsu não pode falhar. A causalidade foi reescrita para que ele funcione.</em></div>
+      </div>
+      <div class="konton-phase phase-4">
+        <div class="konton-phase-name">🌀 Fase 4 — Naruto · A Força</div>
+        <div class="konton-phase-desc">Naruto em Modo Seis Caminhos canaliza o chakra de Kurama e dos nove bijū — o Yang puro de Hagoromo amplificado pela força de vontade de gerações. Bijūdamas de todos os bijū são comprimidas em uma única esfera que Naruto segura entre as mãos acima da cabeça. <em>É a força da vida concentrada — tudo o que Kaguya tentou colher, devolvido como arma.</em></div>
+      </div>
+      <div class="konton-phase phase-5">
+        <div class="konton-phase-name">🌑 Fase 5 — Sasuke · O Yin</div>
+        <div class="konton-phase-desc">Sasuke ativa o Susanoo Final e o Rinnegan ao mesmo tempo — o Yin dos Seis Caminhos flui através do Amaterasu e do Chidori em escala máxima. O Susanoo de Sasuke envolve a esfera de Naruto, fundindo Yin e Yang na frequência de Hagoromo. <em>É o mesmo ato que Hagoromo e Hamura realizaram para selar Kaguya da primeira vez — mas com cinco e não dois.</em></div>
+      </div>
+      <div class="konton-phase phase-final">
+        <div class="konton-phase-name">💥 EXECUÇÃO FINAL — OS CINCO JUNTOS · KONTON RINNE BAKU</div>
+        <div class="konton-phase-desc">Os cinco pronunciam o nome ao mesmo tempo — não como ordem, mas como reconhecimento do que está ocorrendo. O chakra dos cinco flui para um único ponto central e então inverte: uma explosão que irradia de dentro para fora, varrendo o espaço em todas as direções com chakra primordial dos Seis Caminhos na forma mais pura já manifestada por mortais. Raio de destruição: dimensional — atravessa todas as dimensões de Kaguya simultaneamente. As chamas negras de Eduardo guiam onde explodir. O gelo de Guilherme garante que os fragmentos não se reconstruam. O Shinsei de Leonardo garante que a explosão acerte tudo que precisa ser atingido. A força de Naruto abastece o jutsu por tempo indefinido. O Yin de Sasuke sela o resultado permanentemente. <strong style="color:#ffd040">Não há segundo ato. Não há regeneração. O que o Konton Rinne Baku toca, deixa de existir como ameaça para sempre.</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arco II — O Mundo Depois da Guerra</div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 02 · Capítulo I</div>
+      <div class="arc-title">A Fundação — Yami no Sato</div>
+      <div class="arc-subtitle">A Vila das Trevas · O lar que Leonardo construiu</div>
+      <div class="arc-body">Depois da guerra, havia algo que nenhuma vila existente poderia oferecer: um lar para a linhagem dos Uchiha. Um lugar onde o clã não seria uma lembrança do passado, mas uma presença viva, crescendo.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Leonardo Uchiha</span> encontrou um vale entre montanhas de rocha escura, onde o solo era fértil e o chakra natural da terra pulsava com frequência parecida com a dos Uchiha. Com o Shinsei e o Dragão de Terra e Relâmpago, levantou as fundações da <span class="arc-highlight">Yami no Sato</span>. As muralhas foram erguidas com Doton em escala bijū, temperadas com Raiton. As ruas foram planejadas como campo de batalha que o defensor sempre venceria — cada corredor, cada ângulo, cada ponto elevado pensado por Leonardo como arquiteto e guerreiro.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail">Ali, Leonardo fundou sua família — os primeiros nascidos na Yami no Sato. Sua esposa e filhos se tornaram o coração da vila. Leonardo insistiu que a vila fosse construída em torno das famílias, não dos guerreiros. Cada família que chegasse seria recebida não como recurso, mas como extensão do clã.</div>
+    </div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 02 · Capítulo II</div>
+      <div class="arc-title">As Famílias da Yami no Sato</div>
+      <div class="arc-subtitle">A linhagem Uchiha continua · O clã vive</div>
+      <div class="arc-body"><span class="arc-highlight">Eduardo Uchiha</span> estabeleceu-se na Yami no Sato com <span class="arc-highlight">Raquel</span> e seus filhos — <span class="arc-highlight">Kuroshin</span>, <span class="arc-highlight">Aiko</span> e <span class="arc-highlight">Akari</span>. Eduardo manteve sua residência como ponto de referência — não uma fortaleza, mas uma casa aberta onde jovens da vila aprendiam a encarar o próprio poder sem medo. <span class="arc-highlight">Konan</span> também fez da Yami no Sato seu lar, cuidando dos filhos de Eduardo como seus próprios, trazendo à vila a sabedoria de quem conheceu o custo real da guerra.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Guilherme Uchiha</span> fixou residência na Yami no Sato com sua esposa e seu filho. Transformou sua ala em centro de treinamento — não para criar soldados, mas para formar ninja que entendessem o campo antes de entrar nele. A Snow Fox de Dez Caudas, em forma reduzida, patrulhava as bordas da vila como sentinela silenciosa.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Leonardo</span>, como fundador, manteve a posição mais central — não de hierarquia, mas de responsabilidade. Mediava conflitos, planejava expansões, treinava jovens no chakra tectônico, e era pai presente, irmão disponível, líder discreto. A vila cresceu ao redor da visão dele — e as gerações que vieram não precisaram perguntar por que a Yami no Sato foi criada. Era evidente em cada pedra, cada família, cada criança que corria pelas ruas sem medo.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arco III — A Grande Aliança</div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 03 · Capítulo I</div>
+      <div class="arc-title">Konoha &amp; Yami no Sato — Aliadas</div>
+      <div class="arc-subtitle">Dois estandartes. Uma causa.</div>
+      <div class="arc-body">A <span class="arc-highlight">Vila da Folha — Konoha</span> e a <span class="arc-highlight">Yami no Sato</span> formalizaram uma aliança sem precedentes. Não era tratado de conveniência — era o reconhecimento de que as duas vilas eram extensões de uma mesma vontade: proteger o que foi conquistado com o preço mais alto.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail">Defesa mútua permanente. Qualquer ameaça às fronteiras de uma seria respondida pela outra com força total. Sistemas de comunicação integrados — selos de emergência, torres sincronizadas, missões conjuntas. O símbolo da aliança — <span class="arc-highlight">leque Uchiha entrelaçado com a folha de Konoha</span> — foi inscrito nas muralhas de ambas as vilas. Esse símbolo se tornou aviso no mundo shinobi: atacar uma é acordar ambas.</div>
+    </div>
+
+    <div class="arc-card">
+      <div class="arc-num">Arco 03 · Capítulo II</div>
+      <div class="arc-title">Os Semi-Hokages — As Asas das Duas Vilas</div>
+      <div class="arc-subtitle">Eduardo · Guilherme · Sasuke · Guardiões além das fronteiras</div>
+      <div class="arc-body">A aliança criou um cargo sem precedentes: o de <span class="arc-highlight">Semi-Hokage</span> — ou <span class="arc-highlight">Asa</span> das vilas aliadas. Um guerreiro que não governa, mas protege. Não toma decisões políticas — intervém quando as decisões políticas já falharam.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Eduardo Uchiha</span> — Asa Ofensiva. Sua capacidade de identificar e destruir qualquer fraqueza em qualquer sistema defensivo o tornava o elemento de maior impacto em qualquer invasão. Eduardo aceita a função com o mesmo sorriso com que aceita tudo — mas a seriedade por trás é absoluta. Ninguém toca as duas vilas enquanto ele respira.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Guilherme Uchiha</span> — Asa Estratégica. O Hyōkoku ampliado permite a Guilherme desacelerar e analisar qualquer ameaça antes da resposta. Ele decide quando a força máxima é necessária — e quando é excessiva. Sua designação reflete o equilíbrio que representa entre os três irmãos.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail"><span class="arc-highlight">Sasuke Uchiha</span> — o último sobrevivente dos Uchiha da era anterior — foi o terceiro Semi-Hokage. Após décadas de exílio e penitência, aceitar o título foi um retorno — não ao passado, mas ao propósito. Sasuke opera nas sombras entre as duas vilas, rastreando ameaças antes que se materializem.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail">Os três Semi-Hokages — <span class="arc-highlight">Eduardo, Guilherme e Sasuke</span> — nunca precisam ser chamados ao mesmo tempo. A presença de um já encerra a maioria das ameaças. A presença dos três é um evento que o mundo shinobi reconhece como o fim de qualquer conflito. São as asas: quando se abrem, não há defesa que resista ao voo.</div>
+    </div>
+
+    <div class="alliance-card">
+      <div class="alliance-title">⚔️ Estrutura da Aliança — Yami no Sato &amp; Konoha</div>
+      <div class="alliance-body">
+        <strong style="color:#80d040">Defesa Mútua Absoluta</strong> — qualquer ataque a uma das vilas é respondido pela força combinada de ambas.<br><br>
+        <strong style="color:#80d040">Semi-Hokages / Asas</strong> — Eduardo Uchiha, Guilherme Uchiha e Sasuke Uchiha, guardiões permanentes das duas vilas.<br><br>
+        <strong style="color:#80d040">Comunicação Integrada</strong> — selos de emergência, torres sincronizadas, missões conjuntas de inteligência e resposta rápida.<br><br>
+        <strong style="color:#80d040">Leonardo como Fundador e Diplomata</strong> — representa a aliança diplomaticamente e toma as decisões finais de política externa da Yami no Sato.<br><br>
+        <strong style="color:#80d040">Emblema da Aliança</strong> — leque Uchiha + folha de Konoha fundidos, inscrito nas muralhas de ambas as vilas.
+      </div>
+    </div>
+  </div>
+
+  <div class="essence-bar" style="background:#0a0800;border-color:#3a2e00">
+    <div class="essence-label" style="color:#5a4a18">Legado</div>
+    <div class="essence-items">
+      <span style="color:#c8a870">A guerra que encerrou uma era</span><span style="opacity:0.3">·</span>
+      <span style="color:#c8a870">A vila que continuou o clã</span><span style="opacity:0.3">·</span>
+      <span style="color:#c8a870">As asas que nunca se fecham</span>
+    </div>
+  </div>
+
+</div></div>
+
 
 <script>
   function switchTab(id) {
