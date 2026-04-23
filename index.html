@@ -50,7 +50,18 @@
     --kae-grad: linear-gradient(135deg, #0a0300 0%, #1e0800 50%, #050100 100%);
     --kae-bar1: #7a2a00; --kae-bar2: #e85a00;
     --kae-poison: #3a6b00; --kae-poison2: #7ac800; --kae-poison-glow: rgba(80,160,0,0.35);
-    /* MIZUKI */
+    /* NARUTO */
+    --nar-bg: #0a0500; --nar-card: #0e0700; --nar-border: #7a4000;
+    --nar-accent: #ff8c00; --nar-accent2: #ffd040; --nar-text: #f0d090;
+    --nar-muted: #8a5a20; --nar-glow: rgba(255,140,0,0.3);
+    --nar-grad: linear-gradient(135deg, #0a0500 0%, #1e0e00 50%, #050200 100%);
+    --nar-bar1: #7a3a00; --nar-bar2: #ff8c00;
+    /* SASUKE */
+    --sas-bg: #04000a; --sas-card: #080010; --sas-border: #4a0a7a;
+    --sas-accent: #9040ff; --sas-accent2: #c080ff; --sas-text: #d8c0f0;
+    --sas-muted: #6a3a90; --sas-glow: rgba(120,30,220,0.3);
+    --sas-grad: linear-gradient(135deg, #04000a 0%, #100020 50%, #020005 100%);
+    --sas-bar1: #4a0a7a; --sas-bar2: #9040ff;
     --miz-bg: #080010; --miz-card: #0c0018; --miz-border: #3a0a6a;
     --miz-accent: #d580ff; --miz-accent2: #ffe040; --miz-accent3: #80d4ff;
     --miz-text: #e8d0f8; --miz-muted: #7a5a9a; --miz-glow: rgba(180,60,255,0.35);
@@ -627,7 +638,125 @@
   #panel-miz .lineage-banner { border-radius: 10px; padding: 14px 16px; background: linear-gradient(90deg, #0e0020 0%, #1a0a00 50%, #0e0020 100%); border: 1px solid #4a3a60; text-align: center; font-size: 12px; color: #c090e8; line-height: 1.8; margin-bottom: 10px; }
   #panel-miz .lineage-banner strong { color: #ffe880; }
 
-  @media (max-width: 520px) {
+  .tab-nar { background: #0a0400; color: var(--nar-muted); border-left: 1px solid #111; }
+  .tab-nar.active, .tab-nar:hover { background: var(--nar-bg); color: var(--nar-accent); }
+  .tab-nar.active::after { background: var(--nar-accent); transform: scaleX(1); }
+  .tab-sas { background: #040008; color: var(--sas-muted); border-left: 1px solid #111; }
+  .tab-sas.active, .tab-sas:hover { background: var(--sas-bg); color: var(--sas-accent); }
+  .tab-sas.active::after { background: var(--sas-accent); transform: scaleX(1); }
+
+  /* ===================== NARUTO ===================== */
+  #panel-nar { background: var(--nar-bg); }
+  #panel-nar .root { color: var(--nar-text); }
+  #panel-nar .hero { background: var(--nar-grad); }
+  #panel-nar .hero::before { background: radial-gradient(circle, var(--nar-glow) 0%, transparent 70%); }
+  #panel-nar .hero-name { color: var(--nar-accent2); }
+  #panel-nar .hero-sub { color: var(--nar-muted); }
+  #panel-nar .tag { background: #1a0800; border: 1px solid var(--nar-border); color: var(--nar-accent); }
+  #panel-nar .quote { color: var(--nar-text); border-color: var(--nar-accent); }
+  #panel-nar .section-title { color: var(--nar-accent); border-color: var(--nar-border); }
+  #panel-nar .card { background: var(--nar-card); border-color: var(--nar-border); }
+  #panel-nar .card-title { color: var(--nar-accent2); }
+  #panel-nar .card-body { color: var(--nar-muted); }
+  #panel-nar .dot { background: var(--nar-accent); }
+  #panel-nar .ability-label { color: var(--nar-accent); }
+  #panel-nar .bar-fill { background: linear-gradient(90deg, var(--nar-bar1), var(--nar-bar2)); }
+  #panel-nar .power-card { background: #0c0600; border-color: var(--nar-border); }
+  #panel-nar .power-title { color: var(--nar-accent2); }
+  #panel-nar .power-jp, #panel-nar .power-body { color: var(--nar-muted); }
+  #panel-nar .power-example { background: #140800; color: var(--nar-accent); }
+  #panel-nar .elem { background: #0c0600; border-color: var(--nar-border); }
+  #panel-nar .elem-name { color: var(--nar-accent); }
+  #panel-nar .elem-desc { color: var(--nar-muted); }
+  #panel-nar .synergy { background: #100700; border-color: var(--nar-border); color: var(--nar-accent2); }
+  #panel-nar .biju-card { background: #080400; border-color: #8a4a00; }
+  #panel-nar .biju-title { color: var(--nar-accent2); }
+  #panel-nar .biju-jp { color: var(--nar-muted); }
+  #panel-nar .biju-ability { background: #100600; border-color: var(--nar-border); }
+  #panel-nar .biju-ability-name { color: var(--nar-accent); }
+  #panel-nar .biju-ability-desc { color: var(--nar-muted); }
+  #panel-nar .appear-card { background: var(--nar-card); border-color: var(--nar-border); }
+  #panel-nar .appear-label { color: var(--nar-muted); }
+  #panel-nar .appear-text { color: var(--nar-text); }
+  #panel-nar .personality-card { background: var(--nar-card); border-color: var(--nar-border); }
+  #panel-nar .personality-title { color: var(--nar-accent2); }
+  #panel-nar .personality-body { color: var(--nar-muted); }
+  #panel-nar .personality-card.modo-combat .personality-mode { background: #1e0a00; color: #ff8c00; }
+  #panel-nar .personality-card.modo-social .personality-mode { background: #160c00; color: var(--nar-accent2); }
+  #panel-nar .jinc-card { background: #080500; border-color: #8a4800; }
+  #panel-nar .jinc-title { color: var(--nar-accent2); }
+  #panel-nar .jinc-sub, #panel-nar .jinc-body { color: var(--nar-muted); }
+  #panel-nar .jinc-item { background: #100700; border-color: var(--nar-border); }
+  #panel-nar .jinc-item-name { color: var(--nar-accent); }
+  #panel-nar .jinc-item-desc { color: var(--nar-muted); }
+  #panel-nar .jinc-aura { background: #0e0600; border-color: #6a3800; color: var(--nar-accent2); }
+  #panel-nar .weapon-card { background: var(--nar-card); border-color: var(--nar-border); }
+  #panel-nar .weapon-name { color: var(--nar-accent2); }
+  #panel-nar .weapon-type, #panel-nar .weapon-body { color: var(--nar-muted); }
+  #panel-nar .level-badge { background: #1a0a00; border: 1px solid var(--nar-accent); color: var(--nar-accent); }
+  #panel-nar .essence-bar { background: #080400; border-color: var(--nar-border); }
+  #panel-nar .essence-label { color: var(--nar-muted); }
+  #panel-nar .essence-items span { color: var(--nar-accent2); }
+
+  /* ===================== SASUKE ===================== */
+  #panel-sas { background: var(--sas-bg); }
+  #panel-sas .root { color: var(--sas-text); }
+  #panel-sas .hero { background: var(--sas-grad); }
+  #panel-sas .hero::before { background: radial-gradient(circle, var(--sas-glow) 0%, transparent 70%); }
+  #panel-sas .hero-name { color: var(--sas-accent2); }
+  #panel-sas .hero-sub { color: var(--sas-muted); }
+  #panel-sas .tag { background: #100018; border: 1px solid var(--sas-border); color: var(--sas-accent); }
+  #panel-sas .quote { color: var(--sas-text); border-color: var(--sas-accent); }
+  #panel-sas .section-title { color: var(--sas-accent); border-color: var(--sas-border); }
+  #panel-sas .card { background: var(--sas-card); border-color: var(--sas-border); }
+  #panel-sas .card-title { color: var(--sas-accent2); }
+  #panel-sas .card-body { color: var(--sas-muted); }
+  #panel-sas .dot { background: var(--sas-accent); }
+  #panel-sas .ability-label { color: var(--sas-accent); }
+  #panel-sas .bar-fill { background: linear-gradient(90deg, var(--sas-bar1), var(--sas-bar2)); }
+  #panel-sas .power-card { background: #060010; border-color: var(--sas-border); }
+  #panel-sas .power-title { color: var(--sas-accent2); }
+  #panel-sas .power-jp, #panel-sas .power-body { color: var(--sas-muted); }
+  #panel-sas .power-example { background: #0c0018; color: var(--sas-accent); }
+  #panel-sas .elem { background: #060010; border-color: var(--sas-border); }
+  #panel-sas .elem-name { color: var(--sas-accent); }
+  #panel-sas .elem-desc { color: var(--sas-muted); }
+  #panel-sas .synergy { background: #080014; border-color: var(--sas-border); color: var(--sas-accent2); }
+  #panel-sas .biju-card { background: #040008; border-color: #5a1a8a; }
+  #panel-sas .biju-title { color: var(--sas-accent2); }
+  #panel-sas .biju-jp { color: var(--sas-muted); }
+  #panel-sas .biju-ability { background: #0a001a; border-color: var(--sas-border); }
+  #panel-sas .biju-ability-name { color: var(--sas-accent); }
+  #panel-sas .biju-ability-desc { color: var(--sas-muted); }
+  #panel-sas .appear-card { background: var(--sas-card); border-color: var(--sas-border); }
+  #panel-sas .appear-label { color: var(--sas-muted); }
+  #panel-sas .appear-text { color: var(--sas-text); }
+  #panel-sas .personality-card { background: var(--sas-card); border-color: var(--sas-border); }
+  #panel-sas .personality-title { color: var(--sas-accent2); }
+  #panel-sas .personality-body { color: var(--sas-muted); }
+  #panel-sas .personality-card.modo-combat .personality-mode { background: #18002e; color: #c080ff; }
+  #panel-sas .personality-card.modo-social .personality-mode { background: #100020; color: var(--sas-accent2); }
+  #panel-sas .jinc-card { background: #050010; border-color: #5a1a8a; }
+  #panel-sas .jinc-title { color: var(--sas-accent2); }
+  #panel-sas .jinc-sub, #panel-sas .jinc-body { color: var(--sas-muted); }
+  #panel-sas .jinc-item { background: #0c001e; border-color: var(--sas-border); }
+  #panel-sas .jinc-item-name { color: var(--sas-accent); }
+  #panel-sas .jinc-item-desc { color: var(--sas-muted); }
+  #panel-sas .jinc-aura { background: #080014; border-color: #5a1a8a; color: var(--sas-accent2); }
+  #panel-sas .weapon-card { background: var(--sas-card); border-color: var(--sas-border); }
+  #panel-sas .weapon-name { color: var(--sas-accent2); }
+  #panel-sas .weapon-type, #panel-sas .weapon-body { color: var(--sas-muted); }
+  #panel-sas .level-badge { background: #120020; border: 1px solid var(--sas-accent); color: var(--sas-accent); }
+  #panel-sas .essence-bar { background: #040008; border-color: var(--sas-border); }
+  #panel-sas .essence-label { color: var(--sas-muted); }
+  #panel-sas .essence-items span { color: var(--sas-accent2); }
+  #panel-sas .susanoo-card.sus-sas { border-color: #5a1a8a; background: #060010; }
+  #panel-sas .sus-sas .sus-title { color: #c080ff; }
+  #panel-sas .sus-sas .sus-sub { color: var(--sas-muted); }
+  #panel-sas .sus-sas .sus-body { color: var(--sas-muted); }
+  #panel-sas .sus-sas .sus-item { background: #0e0020; border-color: #5a1a8a; }
+  #panel-sas .sus-sas .sus-item-name { color: var(--sas-accent); }
+  #panel-sas .sus-sas .sus-item-desc { color: var(--sas-muted); }
     .grid2, .biju-grid, .jinc-grid, .personality-split { grid-template-columns: 1fr; }
     .elem-row { flex-direction: column; }
     .hero-name { font-size: 18px; }
@@ -770,6 +899,8 @@
   <button class="tab-btn tab-aka" onclick="switchTab('aka')">🖤 Akari</button>
   <button class="tab-btn tab-kae" onclick="switchTab('kae')">🐉 Kael</button>
   <button class="tab-btn tab-miz" onclick="switchTab('miz')">🌙 Mizuki</button>
+  <button class="tab-btn tab-nar" onclick="switchTab('nar')">🌀 Naruto</button>
+  <button class="tab-btn tab-sas" onclick="switchTab('sas')">🌑 Sasuke</button>
   <button class="tab-btn tab-rot" onclick="switchTab('rot')">📜 Roteiro</button>
 </div>
 
@@ -891,6 +1022,14 @@
     <div class="section-title">Arsenal</div>
     <div class="weapon-card"><div class="weapon-name">Gunbai da Ruptura</div><div class="weapon-type">Arma Principal · Escudo & Contra-ataque</div><div class="weapon-body">Absorve qualquer ninjutsu e devolve como onda destrutiva devastadora. Revela falhas estruturais ao contato.</div></div>
     <div class="weapon-card"><div class="weapon-name">Lâmina da Fênix Flamejante</div><div class="weapon-type">Sabre Especial · Katana de Lâmina Negra</div><div class="weapon-body">Lâmina negra com veias de fogo eterno. Revestida permanentemente por Amaterasu moldável.</div></div>
+    <div class="weapon-card" style="border-color:#8a2200;background:#0e0100">
+      <div class="weapon-name" style="color:#ff7040">影炎刃 · Kagenren — Lâmina da Chama-Sombra</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Aço Negro de Chakra · Forjada pela Fênix de Dez Caudas</div>
+      <div class="weapon-body">Foice de lâmina curva invertida em cabo curto de sabre — empunhada como katana, letal como foice. Curvatura de 40° afiada na borda côncava interna. Superfície negra absoluta com veias vermelhas de chakra que pulsam em repouso e ficam branco-incandescentes com o Kaienten ativo. Cabo de couro de Fênix — conduz chakra ígneo sem perda. Quando o Kaienten fratura uma defesa, a curvatura da Kagenren se encaixa na fenda como uma chave e a expande de dentro para fora.<br><br>
+      <strong style="color:#ff6b2b">Kōtō-Ichi</strong> — Encosta a ponta na defesa, localiza a fratura via Kaienten e insere a curvatura no ponto exato. Cirurgia, não força bruta.<br>
+      <strong style="color:#ff6b2b">Kaen Bōchō</strong> — Prende o adversário pelo gancho da foice e arrasta para dentro do campo de Amaterasu que reveste a lâmina.<br>
+      <strong style="color:#ff6b2b">Kaienten · Forma Lâmina</strong> — Com Kaienten ativo, a Kagenren alinha a borda côncava com o ponto fraco de qualquer defesa automaticamente.</div>
+    </div>
   </div>
 
   <div class="section">
@@ -1042,6 +1181,14 @@
     <div class="section-title">Arsenal</div>
     <div class="weapon-card"><div class="weapon-name">Gunbai do Domínio</div><div class="weapon-type">Arma Principal · Escudo & Barreira Móvel</div><div class="weapon-body">Absorve ninjutsu e devolve como onda gelada. Cria zonas de desaceleração extrema ao refletir técnicas.</div></div>
     <div class="weapon-card"><div class="weapon-name">Lâmina do Gelo Eterno</div><div class="weapon-type">Sabre Especial · Cristal Translúcido de Frio Absoluto</div><div class="weapon-body">Ao cortar, congela instantaneamente o ponto de contato. Pode estender lâminas de gelo ou criar correntes congelantes ao balançar.</div></div>
+    <div class="weapon-card" style="border-color:#0a3a6e;background:#00050f">
+      <div class="weapon-name" style="color:#4dcfff">氷炎鎌 · Hyōren — Foice-Sabre do Domínio Congelado</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Cristal de Gelo Primordial Bijū · Forjada pela Snow Fox de Dez Caudas</div>
+      <div class="weapon-body">A mais elegante das cinco foices. Curvatura de 45° perfeita como arco de compasso. Cabo de uma mão com guarda mínima para liberdade total de pulso. Ponta dupla: borda côncava afiada e segunda ponta externa para travar a lâmina adversária. Corpo translúcido azul-branco — você enxerga levemente através dela, desorientando o rastreamento do adversário. Quando o Hyōkoku está ativo, cristais microscópicos flutuam ao redor como satélites cortantes. Guarda com inscrição: 氷獄.<br><br>
+      <strong style="color:#4dcfff">Travar & Congelar</strong> — A ponta dupla prende a arma adversária e congela o ponto de contato instantaneamente com chakra da Snow Fox. O adversário não consegue destravar.<br>
+      <strong style="color:#4dcfff">Arranhão de Domínio</strong> — Um toque superficial da Kagenren interrompe jutsus em andamento congelando o fluxo de chakra no ponto de contato.<br>
+      <strong style="color:#4dcfff">Hyōkoku · Forma Lâmina</strong> — Com Hyōkoku ativo, qualquer ponto que a lâmina toca congela em nível molecular — chakra, carne, técnicas em andamento param simultaneamente.</div>
+    </div>
   </div>
 
   <div class="section">
@@ -1193,6 +1340,14 @@
     <div class="section-title">Arsenal</div>
     <div class="weapon-card"><div class="weapon-name">Gunbai do Julgamento</div><div class="weapon-type">Arma Principal · Âncora Causal</div><div class="weapon-body">Absorve ninjutsu e devolve como onda inevitável. Ataques refletidos tornam-se garantidos pelo Shinsei.</div></div>
     <div class="weapon-card"><div class="weapon-name">Lâmina do Julgamento Tectônico</div><div class="weapon-type">Sabre Especial · Lâmina Serrilhada de Lava e Eletricidade</div><div class="weapon-body">Força sísmica e raios em cada golpe. Fratura o terreno e corrige o resultado pelo Shinsei.</div></div>
+    <div class="weapon-card" style="border-color:#4a5a00;background:#070900">
+      <div class="weapon-name" style="color:#c8e000">震斬鎌 · Shinzan — Foice-Sabre do Julgamento Inevitável</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Lava Solidificada de Escala Bijū · Forjada pelo Dragão de Terra e Relâmpago</div>
+      <div class="weapon-body">A mais imponente das cinco. Curvatura ampla de 35° com lâmina longa e visivelmente pesada. Cabo de uma mão e meia com guarda em chifre de dragão — dois projetores que apontam para frente, usados como arma de impacto além da lâmina. Ponta larga como machadinha para impacto sólido além do corte. Superfície marrom-escuro terroso com fissuras dourado-elétricas que se iluminam completamente quando o Shinsei ativa. A guarda conduz chakra tectônico — qualquer superfície que tocar com ela racha.<br><br>
+      <strong style="color:#c8e000">Tremor no Impacto</strong> — A lâmina pesada transmite força sísmica ao contato: escudos trincam, armas adversárias vibram fora de controle, estruturas de terra se rompem.<br>
+      <strong style="color:#c8e000">Guarda como Arma</strong> — Leonardo usa a guarda em chifre para travar, empurrar e liberar descarga tectônica em contato próximo.<br>
+      <strong style="color:#c8e000">Shinsei · Forma Lâmina</strong> — O Shinsei aplicado à Shinzan faz a lâmina existir em estado de resultado garantido. O adversário não desvia — ele chega até a lâmina.</div>
+    </div>
   </div>
 
   <div class="section">
@@ -2137,10 +2292,10 @@
   <div class="hagoromo-banner">
     <div class="hag-icon">☯️</div>
     <div class="hag-title">A Profecia de Hagoromo Ōtsutsuki</div>
-    <div class="hag-body">O Sábio dos Seis Caminhos deixou mais que chakra — deixou linhagem. Naruto e Sasuke foram reconhecidos como seus filhos espirituais, herdando o Yin e o Yang. Eduardo, Guilherme e Leonardo carregam a mesma essência: o Rinne-Sharingan Primordial que nasce diretamente do chakra dos Seis Caminhos. Os cinco são ramos da mesma raiz — e quando os cinco agem juntos, a realidade não tem defesa.</div>
+    <div class="hag-body">O Sábio dos Seis Caminhos deixou mais que chakra — deixou linhagem. Naruto é a reencarnação de Asura, herdeiro do Yang e da força que sustenta a vida. Sasuke é a reencarnação de Indra, herdeiro do Yin e do Rinnegan. Eduardo, Guilherme e Leonardo carregam o Rinne-Sharingan Primordial que nasce diretamente do chakra dos Seis Caminhos. Os cinco são ramos da mesma raiz — e quando os cinco agem juntos, a realidade não tem defesa.</div>
     <div class="hag-five">
-      <span class="hag-tag">Naruto — Força do Yang</span>
-      <span class="hag-tag">Sasuke — Poder do Yin</span>
+      <span class="hag-tag">Naruto — Yang · Reencarnação de Asura</span>
+      <span class="hag-tag">Sasuke — Yin · Reencarnação de Indra</span>
       <span class="hag-tag">Eduardo — Fogo Primordial</span>
       <span class="hag-tag">Guilherme — Gelo Eterno</span>
       <span class="hag-tag">Leonardo — Terra e Juízo</span>
@@ -2156,7 +2311,7 @@
       <div class="arc-subtitle">Antes da batalha final — os guerreiros se reúnem</div>
       <div class="arc-body">O mundo shinobi estava à beira do colapso. <span class="arc-highlight">Madara Uchiha</span>, ressurgido além de qualquer limite humano e alimentado por chakra de proporções divinas, havia ativado o Infinito Tsukuyomi — um genjutsu planetário que transformava a humanidade em sonho. Ao seu lado, <span class="arc-highlight">Kaguya Ōtsutsuki</span> — a Mãe do Chakra — havia retornado. Libertada dos selos e alimentada pelos frutos de sofrimento de gerações, Kaguya não buscava paz nem guerra: buscava colheita. Todo o chakra do mundo seria reabsorvido.</div>
       <hr class="arc-divider">
-      <div class="arc-detail">Cinco guerreiros foram convocados — não pelos kages, mas pelo próprio fluxo do destino. <span class="arc-highlight">Naruto Uzumaki</span>, Jinchūriki do Kyūbi, portador do Yang dos Seis Caminhos. <span class="arc-highlight">Sasuke Uchiha</span>, último sobrevivente do clã, portador do Yin e do Rinnegan. <span class="arc-highlight">Eduardo Uchiha</span>, <span class="arc-highlight">Guilherme Uchiha</span> e <span class="arc-highlight">Leonardo Uchiha</span>, com o Rinne-Sharingan Primordial que deriva da mesma fonte. Os cinco — filhos da mesma linhagem de Hagoromo — eram a única resposta que o mundo possuía.</div>
+      <div class="arc-detail">Cinco guerreiros foram convocados — não pelos kages, mas pelo próprio fluxo do destino. <span class="arc-highlight">Naruto Uzumaki</span>, reencarnação de Asura, Jinchūriki do Kyūbi, portador do Yang dos Seis Caminhos. <span class="arc-highlight">Sasuke Uchiha</span>, reencarnação de Indra, portador do Yin e do Rinnegan. <span class="arc-highlight">Eduardo Uchiha</span>, <span class="arc-highlight">Guilherme Uchiha</span> e <span class="arc-highlight">Leonardo Uchiha</span>, com o Rinne-Sharingan Primordial que deriva da mesma fonte. Os cinco — filhos da mesma linhagem de Hagoromo — eram a única resposta que o mundo possuía.</div>
       <hr class="arc-divider">
       <div class="arc-detail">Quando os cinco se olharam pela primeira vez no campo de batalha devastado, houve um reconhecimento silencioso. Não precisavam de palavras. O chakra dos cinco pulsava na mesma frequência ancestral. <span class="arc-highlight">Leonardo</span> foi quem falou: <em style="color:#d4a800">"Nenhum de nós sozinho. Os cinco ou nenhum."</em> Ninguém discutiu.</div>
     </div>
@@ -2315,6 +2470,272 @@
 
 </div></div>
 
+
+<!-- ===================== NARUTO ===================== -->
+<div class="panel" id="panel-nar"><div class="root">
+  <div class="hero">
+    <span class="hero-emblem">🌀</span>
+    <div class="hero-name">Naruto Uzumaki</div>
+    <div class="hero-sub">Sétimo Hokage · Jinchūriki de Kurama · Filho Espiritual de Hagoromo</div>
+    <div class="tag-row">
+      <span class="tag">Modo Sábio dos Seis Caminhos</span><span class="tag">Reencarnação de Asura</span>
+      <span class="tag">Kurama de Dez Caudas</span><span class="tag">Yang dos Seis Caminhos</span>
+    </div>
+    <div class="quote">"Eu não desisto. Não importa o que seja o inimigo — enquanto meus amigos estiverem de pé, eu também estou."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência Física</div>
+    <div class="appear-card">
+      <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Loiro dourado vibrante, espetado de forma natural e caótica. Quando o Modo Seis Caminhos ativa, o cabelo se levanta completamente e ganha raios dourado-alaranjados nas pontas. Em Modo Kurama completo, as pontas queimam em laranja vivo.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Azul oceano intenso em repouso, com marcas de bigode nas bochechas — herança de Kurama desde o nascimento. Modo Sábio: íris laranja com pupila vertical de sapo e marcas do sábio ao redor dos olhos. Modo Seis Caminhos: íris laranja-dourada intensa com fendas verticais — a percepção de Asura em sua forma máxima, sem Sharingan de nenhum tipo.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Feições joviais e abertas. Sorriso amplo como traço fundamental. As marcas de bigode intensificam em combate. Em Modo Seis Caminhos, marca em cruz surge na testa — símbolo de Hagoromo.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Capa branca de Hokage com chamas vermelhas na borda inferior sobre roupa ninja laranja e preto. Em campo de batalha: removo a capa, roupa laranja com proteções pretas. Em Modo Seis Caminhos: manto branco com círculos pretos dos Seis Caminhos.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🌀</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra laranja-dourado de Kurama irradiando ao redor. Em Modo Seis Caminhos: aura branca luminosa com círculos negros flutuando. Rasengan sempre visível na palma como pulsação constante.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personalidade</div>
+    <div class="personality-split">
+      <div class="personality-card modo-combat">
+        <span class="personality-mode">🔥 Modo Combate</span>
+        <div class="personality-title">Inabalável. Feroz. Presente.</div>
+        <div class="personality-body">Naruto não recua. Quanto mais pesada a pressão, mais sólida a presença. Não é tático por instinto — é por vontade. Sente o ritmo do campo e responde com força que cresce em tempo real. Nenhum inimigo o assusta. Alguns ele até tenta convencer enquanto luta.</div>
+      </div>
+      <div class="personality-card modo-social">
+        <span class="personality-mode">😄 Fora de Combate</span>
+        <div class="personality-title">Caloroso. Barulhento. Leal até o fim.</div>
+        <div class="personality-body">Presença que aquece o ambiente sem esforço. Faz amizades com inimigos, ri alto, come ramen em quantidade industrial. Com Eduardo, Guilherme e Leonardo há uma dinâmica de irmandade imediata — os quatro se provocam como se se conhecessem há décadas.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Habilidade Central — Modo Sábio dos Seis Caminhos</div>
+    <div class="power-card">
+      <div class="power-title">Modo Seis Caminhos — Yang Primordial</div>
+      <div class="power-jp">六道仙人モード · Herança direta de Hagoromo · Chakra Yang dos Seis Caminhos</div>
+      <div class="power-body">Naruto recebeu de Hagoromo o Yang dos Seis Caminhos — a metade da força que sustenta a vida. Como reencarnação de Asura, filho mais velho de Hagoromo, carrega em si a herança do amor e da força física. No Modo Seis Caminhos, seu chakra transcende o plano físico: percebe chakra de todos os seres vivos simultaneamente pelo Sentido Sábio amplificado, distribui chakra dos Seis Caminhos para aliados, destrói técnicas de chakra negro e anula imortalidade. É a força bruta e o amor incondicional como arma absoluta.</div>
+      <div class="power-example">· Chakra negro de Madara → neutralizado ao contato<br>· Bijū de todos os tipos → comunicação e controle via chakra Yang<br>· Imortalidade adversária → anulada pelo Yang primordial<br>· Campo de batalha inteiro → percebido como mapa de chakra em tempo real</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular & Percepção</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Modo Sábio dos Seis Caminhos</div><div class="card-body">Fusão do Modo Sábio Natural com o Yang de Hagoromo. Íris laranja-dourada com fendas verticais — percepção total de chakra em escala planetária.<br><br><span style="font-size:11px">🌿 Sentido Sábio — detecta chakra de todos os seres</span><br><span style="font-size:11px">☀️ Yang ativo — anula chakra negro de área</span><br><span style="font-size:11px">🔗 Vínculo — distribui chakra para aliados em campo</span></div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Modo Sábio Natural — Monte Myōboku</div><div class="card-body">Fusão perfeita com a energia natural do ambiente. Percepção que abrange todos os seres vivos no raio de batalha.<br><br><span style="font-size:11px">🌿 Detecta intenção antes do movimento</span><br><span style="font-size:11px">💪 Força física amplificada além do bijū</span><br><span style="font-size:11px">☀️ Chakra Yang cura aliados ao contato</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Força & Resistência Física</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra (Seis Caminhos)</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Velocidade & Mobilidade</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Percepção de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Resistência & Regeneração Bijū</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#7a4000"><div class="elem-name">Fūton + Raiton</div><div class="elem-desc">Rasengan/Rasenshuriken com corte de vento e descarga. Bijūdamas com Raiton amplificam penetração.</div></div>
+      <div class="elem" style="border-color:#6a3000"><div class="elem-name">Yang — Chakra da Vida</div><div class="elem-desc">Cura aliados, anula chakra negro, destrói imortalidade. O oposto perfeito do chakra de Kaguya.</div></div>
+      <div class="elem" style="border-color:#5a2000"><div class="elem-name">Todos os Elementos</div><div class="elem-desc">Via Modo Seis Caminhos: Katon, Suiton, Doton, Fūton, Raiton, Yōton, Onmyōton, e chakra de todos os bijū.</div></div>
+    </div>
+    <div class="synergy">Sentido Sábio detecta → Rasengan/Bijūdama executa → Yang finaliza anulando regeneração inimiga</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Jinchūriki — Kurama de Dez Caudas</div>
+    <div class="biju-card">
+      <div class="biju-title">Kurama — Raposa de Nove Caudas · Nível Dez Caudas</div>
+      <div class="biju-jp">九尾の狐 · Chakra Yang primordial · Sincronia total · Parceiro de alma</div>
+      <div class="card-body" style="font-size:12px;margin-bottom:10px">A sincronia entre Naruto e Kurama transcendeu Jinchūriki — é parceria. Kurama age de forma autônoma com consciência própria, cobrindo os ângulos que Naruto não vê. No Modo Seis Caminhos, absorvem o chakra dos outros oito bijū, atingindo densidade de Dez-Caudas.</div>
+      <div class="biju-grid">
+        <div class="biju-ability"><div class="biju-ability-name">Manto Kurama Completo</div><div class="biju-ability-desc">Forma humanoide de Kurama ao redor de Naruto — escala colossal, força planetária</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Bijūdama dos Nove</div><div class="biju-ability-desc">Absorve chakra dos nove bijū — esfera de destruição dimensional</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Distribuição de Chakra</div><div class="biju-ability-desc">Naruto distribui chakra de Kurama para aliados — amplificação de toda a equipe</div></div>
+        <div class="biju-ability"><div class="biju-ability-name">Regeneração Imediata</div><div class="biju-ability-desc">Chakra de Kurama regenera membros, órgãos e danos críticos em segundos</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Forma Jinchūriki Completa — Modo Besta</div>
+    <div class="jinc-card">
+      <div class="jinc-header">
+        <span class="jinc-emblem">🦊</span>
+        <div><div class="jinc-title">Kurama — Manifestação Completa dos Seis Caminhos</div><div class="jinc-sub">Fusão total · Naruto + Kurama · Chakra dos Nove Bijū</div></div>
+      </div>
+      <div class="jinc-body">A forma mais poderosa de Naruto: Kurama manifesta-se em escala colossal ao redor do corpo de Naruto, que opera dentro da forma como piloto e consciência conjunta. Nove caudas ativas, chakra laranja-dourado de Seis Caminhos irradiando de toda a forma. Os olhos de Kurama manifesto brilham em laranja-dourado intenso com fendas verticais do Modo Sábio — sem Sharingan, pura força de Asura. Cada rugido cria ondas de pressão equivalentes a bijūdama.</div>
+      <div class="jinc-grid">
+        <div class="jinc-item"><div class="jinc-item-name">Escala Colossal</div><div class="jinc-item-desc">Kurama manifesto atinge tamanho de montanha — pressão de chakra distorce o campo ao redor</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Nove Caudas Autônomas</div><div class="jinc-item-desc">Cada cauda age independentemente — cerco de nove ângulos enquanto Naruto executa no centro</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Bijūdama Dez-Caudas</div><div class="jinc-item-desc">Absorção dos nove bijū — esfera que distorce espaço-tempo ao ser carregada</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Yang em Escala Bijū</div><div class="jinc-item-desc">Chakra Yang do campo cura todos os aliados automaticamente — anula chakra negro de área</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Percepção Planetária</div><div class="jinc-item-desc">Sentido sábio ampliado pela escala de Kurama — percebe o campo inteiro como mapa vivo</div></div>
+        <div class="jinc-item"><div class="jinc-item-name">Vínculo dos Cinco</div><div class="jinc-item-desc">Distribui chakra de Kurama para Eduardo, Guilherme, Leonardo e Sasuke — amplificação total do grupo</div></div>
+      </div>
+      <div class="jinc-aura">Aura visível: laranja-dourado de Kurama + branco dos Seis Caminhos — o campo inteiro pulsa em sincronia com a presença</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal</div>
+    <div class="weapon-card"><div class="weapon-name">Rasengan dos Seis Caminhos</div><div class="weapon-type">Técnica Primária · Esfera de Chakra Yang Puro</div><div class="weapon-body">Rasengan original amplificado pelo Yang de Hagoromo. Destrói chakra negro, anula regeneração e impacta em escala bijū ao toque.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Rasenshuriken de Vento dos Seis Caminhos</div><div class="weapon-type">Jutsu de Área · Fūton + Yang Primordial</div><div class="weapon-body">Shuriken de vento com Yang dos Seis Caminhos — corta chakra em nível molecular, destrói estruturas dimensionais ao contato e anula imortalidade no raio.</div></div>
+    <div class="weapon-card" style="border-color:#7a4000;background:#0c0600">
+      <div class="weapon-name" style="color:#ffd040">空嵐撃鎌 · Kūrengeki — Foice-Sabre do Vento Vazio</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Aço de Vento Solidificado · Chakra Yang dos Seis Caminhos</div>
+      <div class="weapon-body">A mais incomum das cinco. Curvatura dupla em S achatado — a lâmina curva para fora e reverte levemente na ponta, criando dois pontos de corte no mesmo golpe. Cabo longo de uma mão e meia com grip texturizado grosso e guarda redonda no símbolo Uzumaki. Furos circulares ao longo da lâmina canalizam vento e emitem rugido característico a cada golpe — inimigos dentro do alcance auditivo perdem o senso de direção por meio segundo. Superfície laranja-dourada com grão orgânico. Em Modo Seis Caminhos, os furos emitem luz amarela e a lâmina irradia chakra Yang.<br><br>
+      <strong style="color:#ff8c00">Corte Duplo em S</strong> — A primeira curva rasga, a segunda reverte e prende. Dois pontos de corte no mesmo movimento.<br>
+      <strong style="color:#ff8c00">Fūton: Arashi-Gama</strong> — Gira a Kūrengeki em velocidade máxima criando tornado de chakra comprimido nos furos. Ao golpear, o tornado colapsa na ponta e libera explosão de vento que varre paredes e escudos.<br>
+      <strong style="color:#ff8c00">Yang na Lâmina</strong> — Em Modo Seis Caminhos, os furos canalizam Yang — cada golpe corrói chakra negativo do inimigo ao contato, anulando regeneração no ponto de corte.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Yang de Hagoromo. Kurama em escala Dez-Caudas.<br>A vontade que não quebra nunca.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Vontade que não cede</span><span style="opacity:0.3">·</span><span>Yang que sustenta a vida</span><span style="opacity:0.3">·</span><span>O vento que ninguém para</span></div>
+  </div>
+</div></div>
+
+<!-- ===================== SASUKE ===================== -->
+<div class="panel" id="panel-sas"><div class="root">
+  <div class="hero">
+    <span class="hero-emblem">🌑</span>
+    <div class="hero-name">Sasuke Uchiha</div>
+    <div class="hero-sub">Sombra de Konoha · Semi-Hokage · Filho Espiritual de Hagoromo</div>
+    <div class="tag-row">
+      <span class="tag">Rinne-Sharingan Primordial — Ambos os Olhos</span><span class="tag">Mangekyō Eterno</span>
+      <span class="tag">Susanoo Final</span><span class="tag">Yin dos Seis Caminhos</span>
+    </div>
+    <div class="quote">"Não preciso de aprovação. Só preciso que o resultado seja o certo."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Aparência Física</div>
+    <div class="appear-card">
+      <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Preto azulado, liso e pesado. Franja assimétrica que cobre o olho esquerdo — o lado do Rinne-Sharingan Primordial principal. Comprimento médio, corte limpo que cai naturalmente para frente. Em Modo Susanoo completo, o cabelo levita levemente pela pressão do chakra.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">👁️</span><div class="appear-content"><div class="appear-label">Olhos</div><div class="appear-text">Preto profundo em repouso. Ambos os olhos possuem o Rinne-Sharingan Primordial — íris roxa profunda com anéis concêntricos do Rinnegan e tomoe pretos em ambos, glow violeta intenso. O olho direito carrega adicionalmente os padrões do Mangekyō Eterno visíveis entre os anéis do Rinnegan. Quando os dois olhos ativam simultaneamente, o glow violeta duplica em intensidade.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">✦</span><div class="appear-content"><div class="appear-label">Rosto</div><div class="appear-text">Traços aristocráticos perfeitos. Expressão neutra que comunica julgamento sem esforço. O silêncio de Sasuke tem peso. Quando sorri — raramente — é genuíno e quebra todo o campo.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚔️</span><div class="appear-content"><div class="appear-label">Vestimenta</div><div class="appear-text">Manto roxo escuro de viagem sobre roupa interior preta. Manga esquerda vazia — braço perdido nunca substituído, uma escolha. Protetor ninja na testa ao pescoço. Visual que comunica: este homem não precisa provar nada a ninguém.</div></div></div>
+      <div class="appear-row"><span class="appear-icon">🌑</span><div class="appear-content"><div class="appear-label">Aura de Combate</div><div class="appear-text">Chakra violeta escuro irradiando em silêncio ao redor do corpo. Quando o Susanoo começa a se formar, o ar ao redor esfria e escurece visivelmente antes de qualquer forma aparecer.</div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Personalidade</div>
+    <div class="personality-split">
+      <div class="personality-card modo-combat">
+        <span class="personality-mode">🌑 Modo Combate</span>
+        <div class="personality-title">Cirúrgico. Silencioso. Definitivo.</div>
+        <div class="personality-body">Sasuke não combate — ele encerra. Cada golpe é o único que precisará ser dado. Não demonstra raiva, esforço ou satisfação. A eficiência é tão absoluta que parece entediante. Inimigos que entendem o que estão enfrentando param de resistir antes do fim.</div>
+      </div>
+      <div class="personality-card modo-social">
+        <span class="personality-mode">☯️ Fora de Combate</span>
+        <div class="personality-title">Direto. Leal. Presente à sua maneira.</div>
+        <div class="personality-body">Poucas palavras, nenhuma desnecessária. Com Eduardo, Guilherme e Leonardo há respeito mútuo imediato — Sasuke reconhece força sem precisar proclamar. Com Naruto, a dinâmica é décadas de história comprimida em olhares. O grupo inteiro sabe que quando Sasuke fala, é importante.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Rinne-Sharingan Primordial — Ambos os Olhos</div>
+    <div class="power-card">
+      <div class="power-title">Rinne-Sharingan Primordial · Olho Esquerdo & Direito</div>
+      <div class="power-jp">輪廻写輪眼 · Herança do Yin de Hagoromo · Dupla manifestação</div>
+      <div class="power-body">Sasuke é o único dos cinco a possuir o Rinne-Sharingan Primordial em ambos os olhos simultaneamente — resultado da transferência direta do Yin de Hagoromo e do Mangekyō Eterno bilateral. O olho esquerdo porta o Rinnegan clássico com habilidades de Seis Caminhos. O olho direito porta o Rinnegan com as habilidades do Mangekyō Eterno integradas diretamente nos anéis — Amaterasu e Susanoo emanam do mesmo órgão sem necessidade de alternar. Quando os dois olhos são usados em conjunto, o campo de percepção de Sasuke cobre dimensões simultaneamente.</div>
+      <div class="power-example">· Olho esquerdo → Seis Caminhos, espaço-tempo, gravitação, absorção<br>· Olho direito → Mangekyō, Amaterasu, Tsukuyomi, Susanoo, Izanagi, Izanami<br>· Ambos juntos → percepção dimensional simultânea, genjutsu que afeta realidade, selamento perfeito</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Poder Ocular</div>
+    <div class="grid2">
+      <div class="card"><div class="card-title"><span class="dot"></span>Mangekyō Eterno Absoluto</div><div class="card-body">Uso ilimitado, sem desgaste ou cegueira. Amaterasu, Tsukuyomi e Susanoo em escala máxima sem custo.<br><br><span style="font-size:11px">🔥 Amaterasu — chamas negras inextinguíveis</span><br><span style="font-size:11px">🌀 Tsukuyomi — genjutsu de realidade alterada</span><br><span style="font-size:11px">⚔️ Susanoo Final — armadura de escala continental</span></div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Rinnegan dos Seis Caminhos — Duplo</div><div class="card-body">Ambos os olhos com Rinnegan completo — percepção e controle de chakra em escala dimensional.<br><br><span style="font-size:11px">⚫ Absorção total de ninjutsu — bilateral</span><br><span style="font-size:11px">🌀 Espaço-tempo — portais dimensionais</span><br><span style="font-size:11px">🧲 Gravitação — Shinra Tensei / Bansho Ten'in amplificados</span><br><span style="font-size:11px">☯️ Yin dos Seis Caminhos — selamento perfeito</span></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Atributos de Combate</div>
+    <div class="card">
+      <div class="ability-bar"><div class="ability-label"><span>Poder Ocular (Duplo Rinne-Sharingan)</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Inteligência Tática</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Poder de Chakra</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Velocidade & Precisão</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="ability-bar" style="margin-top:8px"><div class="ability-label"><span>Resistência & Resistência ao Dano</span><span>100/100</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Afinidades Elementais</div>
+    <div class="elem-row">
+      <div class="elem" style="border-color:#4a0a7a"><div class="elem-name">Katon + Amaterasu</div><div class="elem-desc">Fogo comum e fogo eterno negro — moldável, preciso, inextinguível após o contato.</div></div>
+      <div class="elem" style="border-color:#3a0860"><div class="elem-name">Raiton + Chidori</div><div class="elem-desc">Raio de precisão cirúrgica. Chidori amplificado pelo Rinnegan perfura qualquer defesa.</div></div>
+      <div class="elem" style="border-color:#280448"><div class="elem-name">Todos os Elementos</div><div class="elem-desc">Katon, Suiton, Doton, Fūton, Raiton, Inton — Yin dos Seis Caminhos abrange todos.</div></div>
+    </div>
+    <div class="synergy">Rinnegan mapeia → Amaterasu marca → Susanoo Final encerra sem possibilidade de defesa</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal</div>
+    <div class="weapon-card"><div class="weapon-name">Chidori dos Seis Caminhos</div><div class="weapon-type">Técnica Primária · Raiton + Yin Primordial</div><div class="weapon-body">Chidori amplificado pelo Yin de Hagoromo. Perfura qualquer defesa de chakra, incluindo aquelas imunes a técnicas comuns de relâmpago.</div></div>
+    <div class="weapon-card"><div class="weapon-name">Espada de Kusanagi</div><div class="weapon-type">Sabre Principal · Condutora de Chidori e Amaterasu</div><div class="weapon-body">Lâmina que conduz Raiton e Amaterasu com igual eficiência. Reveste-se de chamas negras ou relâmpago ao comando do olhar.</div></div>
+    <div class="weapon-card" style="border-color:#5a1a8a;background:#060010">
+      <div class="weapon-name" style="color:#c080ff">影刃鎌 · Ereibo — Foice-Sabre da Sombra Absoluta</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Aço Yin Puro · Forjado pelo chakra das dimensões de Kaguya</div>
+      <div class="weapon-body">Curvatura fechada de 55° — quase um quarto de lua. Cabo de uma mão com guarda em espiral dupla espelhando o padrão do Rinnegan visto de cima. Ponta em ângulo reto abrupto, como sentença finalizada. A mais compacta e veloz das cinco. Superfície cinza escuro tendendo a roxo com veias violeta finas em sincronia com os anéis do Rinnegan. Quando o Amaterasu reveste a lâmina, as chamas são roxas — nunca laranjas. A guarda brilha levemente em combate ativo.<br><br>
+      <strong style="color:#9040ff">Corte Reverso</strong> — O golpe vai para frente mas a curvatura fechada puxa para trás, atingindo pontos cegos que o reflexo defensivo não cobre.<br>
+      <strong style="color:#9040ff">Meikoku-Giri</strong> — Sasuke usa o Rinnegan para criar cópia dimensional da Ereibo. A lâmina real ataca pela frente, a sombra dimensional ataca pelo ângulo oposto simultaneamente. Não há defesa para dois pontos em dimensões diferentes.<br>
+      <strong style="color:#9040ff">Amaterasu Roxo</strong> — A Ereibo revestida de Amaterasu roxo — as chamas seguem o padrão do Rinnegan na superfície da lâmina, queimando somente o que Sasuke designa.</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Susanoo Final — Forma Absoluta</div>
+    <div class="susanoo-card sus-sas">
+      <div class="sus-title">🌑 Susanoo Final — O Árbitro das Trevas</div>
+      <div class="sus-sub">終焉スサノオ · Susanoo Completo Duplo Rinne-Sharingan · Modo Absoluto</div>
+      <div class="sus-body">O Susanoo de Sasuke com o Rinne-Sharingan Primordial em ambos os olhos é uma entidade diferente de qualquer forma anterior. Uma figura colossal de chakra roxo-negro com armadura de padrões do Rinnegan gravados em cada superfície — como se o próprio tecido dimensional fosse a armadura. Os dois olhos do Susanoo brilham com o glow duplo do Rinne-Sharingan: esquerdo frio e estável, direito com chamas do Mangekyō visíveis por dentro. A espada do Susanoo conduz Amaterasu roxo e Chidori simultaneamente. Cada movimento cria portais dimensionais que redirecionam ataques e golpeiam de ângulos impossíveis.</div>
+      <div class="sus-grid">
+        <div class="sus-item"><div class="sus-item-name">Espada de Amaterasu Roxo</div><div class="sus-item-desc">Conduz chamas negras e Yin simultaneamente — corta e sela no mesmo golpe</div></div>
+        <div class="sus-item"><div class="sus-item-name">Portais Dimensionais Integrados</div><div class="sus-item-desc">O Susanoo abre portais com os movimentos — golpes surgem de dimensões diferentes</div></div>
+        <div class="sus-item"><div class="sus-item-name">Absorção Bilateral</div><div class="sus-item-desc">Ambos os braços do Susanoo absorvem ninjutsu simultaneamente — nenhum ângulo fica descoberto</div></div>
+        <div class="sus-item"><div class="sus-item-name">Tsukuyomi de Realidade</div><div class="sus-item-desc">O olhar do Susanoo aplica Tsukuyomi — genjutsu que altera a percepção de realidade do campo inteiro</div></div>
+        <div class="sus-item"><div class="sus-item-name">Selamento pelo Yin</div><div class="sus-item-desc">A palma do Susanoo aplica o Yin dos Seis Caminhos — sela qualquer entidade, bijū ou técnica ao toque</div></div>
+        <div class="sus-item"><div class="sus-item-name">Gravitação Dupla</div><div class="sus-item-desc">Shinra Tensei e Bansho Ten'in simultâneos — repele e atrai ao mesmo tempo, criando campo de pressão inescapável</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Nível de Poder</div>
+    <div class="card" style="text-align:center;padding:20px">
+      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Rinne-Sharingan Primordial em ambos os olhos.<br>Yin de Hagoromo. O árbitro que encerra qualquer conflito.</div>
+    </div>
+  </div>
+
+  <div class="essence-bar">
+    <div class="essence-label">Essência</div>
+    <div class="essence-items"><span>Sombra que protege a luz</span><span style="opacity:0.3">·</span><span>Yin que sela o impossível</span><span style="opacity:0.3">·</span><span>O silêncio antes do fim</span></div>
+  </div>
+</div></div>
 
 <script>
   function switchTab(id) {
