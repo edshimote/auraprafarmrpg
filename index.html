@@ -118,6 +118,19 @@
   .tag { font-size: 10px; padding: 3px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
   .quote { font-size: 14px; font-style: italic; border-left: 3px solid; padding-left: 14px; line-height: 1.6; opacity: 0.9; }
 
+  .character-showcase { position: relative; overflow: hidden; border-radius: 14px; border: 1px solid; margin: -4px 0 20px; min-height: 420px; background: #050505; }
+  .character-showcase::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.78) 100%); pointer-events: none; }
+  .character-showcase img { width: 100%; height: 460px; object-fit: cover; object-position: center 42%; display: block; filter: saturate(1.08) contrast(1.06); }
+  .character-caption { position: absolute; z-index: 2; left: 14px; right: 14px; bottom: 14px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+  .character-caption strong { font-family: var(--font-title); font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .character-caption span { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.72; text-align: right; }
+  @media (max-width: 560px) {
+    .character-showcase { min-height: 360px; }
+    .character-showcase img { height: 390px; }
+    .character-caption { align-items: flex-start; flex-direction: column; }
+    .character-caption span { text-align: left; }
+  }
+
   .section { margin-bottom: 18px; }
   .section-title { font-family: var(--font-title); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid; opacity: 0.7; }
   .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -199,6 +212,9 @@
   #panel-edu .hero-sub { color: var(--edu-muted); }
   #panel-edu .tag { background: #2a0800; border: 1px solid var(--edu-border); color: var(--edu-accent); }
   #panel-edu .quote { color: var(--edu-text); border-color: var(--edu-accent2); }
+  #panel-edu .character-showcase { border-color: var(--edu-border); box-shadow: 0 0 32px var(--edu-glow); }
+  #panel-edu .character-caption strong { color: #ff9966; }
+  #panel-edu .character-caption span { color: var(--edu-accent); }
   #panel-edu .section-title { color: var(--edu-accent); border-color: var(--edu-border); }
   #panel-edu .card { background: var(--edu-card); border-color: var(--edu-border); }
   #panel-edu .card-title { color: #ff9966; }
@@ -253,6 +269,9 @@
   #panel-gui .hero-sub { color: var(--gui-muted); }
   #panel-gui .tag { background: #001430; border: 1px solid var(--gui-border); color: var(--gui-accent); }
   #panel-gui .quote { color: var(--gui-text); border-color: var(--gui-accent2); }
+  #panel-gui .character-showcase { border-color: var(--gui-border); box-shadow: 0 0 32px var(--gui-glow); }
+  #panel-gui .character-caption strong { color: #90deff; }
+  #panel-gui .character-caption span { color: var(--gui-accent); }
   #panel-gui .section-title { color: var(--gui-accent); border-color: var(--gui-border); }
   #panel-gui .card { background: var(--gui-card); border-color: var(--gui-border); }
   #panel-gui .card-title { color: #90deff; }
@@ -307,6 +326,9 @@
   #panel-leo .hero-sub { color: var(--leo-muted); }
   #panel-leo .tag { background: #101600; border: 1px solid var(--leo-border); color: var(--leo-accent); }
   #panel-leo .quote { color: var(--leo-text); border-color: var(--leo-accent2); }
+  #panel-leo .character-showcase { border-color: var(--leo-border); box-shadow: 0 0 32px var(--leo-glow); }
+  #panel-leo .character-caption strong { color: #d4e870; }
+  #panel-leo .character-caption span { color: var(--leo-accent); }
   #panel-leo .section-title { color: var(--leo-accent); border-color: var(--leo-border); }
   #panel-leo .card { background: var(--leo-card); border-color: var(--leo-border); }
   #panel-leo .card-title { color: #d4e870; }
@@ -1033,9 +1055,28 @@
     <div class="hero-sub">Clã Uchiha · Pai de Kuroshin, Aiko & Akari</div>
     <div class="tag-row">
       <span class="tag">Mangekyō Eterno Absoluto</span><span class="tag">Rinne-Sharingan Primordial</span>
-      <span class="tag">Fênix de Dez Caudas Primordiais</span><span class="tag">Kaienten</span>
+      <span class="tag">Fênix Primordial</span><span class="tag">Jinchūriki desde criança</span><span class="tag">Kaienten</span>
     </div>
     <div class="quote">"Defesas existem para serem destruídas. Fraquezas existem para serem encontradas."</div>
+  </div>
+
+  <div class="character-showcase">
+    <img src="assets/eduardo-ninja.png" alt="Eduardo Uchiha em visual ninja anime">
+    <div class="character-caption"><strong>Eduardo Uchiha</strong><span>Visual ninja · Fênix Primordial</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal Supremo — Nota 10/10</div>
+    <div class="power-card">
+      <div class="power-title">Kaienten no Kami — 壊炎天神</div>
+      <div class="power-jp">Evolução final do Kaienten · Fogo que apaga matéria, chakra, alma e conceitos</div>
+      <div class="power-body">No auge absoluto, Eduardo transforma o Kaienten em uma lei de ruptura. As chamas não queimam apenas o corpo: elas encontram a falha de qualquer existência e a consomem por dentro, apagando chakra, alma, matéria, destino, tempo e espaço como se fossem defesas quebráveis.</div>
+      <div class="power-example">· Apaga chakra antes da técnica estabilizar<br>· Queima a ligação entre alma e corpo<br>· Fratura conceitos como destino, tempo e espaço<br>· Regeneração absoluta da Fênix Primordial imortal</div>
+    </div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="card"><div class="card-title"><span class="dot"></span>Fênix Primordial Imortal</div><div class="card-body">A Fênix Primordial não é apenas uma bijū: é um núcleo de renascimento eterno. Pela linhagem primordial dos Cinco e pela drenagem absurda de chakra da Kaguya, ela evoluiu para possuir Dez Caudas Primordiais, mantendo o nome limpo como Fênix Primordial. Mesmo que o corpo seja destruído, o chakra ígneo reconstrói Eduardo a partir da última faísca.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Regeneração Absoluta</div><div class="card-body">Cura instantânea de dano físico, espiritual e de chakra. Feridas, selamentos, venenos e rupturas internas são queimados e refeitos pela Fênix.</div></div>
+    </div>
   </div>
 
   <div class="section">
@@ -1105,11 +1146,11 @@
   </div>
 
   <div class="section">
-    <div class="section-title">Jinchūriki — Fênix de Dez Caudas Primordiais</div>
+    <div class="section-title">Jinchūriki — Fênix Primordial</div>
     <div class="biju-card">
-      <div class="biju-title">Fênix de Dez Caudas Primordiais</div>
+      <div class="biju-title">Fênix Primordial</div>
       <div class="biju-jp">十尾の鳳凰 · Chakra ígneo primordial · Sincronização total</div>
-      <div class="card-body" style="font-size:12px">Entidade equivalente ao Dez-Caudas. Controle total. Usuário e besta agem como uma única consciência no campo de batalha.</div>
+      <div class="card-body" style="font-size:12px">A Fênix Primordial é a bijū selada dentro de Eduardo desde a infância, fazendo dele um jinchūriki desde criança, como Naruto foi com Kurama. No começo, a relação era instintiva e difícil de controlar; com a história passando, Eduardo e a Fênix aprendem a confiar um no outro até alcançarem parceria total. Entidade equivalente ao Dez-Caudas. Pela linhagem primordial dos Cinco e pela drenagem absurda de chakra da Kaguya, a Fênix evoluiu e passou a possuir Dez Caudas Primordiais. Controle total: Eduardo e a besta agem como uma única consciência no campo de batalha.</div>
       <div class="biju-grid">
         <div class="biju-ability"><div class="biju-ability-name">Manto Flamejante</div><div class="biju-ability-desc">Densidade bijū, pressão térmica constante que deforma o campo</div></div>
         <div class="biju-ability"><div class="biju-ability-name">Asas de Fogo Primordial</div><div class="biju-ability-desc">Mobilidade aérea absoluta, ataques em mergulho devastadores</div></div>
@@ -1124,9 +1165,9 @@
     <div class="jinc-card">
       <div class="jinc-header">
         <span class="jinc-emblem">🦅</span>
-        <div><div class="jinc-title">Encarnação da Fênix Primordial</div><div class="jinc-sub">Fusão total · Eduardo + Fênix de Dez Caudas Primordiais</div></div>
+        <div><div class="jinc-title">Encarnação da Fênix Primordial</div><div class="jinc-sub">Fusão total · Eduardo + bijū selada nele desde criança</div></div>
       </div>
-      <div class="jinc-body">Ao liberar o chakra conjunto da Fênix em plenitude, o corpo de Eduardo é envolto por armadura de chakra ígneo de densidade bijū. Asas colossais de fogo eterno surgem das costas — cada batida cria ondas de pressão. O cabelo branco inflama em pontas vivas de chama, o Rinne-Sharingan Primordial brilha incandescente. A Fênix manifesta-se parcialmente no campo, lutando de forma autônoma enquanto Eduardo combate.</div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Fênix selada dentro dele em plenitude, o corpo de Eduardo é envolto por armadura de chakra ígneo de densidade bijū. Asas colossais de fogo eterno surgem das costas — cada batida cria ondas de pressão. O cabelo branco inflama em pontas vivas de chama, o Rinne-Sharingan Primordial brilha incandescente. A Fênix manifesta-se parcialmente no campo, lutando de forma autônoma enquanto Eduardo combate.</div>
       <div class="jinc-grid">
         <div class="jinc-item"><div class="jinc-item-name">Armadura de Chakra Ígneo</div><div class="jinc-item-desc">Camada densa de fogo primordial — absorve impactos e incendeia qualquer contato</div></div>
         <div class="jinc-item"><div class="jinc-item-name">Asas da Fênix</div><div class="jinc-item-desc">Mobilidade tridimensional irrestrita, calor suficiente para derreter terreno ao mergulhar</div></div>
@@ -1145,7 +1186,7 @@
     <div class="weapon-card"><div class="weapon-name">Lâmina da Fênix Flamejante</div><div class="weapon-type">Sabre Especial · Katana de Lâmina Negra</div><div class="weapon-body">Lâmina negra com veias de fogo eterno. Revestida permanentemente por Amaterasu moldável.</div></div>
     <div class="weapon-card" style="border-color:#8a2200;background:#0e0100">
       <div class="weapon-name" style="color:#ff7040">影炎刃 · Kagenren — Lâmina da Chama-Sombra</div>
-      <div class="weapon-type">Foice-Sabre Exclusiva · Aço Negro de Chakra · Forjada pela Fênix de Dez Caudas</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Aço Negro de Chakra · Forjada pela Fênix Primordial</div>
       <div class="weapon-body">Foice de lâmina curva invertida em cabo curto de sabre — empunhada como katana, letal como foice. Curvatura de 40° afiada na borda côncava interna. Superfície negra absoluta com veias vermelhas de chakra que pulsam em repouso e ficam branco-incandescentes com o Kaienten ativo. Cabo de couro de Fênix — conduz chakra ígneo sem perda. Quando o Kaienten fratura uma defesa, a curvatura da Kagenren se encaixa na fenda como uma chave e a expande de dentro para fora.<br><br>
       <strong style="color:#ff6b2b">Kōtō-Ichi</strong> — Encosta a ponta na defesa, localiza a fratura via Kaienten e insere a curvatura no ponto exato. Cirurgia, não força bruta.<br>
       <strong style="color:#ff6b2b">Kaen Bōchō</strong> — Prende o adversário pelo gancho da foice e arrasta para dentro do campo de Amaterasu que reveste a lâmina.<br>
@@ -1156,7 +1197,7 @@
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <span class="level-badge">Nota 10/10 — Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhuma defesa sobrevive ao Kaienten.<br>Nenhum campo resiste à pressão da Fênix.</div>
     </div>
   </div>
@@ -1192,9 +1233,28 @@
     <div class="hero-sub">Clã Uchiha · Senhor do Campo Congelado</div>
     <div class="tag-row">
       <span class="tag">Mangekyō Eterno Absoluto</span><span class="tag">Rinne-Sharingan Primordial</span>
-      <span class="tag">Snow Fox de Dez Caudas Primordiais</span><span class="tag">Hyōkoku</span>
+      <span class="tag">Snow Fox Primordial</span><span class="tag">Jinchūriki desde criança</span><span class="tag">Hyōkoku</span>
     </div>
     <div class="quote">"Quanto mais você se move, mais lento você fica. O campo já é meu."</div>
+  </div>
+
+  <div class="character-showcase">
+    <img src="assets/guilherme-ninja.png" alt="Guilherme Uchiha em visual ninja anime">
+    <div class="character-caption"><strong>Guilherme Uchiha</strong><span>Visual ninja · Snow Fox Primordial</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal Supremo — Nota 10/10</div>
+    <div class="power-card">
+      <div class="power-title">Hyōkai no Shin — 氷界神</div>
+      <div class="power-jp">Deus do Mundo Congelado · Gelo Primordial de chakra, alma e dimensões</div>
+      <div class="power-body">Guilherme eleva o Hyōkoku a um domínio territorial absoluto. O campo inteiro vira uma dimensão congelada onde velocidade, chakra, pensamento e intenção são desacelerados antes mesmo do movimento acontecer.</div>
+      <div class="power-example">· Congela chakra antes da moldagem<br>· Paralisa a alma e a intenção de ataque<br>· Desacelera pensamentos inimigos<br>· Congela fendas dimensionais e rotas de fuga</div>
+    </div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="card"><div class="card-title"><span class="dot"></span>Domínio Territorial Absoluto</div><div class="card-body">Dentro do campo congelado, Guilherme decide o ritmo da luta. O inimigo perde velocidade, reação, chakra e leitura de combate a cada segundo.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Movimento Antes de Acontecer</div><div class="card-body">O gelo primordial trava a intenção antes do corpo obedecer. Ataques rápidos deixam de nascer, como se o futuro fosse congelado no instante anterior.</div></div>
+    </div>
   </div>
 
   <div class="section">
@@ -1264,11 +1324,11 @@
   </div>
 
   <div class="section">
-    <div class="section-title">Jinchūriki — Snow Fox de Dez Caudas Primordiais</div>
+    <div class="section-title">Jinchūriki — Snow Fox Primordial</div>
     <div class="biju-card">
-      <div class="biju-title">Snow Fox de Dez Caudas Primordiais</div>
+      <div class="biju-title">Snow Fox Primordial</div>
       <div class="biju-jp">十尾の雪狐 · Chakra glacial primordial · Sincronia perfeita</div>
-      <div class="card-body" style="font-size:12px">A Snow Fox envolve, aprisiona e controla o campo enquanto Guilherme finaliza alvos com precisão.</div>
+      <div class="card-body" style="font-size:12px">A Snow Fox Primordial é a bijū selada dentro de Guilherme desde a infância, fazendo dele um jinchūriki desde criança, como Naruto foi com Kurama. A relação começa fria, distante e baseada em sobrevivência; com o tempo, Guilherme e a Snow Fox passam a se entender, e o vínculo evolui até virar confiança perfeita em combate. Ela envolve, aprisiona e controla o campo enquanto Guilherme finaliza alvos com precisão. Pela linhagem primordial dos Cinco e pela drenagem absurda de chakra da Kaguya, ela evoluiu e passou a possuir Dez Caudas Primordiais, sem precisar carregar isso no nome.</div>
       <div class="biju-grid">
         <div class="biju-ability"><div class="biju-ability-name">Corpo de Gelo Translúcido</div><div class="biju-ability-desc">Densidade bijū, regeneração contínua impenetrável</div></div>
         <div class="biju-ability"><div class="biju-ability-name">Controle Ambiental Absoluto</div><div class="biju-ability-desc">Todo o campo se converte em extensão da Snow Fox</div></div>
@@ -1283,9 +1343,9 @@
     <div class="jinc-card">
       <div class="jinc-header">
         <span class="jinc-emblem">🦊</span>
-        <div><div class="jinc-title">Encarnação da Snow Fox Primordial</div><div class="jinc-sub">Fusão total · Guilherme + Snow Fox de Dez Caudas Primordiais</div></div>
+        <div><div class="jinc-title">Encarnação da Snow Fox Primordial</div><div class="jinc-sub">Fusão total · Guilherme + bijū selada nele desde criança</div></div>
       </div>
-      <div class="jinc-body">Ao liberar o chakra conjunto da Snow Fox em plenitude, Guilherme é envolto por armadura de gelo translúcido de densidade bijū. O corpo emana frio absoluto — qualquer contato congela, o ar ao redor cristaliza em névoa densa. O cabelo prata se eleva com estática glacial. O Rinne-Sharingan Primordial brilha frio e sufocante. A Snow Fox manifesta-se no campo em tamanho colossal, executando controle de área enquanto Guilherme finaliza alvos imobilizados.</div>
+      <div class="jinc-body">Ao liberar o chakra conjunto da Snow Fox selada dentro dele em plenitude, Guilherme é envolto por armadura de gelo translúcido de densidade bijū. O corpo emana frio absoluto — qualquer contato congela, o ar ao redor cristaliza em névoa densa. O cabelo prata se eleva com estática glacial. O Rinne-Sharingan Primordial brilha frio e sufocante. A Snow Fox manifesta-se no campo em tamanho colossal, executando controle de área enquanto Guilherme finaliza alvos imobilizados.</div>
       <div class="jinc-grid">
         <div class="jinc-item"><div class="jinc-item-name">Armadura Glacial Bijū</div><div class="jinc-item-desc">Camada de gelo primordial que absorve impactos e congela tudo que toca</div></div>
         <div class="jinc-item"><div class="jinc-item-name">Domínio Congelado Amplificado</div><div class="jinc-item-desc">Hyōkoku em escala bijū — todo o campo sofre desaceleração massiva</div></div>
@@ -1304,7 +1364,7 @@
     <div class="weapon-card"><div class="weapon-name">Lâmina do Gelo Eterno</div><div class="weapon-type">Sabre Especial · Cristal Translúcido de Frio Absoluto</div><div class="weapon-body">Ao cortar, congela instantaneamente o ponto de contato. Pode estender lâminas de gelo ou criar correntes congelantes ao balançar.</div></div>
     <div class="weapon-card" style="border-color:#0a3a6e;background:#00050f">
       <div class="weapon-name" style="color:#4dcfff">氷炎鎌 · Hyōren — Foice-Sabre do Domínio Congelado</div>
-      <div class="weapon-type">Foice-Sabre Exclusiva · Cristal de Gelo Primordial Bijū · Forjada pela Snow Fox de Dez Caudas</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Cristal de Gelo Primordial Bijū · Forjada pela Snow Fox Primordial</div>
       <div class="weapon-body">A mais elegante das cinco foices. Curvatura de 45° perfeita como arco de compasso. Cabo de uma mão com guarda mínima para liberdade total de pulso. Ponta dupla: borda côncava afiada e segunda ponta externa para travar a lâmina adversária. Corpo translúcido azul-branco — você enxerga levemente através dela, desorientando o rastreamento do adversário. Quando o Hyōkoku está ativo, cristais microscópicos flutuam ao redor como satélites cortantes. Guarda com inscrição: 氷獄.<br><br>
       <strong style="color:#4dcfff">Travar & Congelar</strong> — A ponta dupla prende a arma adversária e congela o ponto de contato instantaneamente com chakra da Snow Fox. O adversário não consegue destravar.<br>
       <strong style="color:#4dcfff">Arranhão de Domínio</strong> — Um toque superficial da Kagenren interrompe jutsus em andamento congelando o fluxo de chakra no ponto de contato.<br>
@@ -1315,7 +1375,7 @@
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <span class="level-badge">Nota 10/10 — Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Combate prolongado é terreno favorável.<br>O campo obedece — o inimigo, não.</div>
     </div>
   </div>
@@ -1351,9 +1411,28 @@
     <div class="hero-sub">Clã Uchiha · Executor do Julgamento Final</div>
     <div class="tag-row">
       <span class="tag">Mangekyō Eterno Absoluto</span><span class="tag">Rinne-Sharingan Primordial</span>
-      <span class="tag">Dragão de Terra e Relâmpago de Dez Caudas Primordiais</span><span class="tag">Shinsei</span>
+      <span class="tag">Doraijin</span><span class="tag">Jinchūriki desde criança</span><span class="tag">Shinsei</span>
     </div>
     <div class="quote">"O resultado já foi decidido. O combate é apenas a formalidade."</div>
+  </div>
+
+  <div class="character-showcase">
+    <img src="assets/leonardo-ninja.png" alt="Leonardo Uchiha em visual ninja anime">
+    <div class="character-caption"><strong>Leonardo Uchiha</strong><span>Visual ninja · Doraijin</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal Supremo — Nota 10/10</div>
+    <div class="power-card">
+      <div class="power-title">Shinsei Daichi — 神聖大地</div>
+      <div class="power-jp">Terra Primordial Sagrada · Remodelação continental e defesa absoluta</div>
+      <div class="power-body">Leonardo alcança o domínio máximo da Terra Primordial. Ele pode criar montanhas, continentes, fortalezas e muralhas vivas instantaneamente, transformando o campo de batalha em uma extensão do próprio corpo.</div>
+      <div class="power-example">· Remodela continentes com Doton primordial<br>· Cria fortalezas instantâneas de escala bijū<br>· Invoca dragões vivos de terra e relâmpago<br>· Defesa mais alta entre os cinco no combate prolongado</div>
+    </div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="card"><div class="card-title"><span class="dot"></span>Dragões Vivos de Terra e Relâmpago</div><div class="card-body">Criaturas colossais formadas por chakra natural, rocha e Raiton. Agem como extensões da vontade de Leonardo e defendem automaticamente aliados e território.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Fortaleza Absoluta</div><div class="card-body">Toda defesa criada por Leonardo se adapta ao ataque recebido. Quanto mais pressionada, mais densa, inteligente e difícil de atravessar ela se torna.</div></div>
+    </div>
   </div>
 
   <div class="section">
@@ -1423,11 +1502,11 @@
   </div>
 
   <div class="section">
-    <div class="section-title">Jinchūriki — Dragão de Terra e Relâmpago de Dez Caudas Primordiais</div>
+    <div class="section-title">Jinchūriki — Doraijin</div>
     <div class="biju-card">
-      <div class="biju-title">Dragão de Terra e Relâmpago — Dez Caudas Primordiais</div>
+      <div class="biju-title">Doraijin — Dragão Primordial da Terra e Relâmpago</div>
       <div class="biju-jp">十尾の雷龍 · Chakra tectônico e elétrico primordial · Sincronização total</div>
-      <div class="card-body" style="font-size:12px">O Dragão age como força de ruptura e cerco — Leonardo atua como executor estratégico.</div>
+      <div class="card-body" style="font-size:12px">Doraijin é a bijū selada dentro de Leonardo desde a infância, fazendo dele um jinchūriki desde criança, como Naruto foi com Kurama. No início, o Dragão era uma presença pesada e indomável dentro dele; com a história avançando, Leonardo transforma essa força em parceria, respeito e sincronia estratégica. O Dragão age como força de ruptura e cerco — Leonardo atua como executor estratégico.</div>
       <div class="biju-grid">
         <div class="biju-ability"><div class="biju-ability-name">Escamas de Lava e Relâmpago</div><div class="biju-ability-desc">Corpo parcialmente fundido, regeneração extrema contínua</div></div>
         <div class="biju-ability"><div class="biju-ability-name">Pressão Destrutiva</div><div class="biju-ability-desc">Distorce o terreno continuamente, força colossal constante</div></div>
@@ -1442,9 +1521,9 @@
     <div class="jinc-card">
       <div class="jinc-header">
         <span class="jinc-emblem">🐉</span>
-        <div><div class="jinc-title">Encarnação do Dragão Primordial</div><div class="jinc-sub">Fusão total · Leonardo + Dragão de Terra e Relâmpago de Dez Caudas Primordiais</div></div>
+        <div><div class="jinc-title">Encarnação do Dragão Primordial</div><div class="jinc-sub">Fusão total · Leonardo + bijū selada nele desde criança</div></div>
       </div>
-      <div class="jinc-body">Ao liberar o chakra conjunto do Dragão em plenitude, Leonardo funde parcialmente o corpo com a entidade. Escamas de lava sólida formam-se ao longo dos braços e torso — relâmpagos dourados percorrem a superfície continuamente. Os olhos tornam-se o Rinne-Sharingan Primordial com glow forte e elétrico. O Dragão manifesta-se em tamanho colossal, agindo como força de cerco enquanto Leonardo executa o julgamento.</div>
+      <div class="jinc-body">Ao liberar o chakra conjunto do Dragão selado dentro dele em plenitude, Leonardo funde parcialmente o corpo com a entidade. Escamas de lava sólida formam-se ao longo dos braços e torso — relâmpagos dourados percorrem a superfície continuamente. Os olhos tornam-se o Rinne-Sharingan Primordial com glow forte e elétrico. O Dragão manifesta-se em tamanho colossal, agindo como força de cerco enquanto Leonardo executa o julgamento.</div>
       <div class="jinc-grid">
         <div class="jinc-item"><div class="jinc-item-name">Armadura Tectônica</div><div class="jinc-item-desc">Escamas de lava sólida e relâmpago — absorve impactos e libera descarga ao contato</div></div>
         <div class="jinc-item"><div class="jinc-item-name">Shinsei em Escala Bijū</div><div class="jinc-item-desc">Todos os ataques — do usuário e do Dragão — têm resultado garantido simultaneamente</div></div>
@@ -1463,7 +1542,7 @@
     <div class="weapon-card"><div class="weapon-name">Lâmina do Julgamento Tectônico</div><div class="weapon-type">Sabre Especial · Lâmina Serrilhada de Lava e Eletricidade</div><div class="weapon-body">Força sísmica e raios em cada golpe. Fratura o terreno e corrige o resultado pelo Shinsei.</div></div>
     <div class="weapon-card" style="border-color:#4a5a00;background:#070900">
       <div class="weapon-name" style="color:#c8e000">震斬鎌 · Shinzan — Foice-Sabre do Julgamento Inevitável</div>
-      <div class="weapon-type">Foice-Sabre Exclusiva · Lava Solidificada de Escala Bijū · Forjada pelo Dragão de Terra e Relâmpago</div>
+      <div class="weapon-type">Foice-Sabre Exclusiva · Lava Solidificada de Escala Bijū · Forjada por Doraijin</div>
       <div class="weapon-body">A mais imponente das cinco. Curvatura ampla de 35° com lâmina longa e visivelmente pesada. Cabo de uma mão e meia com guarda em chifre de dragão — dois projetores que apontam para frente, usados como arma de impacto além da lâmina. Ponta larga como machadinha para impacto sólido além do corte. Superfície marrom-escuro terroso com fissuras dourado-elétricas que se iluminam completamente quando o Shinsei ativa. A guarda conduz chakra tectônico — qualquer superfície que tocar com ela racha.<br><br>
       <strong style="color:#c8e000">Tremor no Impacto</strong> — A lâmina pesada transmite força sísmica ao contato: escudos trincam, armas adversárias vibram fora de controle, estruturas de terra se rompem.<br>
       <strong style="color:#c8e000">Guarda como Arma</strong> — Leonardo usa a guarda em chifre para travar, empurrar e liberar descarga tectônica em contato próximo.<br>
@@ -1474,7 +1553,7 @@
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <span class="level-badge">Nível Absoluto — 100/100</span>
+      <span class="level-badge">Nota 10/10 — Nível Absoluto — 100/100</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Nenhum golpe erra. Nenhum resultado falha.<br>O julgamento já foi pronunciado.</div>
     </div>
   </div>
@@ -2012,7 +2091,7 @@
   <div class="section">
     <div class="section-title">Identidade & Linhagem</div>
     <div class="appear-card">
-      <div class="appear-row"><span class="appear-icon">⚡</span><div class="appear-content"><div class="appear-label">Idade & Altura</div><div class="appear-text">20 anos · 1,88 m · Filho de Guilherme Uchiha (Senhor do Campo Congelado, Jinchūriki da Snow Fox de Dez Caudas Primordiais) e Mei Terumī (Quinta Mizukage, mestra do Yōton e Futton).</div></div></div>
+      <div class="appear-row"><span class="appear-icon">⚡</span><div class="appear-content"><div class="appear-label">Idade & Altura</div><div class="appear-text">20 anos · 1,88 m · Filho de Guilherme Uchiha (Senhor do Campo Congelado, Jinchūriki da Snow Fox Primordial) e Mei Terumī (Quinta Mizukage, mestra do Yōton e Futton).</div></div></div>
       <div class="appear-row"><span class="appear-icon">🧬</span><div class="appear-content"><div class="appear-label">Herança</div><div class="appear-text">Herdou o porte magnético e os traços afiados do pai com a presença ardente e sensual da mãe — beleza que desarma antes do veneno chegar.</div></div></div>
     </div>
   </div>
@@ -2192,7 +2271,7 @@
   <div class="section">
     <div class="section-title">Linhagem &amp; Origem</div>
     <div class="lineage-banner">
-      Filha de <strong>Leonardo Uchiha</strong> — Jinchūriki do Dragão de Terra e Relâmpago de Dez Caudas Primordiais · Portador do Rinne-Sharingan Primordial · Executor do Julgamento Final<br>
+      Filha de <strong>Leonardo Uchiha</strong> — Jinchūriki do Doraijin · Portador do Rinne-Sharingan Primordial · Executor do Julgamento Final<br>
       Filha de <strong>Eida</strong> — Cyborg do Ōtsutsuki · Poder de Omnipotência Latente · Encantamento absoluto que transcende livre-arbítrio
     </div>
     <div class="grid2">
@@ -2568,6 +2647,17 @@
   </div>
 
   <div class="section">
+    <div class="section-title">Ranking dos Cinco — Auge Absoluto</div>
+    <div class="arc-card">
+      <div class="arc-num">Escala Máxima · Todos Nota 10/10</div>
+      <div class="arc-title">Os Cinco Pilares Primordiais</div>
+      <div class="arc-body"><span class="arc-highlight">1º Eduardo Uchiha</span> — destruição absoluta: Kaienten no Kami apaga matéria, chakra, alma e conceitos.<br><span class="arc-highlight">2º Sasuke Uchiha</span> — controle absoluto: Yin da Anulação apaga técnicas antes de nascerem e domina dimensões.<br><span class="arc-highlight">3º Naruto Uzumaki</span> — sustentação absoluta: Yang da Criação reconstrói vida, chakra e corpos inteiros.<br><span class="arc-highlight">4º Guilherme Uchiha</span> — domínio absoluto: Hyōkai no Shin congela campo, alma, chakra e intenção.<br><span class="arc-highlight">5º Leonardo Uchiha</span> — defesa absoluta: Shinsei Daichi remodela continentes e ergue fortalezas vivas.</div>
+      <hr class="arc-divider">
+      <div class="arc-detail">A ordem mede vantagem geral em confronto e impacto narrativo. Mesmo assim, os cinco permanecem no mesmo patamar máximo: todos são <span class="arc-highlight">Nota 10/10</span> e nenhum depende de novos olhos ou transformações oculares adicionais. O aumento vem de arsenal, domínio, técnicas supremas e evolução do chakra já existente.</div>
+    </div>
+  </div>
+
+  <div class="section">
     <div class="section-title">Arco I — A Grande Guerra das Trevas</div>
 
     <div class="arc-card">
@@ -2753,6 +2843,20 @@
   </div>
 
   <div class="section">
+    <div class="section-title">Arsenal Supremo — Nota 10/10</div>
+    <div class="power-card">
+      <div class="power-title">Yang da Criação Absoluta — 陽遁創造極</div>
+      <div class="power-jp">Yang Primordial Absoluto · Vida, cura e sustentação infinita</div>
+      <div class="power-body">Naruto leva o Modo Seis Caminhos Ascendido ao limite máximo. Seu Yang Primordial não apenas cura: ele recria a vida. Órgãos, membros, corpos inteiros e redes de chakra podem ser reconstruídos desde que ainda exista uma centelha de existência.</div>
+      <div class="power-example">· Distribui chakra infinito para aliados<br>· Cura instantânea em escala individual ou coletiva<br>· Detecta vida e chakra em raio planetário<br>· Recria órgãos, membros e corpos com Yang Primordial</div>
+    </div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="card"><div class="card-title"><span class="dot"></span>Rede Vital Planetária</div><div class="card-body">Naruto sente todos os seres vivos conectados ao campo e pode reforçar aliados simultaneamente, mantendo exércitos inteiros de pé.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Modo Seis Caminhos Ascendido</div><div class="card-body">Forma máxima de suporte, combate e resistência. Quanto maior a ameaça contra seus aliados, mais forte e estável se torna sua resposta.</div></div>
+    </div>
+  </div>
+
+  <div class="section">
     <div class="section-title">Aparência Física</div>
     <div class="appear-card">
       <div class="appear-row"><span class="appear-icon">💈</span><div class="appear-content"><div class="appear-label">Cabelo</div><div class="appear-text">Loiro dourado vibrante intensificado — em repouso já carrega um brilho solar sutil. Em Modo Seis Caminhos Ascendido: o cabelo se erguye completamente e emite partículas de luz Yang douradas nas pontas como chamas vivas. As marcas de bigode aprofundam e ficam douradas ao invés de escuras. Em Modo Kurama Completo: o cabelo queima em laranja-dourado vivo com veios de Yang brilhando.</div></div></div>
@@ -2819,11 +2923,11 @@
   </div>
 
   <div class="section">
-    <div class="section-title">Jinchūriki — Kurama · Raposa de Dez Caudas Primordiais · Lenda Primordial</div>
+    <div class="section-title">Jinchūriki — Kurama · Raposa Primordial · Lenda Primordial</div>
     <div class="biju-card">
       <div class="biju-title">Kurama — A Raposa Primordial · Parceiro de Alma</div>
-      <div class="biju-jp">十尾の狐·原初 · Chakra Yang primordial das Dez Caudas · Sincronia de alma perfeita</div>
-      <div class="card-body" style="font-size:12px;margin-bottom:10px">A sincronia entre Naruto e Kurama transcendeu qualquer relação Jinchūriki conhecida — é fusão de almas. Kurama age com consciência própria e tática própria, complementando Naruto em ângulos que ele não vê e antecipando decisões antes de serem tomadas. No Modo Ascendido, Kurama absorve e processa o chakra dos outros oito bijū, atingindo densidade primordial absoluta — poder de Dez Caudas Primordiais em chakra Yang puro. A afeição de Kurama por Naruto é absoluta e se manifesta em campo como ferocidade protetora sem limite.</div>
+      <div class="biju-jp">狐·原初 · Chakra Yang primordial · Sincronia de alma perfeita</div>
+      <div class="card-body" style="font-size:12px;margin-bottom:10px">A sincronia entre Naruto e Kurama transcendeu qualquer relação Jinchūriki conhecida — é fusão de almas. Kurama age com consciência própria e tática própria, complementando Naruto em ângulos que ele não vê e antecipando decisões antes de serem tomadas. Pela linhagem primordial dos Cinco e pela drenagem absurda de chakra da Kaguya, Kurama evoluiu e passou a possuir Dez Caudas Primordiais em chakra Yang puro, sem mudar sua identidade: continua sendo Kurama. A afeição de Kurama por Naruto é absoluta e se manifesta em campo como ferocidade protetora sem limite.</div>
       <div class="biju-grid">
         <div class="biju-ability"><div class="biju-ability-name">Manto de Sincronia Total</div><div class="biju-ability-desc">Armadura viva de chakra laranja-dourado — a vontade dos dois fundida como uma. Reflexos duplicados, força multiplicada além do mensurável</div></div>
         <div class="biju-ability"><div class="biju-ability-name">Bijūdama Primordial</div><div class="biju-ability-desc">Absorção dos nove bijū — esfera de Yang puro que distorce o espaço-tempo e anula qualquer técnica na área de impacto</div></div>
@@ -2890,7 +2994,7 @@
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <span class="level-badge">Nível Absoluto — 100/100 · Par dos Dragões Primordiais</span>
+      <span class="level-badge">Nota 10/10 — Nível Absoluto — 100/100 · Par dos Dragões Primordiais</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Yang Ascendido de Hagoromo. Kurama em escala acima do Dez-Caudas.<br>Nível idêntico a Eduardo, Leonardo e Guilherme.<br>A vontade que sustenta o mundo — literalmente.</div>
     </div>
   </div>
@@ -2911,11 +3015,26 @@
       <span class="tag">Rinne-Sharingan Primordial — Ambos os Olhos</span>
       <span class="tag">Mangekyō Eterno Absoluto</span>
       <span class="tag">Kuroyami — Raposa das Trevas de Dez Caudas Primordiais</span>
+      <span class="tag">Jinchūriki desde criança</span>
       <span class="tag">Yin Primordial de Hagoromo</span>
       <span class="tag">Susanoo Final Sombrio</span>
       <span class="tag">Kyōkan — Reflexo Absoluto</span>
     </div>
     <div class="quote">"Não preciso de aprovação. Só preciso que o resultado seja o certo. A escuridão e eu concordamos nisso."</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Arsenal Supremo — Nota 10/10</div>
+    <div class="power-card">
+      <div class="power-title">Yin da Anulação Absoluta — 陰遁消滅極</div>
+      <div class="power-jp">Yin Primordial Absoluto · Realidade, dimensões e cancelamento de técnicas</div>
+      <div class="power-body">Sasuke atinge o ápice do Yin Primordial. Ele não precisa apenas responder uma técnica: pode anular a forma, a intenção e a lógica dela antes que seja lançada. O combate vira um tabuleiro onde Sasuke define quais possibilidades continuam existindo.</div>
+      <div class="power-example">· Apaga técnicas antes da ativação<br>· Manipula realidade por definição de Yin<br>· Amenotejikara sem limite de aplicação tática<br>· Controle dimensional e genjutsu impossível de quebrar</div>
+    </div>
+    <div class="grid2" style="margin-top:10px">
+      <div class="card"><div class="card-title"><span class="dot"></span>Controle de Dimensões</div><div class="card-body">Sasuke abre, fecha, dobra e corta espaços dimensionais com precisão absoluta, removendo rotas de fuga e isolando o inimigo.</div></div>
+      <div class="card"><div class="card-title"><span class="dot"></span>Genjutsu Irreversível</div><div class="card-body">O alvo não percebe que caiu no genjutsu porque a própria realidade ao redor confirma a ilusão. Quebrar a técnica exige escapar da definição de Yin imposta por Sasuke.</div></div>
+    </div>
   </div>
 
   <div class="section">
@@ -2996,11 +3115,11 @@
 
   <!-- BIJUU SECTION - KUROYAMI -->
   <div class="section">
-    <div class="section-title">Jinchūriki — Kuroyami · Raposa das Trevas de Dez Caudas Primordiais</div>
+    <div class="section-title">Jinchūriki — Kuroyami · Raposa das Trevas Primordial</div>
     <div class="biju-card" style="border-color:#2a0a5a;background:#060010">
       <div class="biju-title" style="color:#c080ff">Kuroyami — A Raposa das Trevas Primordial</div>
-      <div class="biju-jp" style="color:#6a3a90">黒闇十尾 · Chakra Yin das Trevas Absolutas · Escuridão com consciência e vontade · Parceria escolhida</div>
-      <div class="card-body" style="font-size:12px;margin-bottom:12px;color:#8a5aaa">Kuroyami não é um bijū comum. É a escuridão primordial que existia antes da luz — um ser de Yin puro que nunca foi selado em ninguém por vontade própria, escolhendo Sasuke depois de observar que ele entendia a escuridão sem ser consumido por ela. As dez caudas primordiais de Kuroyami são feitas de trevas sólidas que absorvem luz e chakra. Sua pelagem é negra absoluta com veios violeta-elétrico pulsando como raios internos, e seus olhos são branco-violeta intensos como estrelas invertidas. A relação com Sasuke espelha exatamente Naruto e Kurama — não mestre e besta, mas parceiros. Kuroyami respeita Sasuke profundamente e o protege com ferocidade igual à de Kurama com Naruto.</div>
+      <div class="biju-jp" style="color:#6a3a90">黒闇 · Chakra Yin das Trevas Absolutas · Escuridão com consciência e vontade · Parceria escolhida</div>
+      <div class="card-body" style="font-size:12px;margin-bottom:12px;color:#8a5aaa">Kuroyami é a bijū selada dentro de Sasuke desde a infância, fazendo dele um jinchūriki desde criança, como Naruto foi com Kurama. Mesmo mantendo vontade própria e podendo se manifestar ao lado dele, Kuroyami vive dentro de Sasuke e cresce junto com ele ao longo da história. Não é um bijū comum. É a escuridão primordial que existia antes da luz — um ser de Yin puro que escolheu Sasuke depois de observar que ele entendia a escuridão sem ser consumido por ela. No começo, a ligação entre os dois era tensa e silenciosa; com o tempo, vira respeito, parceria e proteção mútua. Pela linhagem primordial dos Cinco e pela drenagem absurda de chakra da Kaguya, Kuroyami evoluiu e passou a possuir Dez Caudas Primordiais, todas feitas de trevas sólidas que absorvem luz e chakra. Sua pelagem é negra absoluta com veios violeta-elétrico pulsando como raios internos, e seus olhos são branco-violeta intensos como estrelas invertidas. A relação com Sasuke espelha exatamente Naruto e Kurama — não mestre e besta, mas parceiros. Kuroyami respeita Sasuke profundamente e o protege com ferocidade igual à de Kurama com Naruto.</div>
       <div class="biju-grid">
         <div class="biju-ability" style="border-color:#3a0a6a;background:#0a0018"><div class="biju-ability-name" style="color:#a060ff">Dez Caudas Primordiais de Trevas Sólidas</div><div class="biju-ability-desc" style="color:#6a3a9a">Cada cauda é escuridão materializada — absorvem luz e chakra, são impenetráveis e agem com consciência de Kuroyami</div></div>
         <div class="biju-ability" style="border-color:#3a0a6a;background:#0a0018"><div class="biju-ability-name" style="color:#a060ff">Chakra Yin Primordial</div><div class="biju-ability-desc" style="color:#6a3a9a">Chakra que opera no nível de Yin puro — mais denso e profundo que qualquer chakra convencional. Sela, corrói e dissolve técnicas de Yang ao contato</div></div>
@@ -3016,9 +3135,9 @@
     <div class="jinc-card" style="border-color:#5a0a9a;background:#080010">
       <div class="jinc-header">
         <span class="jinc-emblem" style="color:#9040ff">🌑</span>
-        <div><div class="jinc-title" style="color:#c080ff">Kuroyami — Manifestação da Escuridão Primordial</div><div class="jinc-sub" style="color:#6a3a9a">Fusão de alma total · Sasuke + Kuroyami · Yin e Trevas Absolutas</div></div>
+        <div><div class="jinc-title" style="color:#c080ff">Kuroyami — Manifestação da Escuridão Primordial</div><div class="jinc-sub" style="color:#6a3a9a">Fusão de alma total · Sasuke + bijū selada nele desde criança · Yin e Trevas Absolutas</div></div>
       </div>
-      <div class="jinc-body" style="color:#8a5aaa">Kuroyami manifesta em escala colossal ao lado de Sasuke — não ao redor, mas ao lado, como parceira de batalha. A forma é uma Raposa gigante de trevas absolutas: pelagem negra que absorve toda a luz ao redor, dez caudas primordiais de escuridão sólida com veios violeta elétrico pulsando, olhos branco-violeta de estrela invertida. Sasuke opera em Modo Manto enquanto Kuroyami age como entidade independente — dois predadores do Yin no mesmo campo. O manto de Kuroyami ao redor de Sasuke é violeta-negro com veios de escuridão ativa, e as marcas do Karma se expandem pelo corpo inteiro em padrão geométrico de Yin puro. O Rinne-Sharingan de ambos os olhos pulsa mais intenso — o Yin de Hagoromo e o Yin de Kuroyami ressoando na mesma frequência primordial.</div>
+      <div class="jinc-body" style="color:#8a5aaa">Kuroyami, a bijū selada dentro de Sasuke, manifesta em escala colossal ao lado dele — não ao redor, mas ao lado, como parceira de batalha. A forma é uma Raposa gigante de trevas absolutas: pelagem negra que absorve toda a luz ao redor, dez caudas primordiais de escuridão sólida com veios violeta elétrico pulsando, olhos branco-violeta de estrela invertida. Sasuke opera em Modo Manto enquanto Kuroyami age como entidade independente — dois predadores do Yin no mesmo campo. O manto de Kuroyami ao redor de Sasuke é violeta-negro com veios de escuridão ativa, e as marcas do Karma se expandem pelo corpo inteiro em padrão geométrico de Yin puro. O Rinne-Sharingan de ambos os olhos pulsa mais intenso — o Yin de Hagoromo e o Yin de Kuroyami ressoando na mesma frequência primordial.</div>
       <div class="jinc-grid">
         <div class="jinc-item" style="border-color:#4a0a7a;background:#0c0020"><div class="jinc-item-name" style="color:#c080ff">Manto de Trevas Vivas</div><div class="jinc-item-desc" style="color:#6a3a9a">Escuridão de Kuroyami ao redor de Sasuke — absorve impactos e Yin puro amplifica cada técnica dos olhos</div></div>
         <div class="jinc-item" style="border-color:#4a0a7a;background:#0c0020"><div class="jinc-item-name" style="color:#c080ff">Amaterasu das Trevas</div><div class="jinc-item-desc" style="color:#6a3a9a">Amaterasu roxo amplificado por Kuroyami — chamas negras com escuridão dentro, seiam e absorvem ao mesmo tempo</div></div>
@@ -3065,7 +3184,7 @@
   <div class="section">
     <div class="section-title">Nível de Poder</div>
     <div class="card" style="text-align:center;padding:20px">
-      <span class="level-badge">Nível Absoluto — 100/100 · Par dos Dragões Primordiais</span>
+      <span class="level-badge">Nota 10/10 — Nível Absoluto — 100/100 · Par dos Dragões Primordiais</span>
       <div style="font-size:12px;margin-top:12px;line-height:1.7;opacity:0.7">Todos os atributos no limite máximo.<br>Rinne-Sharingan Primordial em ambos os olhos.<br>Kuroyami — Yin e Trevas fundidos em parceria de alma.<br>Nível idêntico a Eduardo, Leonardo e Guilherme.<br>O árbitro que encerra qualquer conflito nas trevas.</div>
     </div>
   </div>
